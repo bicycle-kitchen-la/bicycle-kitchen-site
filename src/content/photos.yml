@@ -5,9 +5,6 @@ home_volunteer:
   image: /src/assets/photos/volunteers.jpg
   alt: Two smiling volunteers in blue gloves hold up bike parts in the Bicycle
     Kitchen yard while another works on a bike in a repair stand
-home_floor_parts:
-  image: /src/assets/photos/resincar.jpeg
-  alt: car
 volunteer_hero:
   image: /src/assets/photos/volunteers.jpg
   alt: Two smiling volunteers in blue gloves hold up bike parts in the Bicycle
