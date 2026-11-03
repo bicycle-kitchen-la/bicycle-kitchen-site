@@ -31,6 +31,7 @@ const hideFromSearch = !process.env.URL?.includes('bicyclekitchen.org');
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="description" content={description} />
     {hideFromSearch && <meta name="robots" content="noindex" />}
     <script is:inline>document.documentElement.classList.add('js');</script>

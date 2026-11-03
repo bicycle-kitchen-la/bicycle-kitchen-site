@@ -1,0 +1,23 @@
+---
+import Wheel from '../components/Wheel.astro';
+import { links } from '../data/nav';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page not found · Bicycle Kitchen"
+  description="We couldn’t find that page on the Bicycle Kitchen website."
+  breadcrumbCurrent="Page not found"
+>
+  <section class="page-hero" aria-labelledby="not-found-title">
+    <div class="container">
+      <h1 id="not-found-title" class="page-title">Page not found<Wheel /></h1>
+      <p class="lead">We couldn’t find that page.</p>
+      <p class="intro">It may have moved when we rebuilt our website. These are good places to try next.</p>
+      <div class="hero-buttons">
+        <a class="btn btn-ink" href="/">Go to the home page</a>
+        <a class="btn btn-outline" href={links.hours.href}>See shop hours</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
