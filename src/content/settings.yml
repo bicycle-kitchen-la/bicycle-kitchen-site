@@ -1,7 +1,7 @@
 # Site settings. Used on every page.
 
 # Alert banner: set alert_on to true to show it on every page, false to hide it.
-alert_on: true
+alert_on: false
 alert_message: "We’re closed tonight because of volunteer shortages. Open during our next Open Shop hours."
 
 # Contact info

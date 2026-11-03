@@ -18,6 +18,11 @@ interface Props {
 }
 
 const { title, description, breadcrumbs = [], breadcrumbCurrent } = Astro.props;
+
+// Netlify sets URL to the site's main address. Until that's the real domain,
+// ask search engines to skip the review address. This turns off by itself once
+// the domain is live and the site rebuilds.
+const hideFromSearch = !process.env.URL?.includes('bicyclekitchen.org');
 ---
 
 <!doctype html>
@@ -27,6 +32,7 @@ const { title, description, breadcrumbs = [], breadcrumbCurrent } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {hideFromSearch && <meta name="robots" content="noindex" />}
     <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
   <body>
