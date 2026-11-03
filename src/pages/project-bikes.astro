@@ -8,7 +8,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const howSteps = [
   {
     title: 'Pick a bike',
-    text: 'Come in during open hours, and a Cook will connect you with one of our donated bikes.',
+    text: 'Come in during open hours, and a volunteer will connect you with one of our donated bikes.',
     link: { label: 'See shop hours', href: links.hours.href },
   },
   { title: 'Agree on a price', text: 'Together, we come to a shared understanding of what your project bike costs.' },
@@ -17,16 +17,16 @@ const howSteps = [
 ];
 
 const questions = [
-  { question: 'Who can get a project bike?', answer: 'Anyone. You don’t need experience. Cooks will help you along the way.' },
+  { question: 'Who can get a project bike?', answer: 'Anyone. You don’t need experience. Volunteers will help you along the way.' },
   { question: 'What does the price include?', answer: 'The bike plus any used part available in our shop. Swap or change parts as much as you need for the price you agreed on.' },
-  { question: 'What if I can’t finish in 30 days?', answer: 'After 30 days, the bike risks going back into circulation so someone else can use it. Talk to a Cook if you’re running short on time.' },
+  { question: 'What if I can’t finish in 30 days?', answer: 'After 30 days, the bike risks going back into circulation so someone else can use it. Talk to a volunteer if you’re running short on time.' },
   { question: 'Can I pay with Work Trade?', answer: 'Yes. Every hour of Work Trade, like cleaning or organizing, takes $15 off your bike’s price.' },
 ];
 ---
 
 <BaseLayout
   title="Project bikes · Bicycle Kitchen"
-  description="Build your next bike yourself from one of our many donations. Anyone can get connected with a donated bike and work on it with tools, used parts, and a Cook to help."
+  description="Build your next bike yourself from one of our many donations. Anyone can get connected with a donated bike and work on it with tools, used parts, and a volunteer to help."
   breadcrumbs={[{ label: 'Bike Repair' }]}
   breadcrumbCurrent="Project bikes"
 >
@@ -35,7 +35,7 @@ const questions = [
       <div class="page-hero-text">
         <h1 id="pb-title" class="page-title">Project bikes<Wheel /></h1>
         <p class="lead">Build your next bike yourself, from one of our many donations.</p>
-        <p class="intro">Anyone can come in, get connected with a donated bike, and work on it as their own project, with tools, used parts, and a Cook to help.</p>
+        <p class="intro">Anyone can come in, get connected with a donated bike, and work on it as their own project, with tools, used parts, and a volunteer to help.</p>
         <div class="hero-buttons">
           <a class="btn btn-ink" href="#how">How it works</a>
           <a class="btn btn-outline" href="#work-trade">About Work Trade</a>
@@ -64,7 +64,7 @@ const questions = [
         <p class="eyebrow">We work with any budget</p>
         <h2 id="wt-title" class="h2 trade-title">Work Trade</h2>
         <p class="trade-lead">Some of your bike’s price can be worked off. Support the Kitchen by helping with tasks like cleaning and organizing the shop, and every hour you put in takes $15 off your project bike.</p>
-        <p class="trade-note">Just ask a Cook during open hours to set it up.</p>
+        <p class="trade-note">Just ask a volunteer during open hours to set it up.</p>
       </div>
       <div class="trade-card">
         <div class="trade-amount">$15</div>
