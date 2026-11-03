@@ -100,79 +100,79 @@ content:
         type: object
         fields:
           - { name: image, label: Photo, type: image }
-          - { name: alt, label: Alt text, type: string }
+          - { name: alt, label: Alt text, type: string, required: true }
       - name: home_hero_brakes
         label: "Home, top: a Cook showing someone how to adjust brakes"
         type: object
         fields:
           - { name: image, label: Photo, type: image }
-          - { name: alt, label: Alt text, type: string }
+          - { name: alt, label: Alt text, type: string, required: true }
       - name: home_hero_wheel
         label: "Home, top: wheel close-up (shown in a circle)"
         type: object
         fields:
           - { name: image, label: Photo, type: image }
-          - { name: alt, label: Alt text, type: string }
+          - { name: alt, label: Alt text, type: string, required: true }
       - name: home_open_shop
         label: "Home, What we do: someone truing a wheel at a stand"
         type: object
         fields:
           - { name: image, label: Photo, type: image }
-          - { name: alt, label: Alt text, type: string }
+          - { name: alt, label: Alt text, type: string, required: true }
       - name: home_project_bikes
         label: "Home, What we do: donated bikes lined up"
         type: object
         fields:
           - { name: image, label: Photo, type: image }
-          - { name: alt, label: Alt text, type: string }
+          - { name: alt, label: Alt text, type: string, required: true }
       - name: home_volunteer
         label: "Home, What we do: volunteers"
         type: object
         fields:
           - { name: image, label: Photo, type: image }
-          - { name: alt, label: Alt text, type: string }
+          - { name: alt, label: Alt text, type: string, required: true }
       - name: home_floor_ftwnb
         label: "Home, From the shop floor: Thursday FTWNB night"
         type: object
         fields:
           - { name: image, label: Photo, type: image }
-          - { name: alt, label: Alt text, type: string }
+          - { name: alt, label: Alt text, type: string, required: true }
       - name: home_floor_parts
         label: "Home, From the shop floor: the parts wall"
         type: object
         fields:
           - { name: image, label: Photo, type: image }
-          - { name: alt, label: Alt text, type: string }
+          - { name: alt, label: Alt text, type: string, required: true }
       - name: home_floor_rebuilt
         label: "Home, From the shop floor: a rebuilt bike leaving the shop"
         type: object
         fields:
           - { name: image, label: Photo, type: image }
-          - { name: alt, label: Alt text, type: string }
+          - { name: alt, label: Alt text, type: string, required: true }
       - name: learn_hero
         label: "Learn to repair: a Cook walking someone through a repair"
         type: object
         fields:
           - { name: image, label: Photo, type: image }
-          - { name: alt, label: Alt text, type: string }
+          - { name: alt, label: Alt text, type: string, required: true }
       - name: project_hero
         label: "Project bikes: donated bikes lined up"
         type: object
         fields:
           - { name: image, label: Photo, type: image }
-          - { name: alt, label: Alt text, type: string }
+          - { name: alt, label: Alt text, type: string, required: true }
       - name: about_cooks
         label: "About: a group shot of the Cooks"
         type: object
         fields:
           - { name: image, label: Photo, type: image }
-          - { name: alt, label: Alt text, type: string }
+          - { name: alt, label: Alt text, type: string, required: true }
       - name: volunteer_hero
         label: "Volunteer: volunteers"
         type: object
         fields:
           - { name: image, label: Photo, type: image }
-          - { name: alt, label: Alt text, type: string }
+          - { name: alt, label: Alt text, type: string, required: true }
 
   - name: supporters
     label: Supporters
