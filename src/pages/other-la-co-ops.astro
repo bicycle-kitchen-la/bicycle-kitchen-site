@@ -1,0 +1,288 @@
+---
+import Wheel from '../components/Wheel.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const coOps = [
+  {
+    id: 'bikerowave',
+    name: 'Bikerowave',
+    where: 'Mar Vista, Westside · Since 2007',
+    lead: 'An all-volunteer bike repair co-op serving the Westside since 2007.',
+    text: 'Bikerowave gives you the space, tools, and know-how to fix your own bike, from patching a flat to building a wheel. Volunteers restore donated bikes and sell them at fair prices, and no one is turned away for lack of funds. It’s run democratically by its members, a lot like us.',
+    website: { label: 'Visit bikerowave.org', href: 'https://bikerowave.org/' },
+    directions: 'https://maps.google.com/?q=12255+Venice+Blvd+Los+Angeles+CA+90066',
+    hours: [
+      { days: 'Monday – Thursday', time: '6:30 – 10 pm' },
+      { days: 'Friday', time: 'Closed' },
+      { days: 'Saturday – Sunday', time: '10 am – 1:30 pm' },
+    ],
+    address: '12255 Venice Blvd, Los Angeles, CA 90066',
+    contacts: [
+      { label: '(310) 230-5236', href: 'tel:+13102305236' },
+      { label: 'info@bikerowave.org', href: 'mailto:info@bikerowave.org' },
+      { label: 'Instagram @bikerowave', href: 'https://www.instagram.com/bikerowave/' },
+    ],
+  },
+  {
+    id: 'bike-oven',
+    name: 'Bike Oven',
+    where: 'Highland Park, Northeast LA · Since 2005',
+    lead: 'A volunteer-run workspace that grew from a one-car garage in Highland Park.',
+    text: 'Bike Oven started in 2005 in a single-car garage and moved to its Figueroa St storefront in 2007. Pay for stand time and you get every tool plus advice from volunteer mechanics. They also have restored bikes for sale, lots of used parts, and project bikes they’ll help you build. No one is turned away for lack of funds.',
+    website: { label: 'Visit bike-oven.com', href: 'https://bike-oven.com/' },
+    directions: 'https://maps.google.com/?q=3706+N+Figueroa+St+Los+Angeles+CA+90065',
+    hours: [
+      { days: 'Monday', time: 'Closed' },
+      { days: 'Tuesday – Thursday', time: '6 – 9 pm' },
+      { days: 'Friday – Sunday', time: '12 – 5 pm' },
+    ],
+    address: '3706 N Figueroa St, Los Angeles, CA 90065',
+    contacts: [
+      { label: '(323) 217-8454', href: 'tel:+13232178454' },
+      { label: 'bikeoven2.0@gmail.com', href: 'mailto:bikeoven2.0@gmail.com' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Other LA Co-Ops · Bicycle Kitchen"
+  description="Bikerowave and Bike Oven are volunteer-run bike co-ops around Los Angeles. If one is closer to you, or open when we’re closed, go see them."
+  breadcrumbs={[{ label: 'About' }]}
+  breadcrumbCurrent="Other LA Co-Ops"
+>
+  <section class="page-hero coops-hero" aria-labelledby="coops-h">
+    <div class="container">
+      <h1 id="coops-h" class="page-title coops-title">Other LA <span class="no-break">Co-Ops<Wheel /></span></h1>
+      <p class="coops-lead">We’re not the only DIY bike shop in town. Bikerowave and Bike Oven are volunteer-run co-ops that work a lot like we do: you fix your bike, and volunteers show you how.</p>
+      <p class="coops-intro">If one of them is closer to you, or open when we’re closed, go see them. We’re all on the same team.</p>
+
+      <div class="map-row">
+        <figure class="map-figure">
+          <div class="map" role="img" aria-label="Map of Los Angeles showing Bikerowave in Mar Vista near the Santa Monica Pier, Bicycle Kitchen in East Hollywood near Griffith Park, and Bike Oven in Highland Park northeast of Dodger Stadium">
+            <svg aria-hidden="true" viewBox="0 0 700 360" preserveAspectRatio="none"><rect width="700" height="360" fill="#ECE7DE"></rect><path d="M0,216 L61,225 L96,274 L129,315 L160,342 L183,369 L183,360 L0,360 Z" fill="#B9C6C9"></path><text x="12" y="352" font-family="Work Sans, Arial, sans-serif" font-size="13" font-weight="600" font-style="italic" fill="#5C6B6E">Pacific Ocean</text><polyline points="107,257 243,234 396,216 472,234 624,180 715,153" fill="none" stroke="#9C9283" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline><polyline points="198,-9 335,108 411,135 479,180" fill="none" stroke="#9C9283" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline><polyline points="107,-9 137,72 175,180 198,236 224,288 251,369" fill="none" stroke="#9C9283" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline><polyline points="472,216 548,108 639,-9" fill="none" stroke="#9C9283" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline><g><rect x="109" y="244" width="36" height="20" rx="4" fill="#ECE7DE" stroke="#9C9283" stroke-width="1.5"></rect><text x="127" y="258" text-anchor="middle" font-family="Work Sans, Arial, sans-serif" font-size="11" font-weight="600" fill="#4A433D">I-10</text></g><g><rect x="214" y="10" width="36" height="20" rx="4" fill="#ECE7DE" stroke="#9C9283" stroke-width="1.5"></rect><text x="232" y="24" text-anchor="middle" font-family="Work Sans, Arial, sans-serif" font-size="11" font-weight="600" fill="#4A433D">101</text></g><g><rect x="99" y="9" width="36" height="20" rx="4" fill="#ECE7DE" stroke="#9C9283" stroke-width="1.5"></rect><text x="117" y="23" text-anchor="middle" font-family="Work Sans, Arial, sans-serif" font-size="11" font-weight="600" fill="#4A433D">405</text></g><g><rect x="461" y="195" width="36" height="20" rx="4" fill="#ECE7DE" stroke="#9C9283" stroke-width="1.5"></rect><text x="479" y="209" text-anchor="middle" font-family="Work Sans, Arial, sans-serif" font-size="11" font-weight="600" fill="#4A433D">110</text></g><g><path d="M97 266 L104 278 L90 278 Z" fill="#6B625A"></path><text font-family="Work Sans, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#4A433D"><tspan x="8" y="270">Santa Monica</tspan><tspan x="8" y="284">Pier</tspan></text></g><g><path d="M395 68 L402 80 L388 80 Z" fill="#6B625A"></path><text font-family="Work Sans, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#4A433D"><tspan x="332" y="72">Griffith</tspan><tspan x="332" y="86">Park</tspan></text></g><g><path d="M487 148 L494 160 L480 160 Z" fill="#6B625A"></path><text font-family="Work Sans, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#4A433D"><tspan x="460" y="127">Dodger</tspan><tspan x="460" y="141">Stadium</tspan></text></g><text x="452" y="262" font-family="Work Sans, Arial, sans-serif" font-size="13" font-weight="600" fill="#6B625A">Downtown</text></svg>
+            <div class="pin pin-bikerowave"></div>
+            <div class="pin pin-kitchen"></div>
+            <div class="pin pin-oven"></div>
+            <div class="map-label label-bikerowave"><span>Bikerowave</span><span>Mar Vista</span></div>
+            <div class="map-label label-kitchen"><span>Bicycle Kitchen</span><span>East Hollywood (us!)</span></div>
+            <div class="map-label label-oven"><span>Bike Oven</span><span>Highland Park</span></div>
+          </div>
+          <figcaption>Simplified map for orientation, not to scale.</figcaption>
+        </figure>
+        <div class="closed-tips">
+          <h2>When we’re closed, they might be open</h2>
+          <div class="closed-list">
+            <div><strong>Friday or Sunday?</strong> Bike Oven is open 12 – 5 pm.</div>
+            <div><strong>Weekend mornings?</strong> Bikerowave opens at 10 am Saturday and Sunday.</div>
+            <div><strong>Late weeknight?</strong> Bikerowave stays open until 10 pm, Monday – Thursday.</div>
+            <div><strong>Live on the Westside?</strong> Bikerowave in Mar Vista is likely closer.</div>
+          </div>
+          <p>Like us, they’re volunteer-run, so hours can change. Check with them before you go.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {coOps.map((coOp) => (
+    <section id={coOp.id} class="section coop" aria-labelledby={`${coOp.id}-h`}>
+      <div class="container coop-inner">
+        <div class="coop-text">
+          <p class="eyebrow">{coOp.where}</p>
+          <h2 id={`${coOp.id}-h`}>{coOp.name}</h2>
+          <p class="coop-lead">{coOp.lead}</p>
+          <p class="coop-about">{coOp.text}</p>
+          <div class="hero-buttons">
+            <a class="btn btn-ink" href={coOp.website.href}>{coOp.website.label}</a>
+            <a class="btn btn-outline" href={coOp.directions}>Get directions</a>
+          </div>
+        </div>
+        <div class="coop-cards">
+          <div class="coop-card">
+            <h3>Hours</h3>
+            {coOp.hours.map((row) => (
+              <div class="coop-hours"><span>{row.days}</span><span class="coop-time">{row.time}</span></div>
+            ))}
+          </div>
+          <div class="coop-card coop-contact">
+            <h3>Contact</h3>
+            <span>{coOp.address}</span>
+            {coOp.contacts.map((contact) => <a class="link-strong" href={contact.href}>{contact.label}</a>)}
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+</BaseLayout>
+
+<style>
+  .coops-hero { padding-bottom: 88px; }
+  .page-hero .coops-title {
+    font-size: clamp(64px, 9vw, 132px);
+    line-height: 0.88;
+  }
+  .no-break { white-space: nowrap; }
+  .coops-lead {
+    font-family: var(--slab);
+    font-weight: 600;
+    font-size: clamp(24px, 2.6vw, 34px);
+    line-height: 1.3;
+    margin: 32px 0 0;
+    max-width: 900px;
+  }
+  .coops-intro { font-size: 19px; margin: 18px 0 0; max-width: 720px; }
+
+  .map-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 56px;
+    margin-top: 56px;
+    align-items: flex-start;
+  }
+  .map-figure { flex: 2 1 560px; min-width: 0; margin: 0; }
+  .map {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 700 / 360;
+    border: 3px solid var(--ink);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .map svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .pin {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 4px solid #FFFFFF;
+    box-sizing: content-box;
+    background: var(--red);
+    box-shadow: 0 0 0 2px var(--red);
+  }
+  .pin-bikerowave { left: 27.76%; top: 77.7%; }
+  .pin-oven { left: 75.09%; top: 34.75%; }
+  .pin-kitchen {
+    left: 59.35%;
+    top: 32.5%;
+    background: var(--ink);
+    box-shadow: 0 0 0 2px var(--ink);
+  }
+  .map-label {
+    position: absolute;
+    background: #FFFFFF;
+    border: 2px solid var(--red);
+    border-radius: 4px;
+    padding: 4px 10px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .map-label span { display: block; font-size: 13px; color: var(--muted); }
+  .map-label span:first-child { font-weight: 700; font-size: 15px; color: var(--ink); }
+  .label-bikerowave { left: 14.92%; top: 80.28%; }
+  .label-oven { left: 79.43%; top: 28.89%; }
+  .label-kitchen { left: 58.29%; top: 14.44%; border-color: var(--ink); }
+  figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); }
+
+  .closed-tips { flex: 1 1 300px; min-width: 0; }
+  .closed-tips h2 {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.05;
+    margin: 0 0 18px;
+  }
+  .closed-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 3px solid var(--ink);
+  }
+  .closed-list div { padding: 14px 2px; border-bottom: 1px solid var(--rule); }
+  .closed-tips > p { margin: 16px 0 0; font-size: 14px; color: var(--muted); }
+
+  .coop {
+    padding-top: 88px;
+    padding-bottom: 88px;
+    border-top: 3px solid var(--ink);
+  }
+  .coop-inner { display: flex; flex-wrap: wrap; gap: 48px 80px; }
+  .coop-text { flex: 1.3 1 480px; min-width: 0; }
+  .coop-text .eyebrow { margin-bottom: 10px; }
+  .coop-text h2 {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 0.95;
+    margin: 0 0 22px;
+  }
+  .coop-lead {
+    font-family: var(--slab);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.3;
+    margin: 0 0 18px;
+    max-width: 620px;
+  }
+  .coop-about { margin: 0; max-width: 620px; }
+  .coop-text .hero-buttons { margin-top: 28px; }
+
+  .coop-cards {
+    flex: 1 1 360px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .coop-card {
+    background: var(--panel);
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+    padding: 22px 24px;
+  }
+  .coop-card h3 {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 24px;
+    margin: 0 0 8px;
+  }
+  .coop-hours {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 7px 0;
+    border-bottom: 1px solid #C2B8A8;
+  }
+  .coop-time { font-weight: 600; text-align: right; }
+  .coop-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow-wrap: anywhere;
+  }
+  .coop-contact h3 { margin-bottom: 4px; }
+
+  /* On phones the map gets taller and drops its tiny landmark labels, which
+     would be too small to read. The pins and the three co-op labels stay. */
+  @media (max-width: 759px) {
+    .coops-hero { padding-bottom: 64px; }
+    .page-hero .coops-title { font-size: clamp(48px, 16vw, 110px); }
+    .map-row { margin-top: 40px; }
+    .map { aspect-ratio: 700 / 500; }
+    .map svg g, .map svg > text { display: none; }
+    .pin { width: 12px; height: 12px; border-width: 3px; }
+    .map-label { padding: 2px 6px; }
+    .map-label span { font-size: 11px; }
+    .map-label span:first-child { font-size: 13px; }
+    .label-bikerowave { left: 5%; top: 48%; }
+    .label-kitchen { left: auto; right: 22%; top: 5%; }
+    .label-oven { left: auto; right: 2%; top: 46%; }
+    .coop { padding-top: 64px; padding-bottom: 64px; }
+    .coop-text h2 { font-size: 50px; }
+  }
+</style>

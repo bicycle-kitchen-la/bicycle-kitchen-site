@@ -1,0 +1,274 @@
+---
+import logo from '../assets/bk-logo.svg';
+import { headerMenu, links, type NavLink } from '../data/nav';
+import { settings } from '../data/site';
+
+const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+const isCurrent = (link: NavLink) => link.href === path;
+const hasItems = (entry: (typeof headerMenu)[number]): entry is { label: string; items: NavLink[] } =>
+  'items' in entry;
+
+const logoHeight = 116;
+const logoWidth = Math.round((logo.width / logo.height) * logoHeight);
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/" aria-label="Bicycle Kitchen / La Bici-Cocina, home">
+      <img src={logo.src} width={logoWidth} height={logoHeight} alt="Bicycle Kitchen / La Bici-Cocina logo" />
+    </a>
+
+    <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav">
+      <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+      Menu
+    </button>
+
+    <nav id="main-nav" class="main-nav" aria-label="Main">
+      {headerMenu.map((entry) =>
+        hasItems(entry) ? (
+          <div class="menu-group" data-menu>
+            <button type="button" class:list={['menu-top', 'menu-button', { 'is-current': entry.items.some(isCurrent) }]} aria-expanded="false">
+              <span class="menu-label">{entry.label}</span>
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+            </button>
+            <span class:list={['menu-group-name', { 'is-current': entry.items.some(isCurrent) }]}><span class="menu-label">{entry.label}</span></span>
+            <div class="menu-panel" hidden>
+              {entry.items.map((item) => (
+                <a href={item.href} class:list={{ 'is-current': isCurrent(item) }} aria-current={isCurrent(item) ? 'page' : undefined}>{item.label}</a>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <a href={entry.href} class:list={['menu-top', { 'is-current': isCurrent(entry) }]} aria-current={isCurrent(entry) ? 'page' : undefined}>
+            <span class="menu-label">{entry.label}</span>
+          </a>
+        ),
+      )}
+
+      <a class="menu-instagram" href={settings.instagram_url} aria-label={`Bicycle Kitchen on Instagram, ${settings.instagram_handle}`}>
+        <svg aria-hidden="true" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
+      </a>
+      <a class="menu-donate" href={links.donate.href}>Donate</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: var(--stone);
+    border-bottom: 3px solid var(--ink);
+    position: relative;
+    z-index: 10;
+  }
+  .header-inner {
+    max-width: 1344px;
+    margin: 0 auto;
+    padding: 14px 32px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 32px;
+  }
+  .logo { display: block; flex: none; }
+  .logo img { display: block; height: 116px; width: auto; }
+
+  .main-nav {
+    margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 24px;
+  }
+  .menu-group { position: relative; }
+
+  .menu-top {
+    background: transparent;
+    border: 0;
+    padding: 12px 4px;
+    min-height: 44px;
+    font-family: inherit;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.6;
+    color: var(--ink);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+  }
+  .menu-top:hover { color: var(--red-on-stone); }
+  .is-current .menu-label,
+  .menu-panel a.is-current {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+  }
+
+  .menu-group-name { display: none; }
+
+  .menu-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 230px;
+    background: var(--panel);
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .menu-panel[hidden] { display: none; }
+  .menu-panel a {
+    padding: 10px 12px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  /* Keep the last dropdown from running off the right edge of the window. */
+  .menu-group:last-of-type .menu-panel { left: auto; right: 0; }
+
+  .menu-instagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    color: var(--ink);
+  }
+  .menu-donate, .menu-donate:hover {
+    background: var(--red);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 24px;
+    padding: 14px 34px;
+    border-radius: 4px;
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  .menu-donate:hover { text-decoration: underline; }
+
+  .menu-toggle { display: none; }
+
+  /* Phones and small tablets: the menu collapses behind the ☰ button and opens
+     as one full list. Below 900px the full menu no longer fits on one row. */
+  @media (max-width: 899px) {
+    .header-inner { padding: 10px var(--gutter); }
+    .logo img { height: 84px; }
+
+    :global(.js) .menu-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+      min-height: 48px;
+      padding: 8px 14px;
+      background: transparent;
+      border: 2px solid var(--ink);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .main-nav {
+      flex-basis: 100%;
+      margin-left: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 4px;
+      padding-bottom: 8px;
+    }
+    :global(.js) .main-nav:not(.is-open) { display: none; }
+
+    .menu-button { display: none; }
+    .menu-group-name {
+      display: block;
+      padding: 8px 4px 0;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .menu-panel, .menu-panel[hidden] {
+      position: static;
+      display: flex;
+      min-width: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      padding: 0 0 4px 12px;
+    }
+    .menu-panel a {
+      font-size: 19px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+    .menu-donate { justify-content: center; margin-top: 8px; }
+  }
+</style>
+
+<script>
+  const header = document.querySelector('.site-header');
+  const toggle = header.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = header.querySelector<HTMLElement>('.main-nav');
+  const groups = [...header.querySelectorAll<HTMLElement>('[data-menu]')];
+
+  const buttonOf = (group: HTMLElement) => group.querySelector<HTMLButtonElement>('.menu-button');
+  const panelOf = (group: HTMLElement) => group.querySelector<HTMLElement>('.menu-panel');
+
+  function setGroup(group: HTMLElement, open: boolean) {
+    buttonOf(group).setAttribute('aria-expanded', String(open));
+    panelOf(group).hidden = !open;
+  }
+  const openGroup = () => groups.find((group) => !panelOf(group).hidden);
+  const closeGroups = () => groups.forEach((group) => setGroup(group, false));
+
+  function setPhoneMenu(open: boolean) {
+    toggle.setAttribute('aria-expanded', String(open));
+    nav.classList.toggle('is-open', open);
+  }
+  const phoneMenuOpen = () => nav.classList.contains('is-open');
+
+  groups.forEach((group) => {
+    buttonOf(group).addEventListener('click', () => {
+      const willOpen = panelOf(group).hidden;
+      closeGroups();
+      setGroup(group, willOpen);
+    });
+    // Close when keyboard focus moves out of the dropdown.
+    group.addEventListener('focusout', (event) => {
+      if (event.relatedTarget instanceof Node && !group.contains(event.relatedTarget)) {
+        setGroup(group, false);
+      }
+    });
+    // Same-page links like /about#who don't reload the page, so close by hand.
+    panelOf(group).addEventListener('click', (event) => {
+      if (event.target instanceof HTMLAnchorElement) setGroup(group, false);
+    });
+  });
+
+  toggle.addEventListener('click', () => setPhoneMenu(!phoneMenuOpen()));
+
+  document.addEventListener('click', (event) => {
+    const target = event.target as Element;
+    if (!target.closest('[data-menu]')) closeGroups();
+    if (phoneMenuOpen() && !target.closest('.header-inner')) setPhoneMenu(false);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    const group = openGroup();
+    if (group) {
+      setGroup(group, false);
+      buttonOf(group).focus();
+    } else if (phoneMenuOpen()) {
+      setPhoneMenu(false);
+      toggle.focus();
+    }
+  });
+</script>

@@ -1,0 +1,49 @@
+---
+// Numbered steps with big red numbers. `large` is the slightly bigger,
+// three-across version used on the Volunteer page.
+interface Props {
+  steps: { title: string; text: string; link?: { label: string; href: string } }[];
+  large?: boolean;
+}
+const { steps, large = false } = Astro.props;
+---
+
+<div class:list={['steps', { large }]}>
+  {steps.map((step, index) => (
+    <div class="step">
+      <div class="number" aria-hidden="true">{index + 1}</div>
+      <h3>{step.title}</h3>
+      <p>{step.text}</p>
+      {step.link && <p class="step-link"><a class="link-strong" href={step.link.href}>{step.link.label}</a></p>}
+    </div>
+  ))}
+</div>
+
+<style>
+  .steps { display: flex; flex-wrap: wrap; gap: 40px; }
+  .step {
+    flex: 1 1 240px;
+    min-width: 0;
+    border-top: 3px solid var(--ink);
+    padding-top: 20px;
+  }
+  .number {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 0.9;
+    color: var(--red);
+  }
+  h3 {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.1;
+    margin: 14px 0 10px;
+  }
+  p { margin: 0; }
+  .step-link { margin-top: 12px; }
+  .large .step { flex-basis: 300px; }
+  .large .number { font-size: 88px; }
+  .large h3 { font-size: 30px; }
+</style>

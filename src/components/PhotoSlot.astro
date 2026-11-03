@@ -1,0 +1,56 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { photos } from '../data/site';
+
+interface Props {
+  // The photo's name in src/content/photos.yml
+  name: string;
+  // Text on the placeholder box, shown until a photo is uploaded
+  placeholder: string;
+  // Sets the slot's size and shape
+  class: string;
+  tone?: 'light' | 'mid' | 'dark';
+  // How wide the photo appears on the page, so browsers download the right size
+  sizes: string;
+  eager?: boolean;
+}
+
+const { name, placeholder, class: className, tone = 'light', sizes, eager = false } = Astro.props;
+
+// A slot with no photo may be saved as blank or left out entirely. Either way,
+// it shows the placeholder.
+const photo = photos[name];
+
+const files = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/photos/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}',
+  { eager: true },
+);
+
+let image: ImageMetadata | undefined;
+if (photo?.image) {
+  const fileName = photo.image.split('/').pop();
+  const match = Object.entries(files).find(([path]) => path.endsWith(`/${fileName}`));
+  if (!match) {
+    throw new Error(
+      `Photo slot "${name}" points to "${photo.image}", but that file isn't in src/assets/photos/. It must be a JPG, PNG, WebP, or AVIF.`,
+    );
+  }
+  image = match[1].default;
+}
+---
+
+{image ? (
+  <div class:list={['photo-slot', 'has-photo', `tone-${tone}`, className]}>
+    <Picture
+      src={image}
+      alt={photo?.alt ?? ''}
+      formats={['avif', 'webp']}
+      widths={[400, 800, 1200].filter((width) => width <= image.width)}
+      sizes={sizes}
+      loading={eager ? 'eager' : 'lazy'}
+    />
+  </div>
+) : (
+  <div class:list={['photo-slot', `tone-${tone}`, className]}>{placeholder}</div>
+)}

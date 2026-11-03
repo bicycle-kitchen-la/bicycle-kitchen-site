@@ -1,0 +1,188 @@
+# Sets up the Pages CMS dashboard (pagescms.org), where volunteers edit the site without code.
+
+media:
+  input: src/assets/photos
+  output: /src/assets/photos
+  rename: safe
+  extensions: [jpg, jpeg, png, webp, avif]
+
+content:
+  - name: settings
+    label: Alert banner and site settings
+    type: file
+    path: src/content/settings.yml
+    fields:
+      - name: alert_on
+        label: Show the alert banner
+        description: Turn this on to show the red alert at the top of every page. Turn it off when it no longer applies.
+        type: boolean
+      - name: alert_message
+        label: Alert message
+        description: The phone number is added after this message automatically.
+        type: text
+      - name: phone
+        label: Phone number
+        description: "Written like (323) 662-2776"
+        type: string
+        required: true
+      - name: email
+        label: Email address
+        type: string
+        required: true
+      - name: address_line_1
+        label: Street address
+        type: string
+        required: true
+      - name: address_line_2
+        label: City, state, and ZIP
+        type: string
+        required: true
+      - name: directions_url
+        label: Get directions link
+        type: string
+        required: true
+      - name: instagram_url
+        label: Instagram link
+        type: string
+        required: true
+      - name: instagram_handle
+        label: Instagram name
+        description: "Written like @bicicocina"
+        type: string
+        required: true
+      - name: paypal_url
+        label: PayPal donation link
+        type: string
+        required: true
+      - name: venmo_url
+        label: Venmo donation link
+        type: string
+        required: true
+      - name: zeffy_url
+        label: Zeffy donation link
+        type: string
+        required: true
+
+  - name: hours
+    label: Weekly hours
+    type: file
+    path: src/content/hours.yml
+    fields:
+      - name: days
+        label: Days
+        type: object
+        list: true
+        fields:
+          - name: day
+            label: Day
+            type: string
+            required: true
+          - name: time
+            label: Time
+            description: "Written like 6 – 9 pm, or Closed"
+            type: string
+            required: true
+          - name: note
+            label: Note (optional)
+            description: A short line shown under the time, like FTWNB night.
+            type: string
+
+  - name: photos
+    label: Photos
+    type: file
+    path: src/content/photos.yml
+    fields:
+      - &photo
+        name: home_hero_rider
+        label: "Home, top: someone grinning on a bike they just fixed"
+        description: Leave the photo empty to show the labeled placeholder box. Alt text is a short description for people who can't see the photo.
+        type: object
+        fields:
+          - name: image
+            label: Photo
+            type: image
+          - name: alt
+            label: Alt text
+            type: string
+            required: true
+      - <<: *photo
+        name: home_hero_brakes
+        label: "Home, top: a Cook showing someone how to adjust brakes"
+      - <<: *photo
+        name: home_hero_wheel
+        label: "Home, top: wheel close-up (shown in a circle)"
+      - <<: *photo
+        name: home_open_shop
+        label: "Home, What we do: someone truing a wheel at a stand"
+      - <<: *photo
+        name: home_project_bikes
+        label: "Home, What we do: donated bikes lined up"
+      - <<: *photo
+        name: home_volunteer
+        label: "Home, What we do: volunteers"
+      - <<: *photo
+        name: home_floor_ftwnb
+        label: "Home, From the shop floor: Thursday FTWNB night"
+      - <<: *photo
+        name: home_floor_parts
+        label: "Home, From the shop floor: the parts wall"
+      - <<: *photo
+        name: home_floor_rebuilt
+        label: "Home, From the shop floor: a rebuilt bike leaving the shop"
+      - <<: *photo
+        name: learn_hero
+        label: "Learn to repair: a Cook walking someone through a repair"
+      - <<: *photo
+        name: project_hero
+        label: "Project bikes: donated bikes lined up"
+      - <<: *photo
+        name: about_cooks
+        label: "About: a group shot of the Cooks"
+      - <<: *photo
+        name: volunteer_hero
+        label: "Volunteer: volunteers"
+
+  - name: supporters
+    label: Supporters
+    type: file
+    path: src/content/supporters.yml
+    fields:
+      - name: neighborhood_councils
+        label: Neighborhood councils
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Name
+            description: "Without the words Neighborhood Council, like Silver Lake"
+            type: string
+            required: true
+      - name: individuals
+        label: Individuals (each gets a special thanks band)
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Name
+            type: string
+            required: true
+          - name: location
+            label: Location (optional)
+            type: string
+          - name: thanks
+            label: What we're thanking them for
+            type: text
+            required: true
+      - name: grants
+        label: Grants (listed under The building we call home)
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Name
+            type: string
+            required: true
+          - name: description
+            label: Description
+            type: text
+            required: true

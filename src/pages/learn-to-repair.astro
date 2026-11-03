@@ -1,0 +1,156 @@
+---
+import PhotoSlot from '../components/PhotoSlot.astro';
+import Steps from '../components/Steps.astro';
+import Wheel from '../components/Wheel.astro';
+import { links } from '../data/nav';
+import { settings } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const visitSteps = [
+  { title: 'Sign in', text: 'Show up during our open hours, say hello, and sign in on our iPad.' },
+  { title: 'Grab a stand', text: 'Tell a volunteer what’s going on with your bike. They’ll point you to a repair stand and the right tools.' },
+  { title: 'Learn as you go', text: 'Work on your own bike to the best of your ability. Ask volunteers for tools and help as necessary.' },
+  { title: 'Ride home knowing how', text: 'Next time it happens, you’ll know how to fix it yourself.' },
+];
+
+const repairs = [
+  { title: 'Fix a flat', text: 'Find the hole, patch or replace the tube, and get the tire back on. Learn it once and you’ll never be stranded.' },
+  { title: 'Adjust your brakes', text: 'Make sure your bike stops when you need it to, from pads to cable tension.' },
+  { title: 'Tune your shifting', text: 'Get gears clicking smoothly again by adjusting derailleurs and cables.' },
+  { title: 'Clean and lube your chain', text: 'A quick habit that makes your bike quieter, smoother, and longer-lasting.' },
+  { title: 'True a wheel', text: 'Take the wobble out of a wheel by adjusting its spokes.' },
+  { title: 'Build a bike', text: 'Start from a donated frame and parts and put together a whole bike, piece by piece.' },
+  { title: 'Almost any repair', text: 'Don’t see your repair here? Come try it anyway. We’ll help you figure it out and dig in. We don’t have every tool imaginable, but we have a lot, and we’ll do our best to get you rolling.' },
+];
+---
+
+<BaseLayout
+  title="Learn to repair · Bicycle Kitchen"
+  description="Every repair at Bicycle Kitchen is a lesson. Work on your own bike with support from our volunteers. No experience needed and no question is too basic."
+  breadcrumbs={[{ label: 'Bike Repair' }]}
+  breadcrumbCurrent="Learn to repair"
+>
+  <section class="page-hero" aria-labelledby="lr-title">
+    <div class="container split">
+      <div class="page-hero-text">
+        <h1 id="lr-title" class="page-title">Learn to repair<Wheel /></h1>
+        <p class="lead">Every repair here is a lesson.</p>
+        <p class="intro">Work on your own bike or one we connect you with. Ask for support from our wonderful volunteers. No experience needed and no question is too basic.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-ink" href="#learn">What you can learn</a>
+          <a class="btn btn-outline" href={links.hours.href}>See shop hours</a>
+        </div>
+      </div>
+      <PhotoSlot
+        name="learn_hero"
+        placeholder="Photo: a Cook walking someone through a repair at the stand"
+        class="page-hero-photo"
+        sizes="(max-width: 1000px) 100vw, 500px"
+        eager
+      />
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="visit-title">
+    <div class="container">
+      <h2 id="visit-title" class="h2 visit-title">How a visit works</h2>
+      <Steps steps={visitSteps} />
+    </div>
+  </section>
+
+  <section id="learn" class="section" aria-labelledby="learn-title">
+    <div class="container">
+      <div class="heading-row">
+        <h2 id="learn-title" class="h2">What you can learn</h2>
+        <p>A few of the repairs people come in for most. Bring whatever your bike needs.</p>
+      </div>
+      <div class="repairs">
+        {repairs.map((repair) => (
+          <div class="repair">
+            <h3>{repair.title}</h3>
+            <p>{repair.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark workshops on-dark" aria-labelledby="ws-title">
+    <div class="container split">
+      <div class="workshops-text">
+        <h2 id="ws-title" class="h2">Repair workshops</h2>
+        <p>A few times a year, we host hands-on classes on repair and maintenance. We announce them on Instagram first.</p>
+      </div>
+      <div class="action-stack">
+        <a class="btn btn-stone" href={settings.instagram_url}>Follow {settings.instagram_handle} for dates</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="tips-title">
+    <div class="container tips">
+      <div class="tips-text">
+        <h2 id="tips-title" class="h2">Before you come</h2>
+        <div class="tips-list">
+          <p><strong>Bring your bike,</strong> plus any parts you’ve already bought for it.</p>
+          <p><strong>Wear clothes that can get greasy.</strong> Bike repair is messy work.</p>
+          <p><strong>Give yourself time.</strong> Learning takes longer than having someone else do it, and that’s the point.</p>
+        </div>
+      </div>
+      <div class="callout tips-callout">
+        <p><strong>Thursday is FTWNB night.</strong> During Thursday open hours, the shop is open to femme, trans, women and non-binary folks.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .visit-title { margin-bottom: 40px; }
+
+  .repairs {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 48px;
+    border-top: 3px solid var(--ink);
+  }
+  .repair {
+    flex: 1 1 460px;
+    min-width: 0;
+    padding: 20px 4px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .repair h3 {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.1;
+    margin: 0 0 6px;
+  }
+  .repair p { margin: 0; }
+
+  .workshops { padding-top: 88px; padding-bottom: 88px; }
+  .workshops .split { gap: 32px 80px; }
+  .workshops-text { flex: 1.3 1 480px; min-width: 0; }
+  .workshops-text h2 { margin-bottom: 20px; }
+  .workshops-text p { margin: 0; font-size: 19px; max-width: 600px; }
+
+  .tips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 80px;
+    align-items: flex-start;
+  }
+  .tips-text { flex: 1.3 1 480px; min-width: 0; }
+  .tips-text h2 { margin-bottom: 24px; }
+  .tips-list { border-top: 3px solid var(--ink); }
+  .tips-list p {
+    margin: 0;
+    padding: 18px 4px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .tips-callout { flex: 1 1 340px; min-width: 0; padding: 24px 26px; }
+
+  @media (max-width: 759px) {
+    .workshops { padding-top: 64px; padding-bottom: 64px; }
+  }
+</style>

@@ -1,0 +1,265 @@
+/* Colors and fonts for the whole site. Change them here and they change everywhere. */
+:root {
+  --stone: #D6CEC1;
+  --stone-light: #ECE7DE;
+  --ink: #221F20;
+  --red: #A63A22;
+  --red-on-stone: #8F2F1A; /* Link hover on stone: plain red is too faint to pass AA there. */
+  --muted: #4A433D;
+  --rule: #9C9283;
+  --panel: #FBF9F5;
+  --slab: 'Zilla Slab', Rockwell, Georgia, serif;
+  --sans: 'Work Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --gutter: 32px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--stone);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+a { color: var(--ink); }
+a:hover { color: var(--red-on-stone); }
+:where(.section-alt, .menu-panel) a:hover { color: var(--red); }
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.on-dark :focus-visible { outline-color: #FFFFFF; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  margin: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -100px;
+  z-index: 20;
+  background: var(--ink);
+  color: #FFFFFF;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.skip-link:focus { top: 8px; color: #FFFFFF; }
+
+/* Sections */
+.section { padding: 96px var(--gutter); background: var(--stone); }
+.section-alt { background: var(--stone-light); }
+.container { max-width: 1216px; margin: 0 auto; }
+
+.h2 {
+  font-family: var(--slab);
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 1;
+  margin: 0;
+}
+
+/* Subpage titles */
+.page-title {
+  font-family: var(--slab);
+  font-weight: 700;
+  font-size: clamp(72px, 10vw, 144px);
+  line-height: 0.86;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Top of a subpage: text on one side, photo on the other */
+.page-hero { padding: 24px var(--gutter) 96px; overflow: hidden; background: var(--stone); }
+.split {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 48px 80px;
+}
+.page-hero-text { flex: 1.2 1 480px; min-width: 0; }
+.lead {
+  font-family: var(--slab);
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.25;
+  margin: 28px 0 0;
+  max-width: 600px;
+}
+.intro { font-size: 19px; margin: 18px 0 0; max-width: 560px; }
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.page-hero-photo {
+  flex: 1 1 380px;
+  min-width: 0;
+  max-width: 500px;
+  height: 440px;
+  padding: 16px;
+  transform: rotate(1.5deg);
+}
+
+/* Colored sections */
+.section-dark { background: var(--ink); color: var(--stone); }
+.section-dark .h2 { color: #FFFFFF; }
+.section-red { background: var(--red); color: #FFFFFF; }
+.section-band { padding-top: 80px; padding-bottom: 80px; }
+.band-title {
+  font-family: var(--slab);
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1.05;
+  margin: 0 0 12px;
+}
+.band-text { flex: 1.4 1 440px; min-width: 0; }
+.band-text p { margin: 0; font-size: 19px; }
+.action-stack {
+  flex: 1 1 300px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.action-stack .btn { font-size: 19px; padding: 18px 24px; text-align: center; }
+
+/* A heading with a short note beside it */
+.heading-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px 48px;
+  margin-bottom: 32px;
+}
+.heading-row p { margin: 0; max-width: 520px; color: var(--muted); }
+
+/* Small red-brown label above a heading */
+.eyebrow {
+  margin: 0 0 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--red-on-stone);
+}
+.section-dark .eyebrow { color: #E9A08F; }
+
+/* Lists with a heading on the left and text on the right */
+.rows { border-top: 3px solid var(--ink); }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 48px;
+  padding: 24px 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.row h3 {
+  font-family: var(--slab);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.15;
+  margin: 0;
+  flex: 0 1 380px;
+}
+.row p { margin: 0; flex: 1 1 420px; max-width: 640px; }
+
+/* Note with a red edge */
+.callout {
+  background: var(--stone-light);
+  border-left: 6px solid var(--red);
+  padding: 22px 26px;
+}
+.callout p { margin: 0; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 14px 26px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.btn:hover { text-decoration: underline; }
+.btn-red, .btn-red:hover { background: var(--red); color: #FFFFFF; }
+.btn-ink, .btn-ink:hover { background: var(--ink); color: #FFFFFF; }
+.btn-white, .btn-white:hover { background: #FFFFFF; color: var(--ink); }
+.btn-stone, .btn-stone:hover { background: var(--stone); color: var(--ink); }
+.btn-outline, .btn-outline:hover {
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  padding: 12px 24px;
+}
+
+/* Bold text links. On phones they grow to a 44px tap target. */
+.link-strong { font-weight: 600; }
+
+/* The wheel "period" after big titles. Rolls in once, then stays still. */
+.bk-wheel {
+  display: inline-block;
+  width: 0.27em;
+  height: 0.27em;
+  margin-left: 0.05em;
+  vertical-align: baseline;
+  transform-origin: 50% 50%;
+  animation: bk-roll 1.4s cubic-bezier(.22, .9, .28, 1) both;
+}
+.bk-wheel-2 { animation-delay: .25s; }
+.bk-wheel-3 { animation-delay: .5s; }
+@keyframes bk-roll {
+  0% { transform: translateX(3em) rotate(1260deg); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translateX(0) rotate(0deg); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bk-wheel { animation: none; }
+}
+
+/* Photo slots. The size comes from the class each page gives the slot. */
+.photo-slot {
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 14px;
+}
+.photo-slot.has-photo { padding: 0; }
+.photo-slot picture { display: block; width: 100%; height: 100%; }
+.photo-slot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--photo-position, 50% 50%);
+}
+.tone-light { background: #C2B8A8; color: #3A3430; }
+.tone-mid { background: #B5AA99; color: #2E2926; }
+.tone-dark { background: #3A3430; color: #ECE7DE; }
+
+@media (max-width: 759px) {
+  :root { --gutter: 20px; }
+  .section, .section-band { padding-top: 64px; padding-bottom: 64px; }
+  .h2 { font-size: 42px; }
+  .page-title { font-size: clamp(48px, 16vw, 110px); }
+  .page-hero { padding-bottom: 64px; }
+  .page-hero-photo { height: 280px; transform: none; max-width: none; }
+  .lead { font-size: 26px; }
+  .band-title { font-size: 38px; }
+  .row h3 { font-size: 24px; }
+  .link-strong { display: inline-flex; align-items: center; min-height: 44px; }
+}

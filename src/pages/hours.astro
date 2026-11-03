@@ -1,0 +1,132 @@
+---
+import Wheel from '../components/Wheel.astro';
+import { links } from '../data/nav';
+import { hours, phoneHref, settings } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Hours · Bicycle Kitchen"
+  description="Open shop hours at Bicycle Kitchen, 4429 Fountain Ave, Los Angeles. Please call before you come, since hours can change last minute."
+  breadcrumbCurrent="Hours"
+>
+  <section class="hours-section" aria-labelledby="hours-h">
+    <div class="container">
+      <h1 id="hours-h" class="page-title hours-title">Hours<Wheel /></h1>
+      <div class="hours-layout">
+        <dl class="hours-list">
+          {hours.days.map((row) => (
+            <div class="hours-row">
+              <dt>{row.day}</dt>
+              <dd>
+                <span class="hours-time">{row.time}</span>
+                {row.note && <span class="hours-note">{row.note}</span>}
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        <div class="hours-side">
+          <p class="hours-intro">Drop in during open hours, sign in on our iPad, and a volunteer will point you to a stand and the right tools.</p>
+          <div class="call-card on-dark">
+            <p class="call-title">Please call before you come.</p>
+            <p class="call-text">We only open when a volunteer is on shift, so hours can change last minute.</p>
+            <a href={phoneHref}>{settings.phone}</a>
+          </div>
+          <div>
+            <p class="hours-address">{settings.address_line_1}<br />{settings.address_line_2}</p>
+            <a class="link-strong" href={settings.directions_url}>Get directions</a>
+          </div>
+          <div class="closed-card section-alt">
+            <p><strong>Closed tonight?</strong> Other volunteer-run co-ops around LA may be open.</p>
+            <a class="link-strong" href={links.coOps.href}>See other LA co-ops</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hours-section { padding: 24px var(--gutter) 96px; overflow: hidden; }
+  .hours-title { margin-bottom: 48px; }
+  .hours-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px 80px;
+    align-items: flex-start;
+  }
+
+  .hours-list {
+    flex: 1.4 1 480px;
+    min-width: 0;
+    margin: 0;
+    border-top: 3px solid var(--ink);
+  }
+  .hours-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4px 16px;
+    padding: 20px 4px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hours-row dt {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 30px;
+  }
+  .hours-row dd { margin: 0; text-align: right; }
+  .hours-time { font-weight: 600; font-size: 21px; }
+  .hours-note {
+    display: block;
+    font-size: 16px;
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  .hours-side {
+    flex: 1 1 340px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .hours-intro { margin: 0; font-size: 19px; }
+
+  .call-card {
+    background: var(--ink);
+    color: var(--stone-light);
+    padding: 20px 24px;
+    border-radius: 4px;
+    max-width: 420px;
+  }
+  .call-title { margin: 0 0 6px; font-weight: 600; color: #FFFFFF; }
+  .call-text { margin: 0 0 10px; }
+  .call-card a, .call-card a:hover {
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 19px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .hours-address { margin: 0 0 8px; font-weight: 600; font-size: 19px; }
+
+  .closed-card {
+    background: var(--stone-light);
+    border-left: 6px solid var(--red);
+    padding: 20px 24px;
+  }
+  .closed-card p { margin: 0 0 8px; }
+
+  @media (max-width: 759px) {
+    .hours-section { padding-bottom: 64px; }
+    .hours-title { margin-bottom: 32px; }
+    .hours-list, .hours-side { flex-basis: 100%; }
+    .hours-row { padding: 14px 4px; }
+    .hours-row dt { font-size: 26px; }
+  }
+</style>

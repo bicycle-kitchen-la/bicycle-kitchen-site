@@ -1,0 +1,194 @@
+---
+import PhotoSlot from '../components/PhotoSlot.astro';
+import Wheel from '../components/Wheel.astro';
+import { links } from '../data/nav';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const values = [
+  { title: 'Fun.', text: 'Working on a bike is more fun with company. Come wrench next to neighbors, swap tips, and leave proud of something you fixed yourself.' },
+  { title: 'Safe.', text: 'A bike you understand is a bike you can trust. Learn to check your brakes, fix a flat, and keep your ride in good shape, so you’re never stranded.' },
+  { title: 'Accessible.', text: 'Suggested donation of $8 for every hour spent working on your bike. No one is turned away for lack of funds. Donated parts and project bikes keep costs low!' },
+];
+
+const story = [
+  { when: '2002', title: 'It started in a kitchen', text: 'A local bike messenger set up a tiny repair workshop in the kitchen of an unused apartment at the Los Angeles Eco-Village, hosting evenings of bikes and pizza. That kitchen gave us our name.' },
+  { when: '2005', title: 'Our first storefront', text: 'We outgrew the apartment and moved into a storefront on Heliotrope Drive, in the neighborhood riders came to call the Bicycle District.' },
+  { when: '2012', title: 'A home of our own', text: 'After a community fundraising campaign, we bought a former bakery on Fountain Ave, with room indoors and out. It’s still our home today.' },
+  {
+    when: 'Today',
+    title: 'One of many LA co-ops',
+    text: 'Our model helped inspire bike co-ops across the region, like the Bike Oven in Highland Park and Bikerowave on the Westside.',
+    link: { label: 'Meet other LA co-ops', href: links.coOps.href },
+  },
+];
+---
+
+<BaseLayout
+  title="Our mission and who we are · Bicycle Kitchen"
+  description="Bicycle Kitchen / La Bici-Cocina is a 501(c)(3) nonprofit run entirely by volunteers, promoting the bicycle as a fun, safe, and accessible form of transportation."
+  breadcrumbs={[{ label: 'About' }]}
+  breadcrumbCurrent="Our mission and who we are"
+>
+  <section class="page-hero" aria-labelledby="mission-h">
+    <div class="container">
+      <h1 id="mission-h" class="page-title">Our mission<Wheel /></h1>
+      <p class="mission-statement">To promote the bicycle as a fun, safe, and accessible form of transportation, to foster healthy urban communities, and to provide a welcoming space to learn about building, maintaining, and riding bicycles.</p>
+      <div class="values">
+        {values.map((value) => (
+          <div class="value">
+            <h2>{value.title}</h2>
+            <p>{value.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark section-band on-dark" aria-label="How we work">
+    <div class="container split teach">
+      <p class="teach-title">We teach.<br />You fix.</p>
+      <p class="teach-text">We don’t buy or sell bikes, and we won’t fix your bike for you. Instead, we’ll show you how and help as much or as little as you want. Already know your way around a bike? Great. Grab a stand and the tools, and we’re here if you need us.</p>
+    </div>
+  </section>
+
+  <section id="who" class="section section-alt" aria-labelledby="who-h">
+    <div class="container split">
+      <div class="who-text">
+        <h2 id="who-h" class="h2">Who we are</h2>
+        <p class="who-lead">Bicycle Kitchen / La Bici-Cocina is a 501(c)(3) nonprofit run entirely by volunteers. We call them Cooks.</p>
+        <p>Cooks keep the shop open, teach repairs, sort the parts, and fix up donated bikes. We each give our time for different reasons, but we share a love of bikes and a belief that a city full of bikes is a better city.</p>
+        <p>Everyone is welcome here, whatever you ride and whatever you know.</p>
+        <p class="who-link"><a class="link-strong" href={links.volunteer.href}>Become a volunteer</a></p>
+      </div>
+      <PhotoSlot
+        name="about_cooks"
+        placeholder="Photo: a group shot of the Cooks at the shop"
+        class="who-photo"
+        sizes="(max-width: 1040px) 100vw, 570px"
+      />
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="story-h">
+    <div class="container">
+      <h2 id="story-h" class="h2 story-title">Our story</h2>
+      <ol class="story">
+        {story.map((moment) => (
+          <li>
+            <span class="story-when">{moment.when}</span>
+            <div class="story-text">
+              <h3>{moment.title}</h3>
+              <p>{moment.text}</p>
+              {moment.link && <p class="story-link"><a class="link-strong" href={moment.link.href}>{moment.link.label}</a></p>}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section-red section-band on-dark" aria-labelledby="visit-h">
+    <div class="container split band">
+      <div class="band-text">
+        <h2 id="visit-h" class="band-title">Come see for yourself</h2>
+        <p>Bring a bike that needs help, or just stop by and say hi during open shop hours.</p>
+      </div>
+      <div class="action-stack">
+        <a class="btn btn-white" href={links.hours.href}>See shop hours</a>
+        <a class="btn btn-ink" href={links.donate.href}>Support the Kitchen</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .mission-statement {
+    font-family: var(--slab);
+    font-weight: 600;
+    font-size: clamp(26px, 3vw, 40px);
+    line-height: 1.25;
+    margin: 36px 0 0;
+    max-width: 980px;
+  }
+  .values { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 72px; }
+  .value {
+    flex: 1 1 300px;
+    min-width: 0;
+    border-top: 3px solid var(--ink);
+    padding-top: 18px;
+  }
+  .value h2 {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1;
+    margin: 0 0 12px;
+  }
+  .value p { margin: 0; }
+
+  .teach, .band { gap: 32px 80px; }
+  .teach-title {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1;
+    color: #FFFFFF;
+    margin: 0;
+    flex: 1 1 360px;
+  }
+  .teach-text { font-size: 19px; margin: 0; flex: 1.4 1 440px; min-width: 0; max-width: 620px; }
+
+  .who-text { flex: 1 1 440px; min-width: 0; }
+  .who-text h2 { margin-bottom: 24px; }
+  .who-text p { margin: 0 0 16px; max-width: 560px; }
+  .who-text .who-lead { font-size: 19px; }
+  .who-text .who-link { margin: 28px 0 0; font-size: 19px; }
+  .split :global(.who-photo) {
+    flex: 1 1 440px;
+    min-width: 0;
+    height: 420px;
+    padding: 16px;
+    transform: rotate(-1.5deg);
+  }
+  .split :global(.who-photo.has-photo) { padding: 0; }
+
+  .story-title { margin-bottom: 32px; }
+  .story {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 3px solid var(--ink);
+  }
+  .story li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 48px;
+    padding: 28px 4px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .story-when {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 0.9;
+    color: var(--red);
+    flex: 0 0 180px;
+  }
+  .story-text { flex: 1 1 420px; min-width: 0; max-width: 680px; }
+  .story-text h3 {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.1;
+    margin: 0 0 8px;
+  }
+  .story-text p { margin: 0; }
+  .story-text .story-link { margin-top: 12px; }
+
+  @media (max-width: 759px) {
+    .values { margin-top: 48px; }
+    .teach-title { font-size: 46px; }
+    .split :global(.who-photo) { height: 280px; transform: none; }
+    .story-when { font-size: 46px; }
+  }
+</style>

@@ -1,0 +1,135 @@
+---
+import PhotoSlot from '../components/PhotoSlot.astro';
+import Steps from '../components/Steps.astro';
+import Wheel from '../components/Wheel.astro';
+import { links } from '../data/nav';
+import { phoneHref, settings } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const ways = [
+  { title: 'Shadow a Cook', text: 'Cooks are the volunteers who run open shop. Work alongside one to learn the tools and the stands, and how to help visitors fix their own bikes.' },
+  { title: 'Sort parts', text: 'Keep the parts bins organized so visitors can find what they need. It’s a great first job and a crash course in how bikes go together.' },
+  { title: 'Repair donations', text: 'Fix up donated bikes so they’re ready to become project bikes or go to someone who needs a ride.' },
+  { title: 'Design flyers', text: 'Help spread the word with flyers, social posts, and signs around the shop.' },
+  { title: 'Help however you can', text: 'Translation, outreach, events, fundraising, or something we haven’t thought of yet. If you have a skill to share, we’d love to hear about it.' },
+];
+
+const startSteps = [
+  {
+    title: 'Stop by during open hours',
+    text: 'Come by any open shop night or Saturday. Check the schedule first, since hours can change.',
+    link: { label: 'See this week’s hours', href: links.hours.href },
+  },
+  { title: 'Tell a Cook you want to help', text: 'Introduce yourself to whoever’s on shift. They’ll show you around and find you something to do.' },
+  { title: 'Keep coming back', text: 'The more shifts you join, the more you’ll learn, and the more nights we can keep the doors open.' },
+];
+---
+
+<BaseLayout
+  title="Volunteer · Bicycle Kitchen"
+  description="Bicycle Kitchen runs entirely on volunteers. No experience needed. If you can show up, we can teach you the rest."
+  breadcrumbs={[{ label: 'Get Involved' }]}
+  breadcrumbCurrent="Volunteer"
+>
+  <section class="page-hero" aria-labelledby="vol-title">
+    <div class="container split">
+      <div class="page-hero-text">
+        <h1 id="vol-title" class="page-title">Volunteer<Wheel /></h1>
+        <p class="lead">Bicycle Kitchen runs entirely on volunteers. Every open shop happens because someone showed up.</p>
+        <p class="intro">No experience needed. If you can show up, we can teach you the rest.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-ink" href="#start">How to get started</a>
+          <a class="btn btn-outline" href={links.hours.href}>See shop hours</a>
+        </div>
+      </div>
+      <PhotoSlot
+        name="volunteer_hero"
+        placeholder="Photo: volunteers in the yard"
+        class="page-hero-photo volunteer-photo"
+        sizes="(max-width: 1000px) 100vw, 460px"
+        eager
+      />
+    </div>
+  </section>
+
+  <section class="section section-dark section-band on-dark" aria-label="Why volunteers matter">
+    <div class="container split matter">
+      <p class="matter-title">When we’re short on volunteers, we close.</p>
+      <p class="matter-text">Every extra pair of hands means more open nights for neighbors who need their bike fixed and a place to learn how.</p>
+    </div>
+  </section>
+
+  <section id="ways" class="section section-alt" aria-labelledby="ways-title">
+    <div class="container">
+      <div class="heading-row">
+        <h2 id="ways-title" class="h2">Ways to help</h2>
+        <p>Pick whatever fits you. Plenty of volunteers start with one job and pick up more over time.</p>
+      </div>
+      <div class="rows ways">
+        {ways.map((way) => (
+          <div class="row">
+            <h3>{way.title}</h3>
+            <p>{way.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="start" class="section" aria-labelledby="start-title">
+    <div class="container">
+      <h2 id="start-title" class="h2 start-title">How to get started</h2>
+      <Steps steps={startSteps} large />
+      <div class="callout start-callout">
+        <p><strong>Thursday is FTWNB night.</strong> Femme, trans, women and non-binary folks are especially welcome to come learn how to volunteer on Thursday evenings.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-red section-band on-dark" aria-labelledby="q-title">
+    <div class="container split questions">
+      <div class="band-text">
+        <h2 id="q-title" class="band-title">Questions before you come by?</h2>
+        <p>Give us a call or send an email, and a volunteer will get back to you.</p>
+      </div>
+      <div class="action-stack">
+        <a class="btn btn-white" href={phoneHref}>Call {settings.phone} During Open Hours</a>
+        <a class="btn btn-ink" href={`mailto:${settings.email}`}>Email {settings.email}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .split :global(.volunteer-photo) {
+    flex-basis: 360px;
+    max-width: 460px;
+    height: 560px;
+    --photo-position: 50% 45%;
+  }
+
+  .matter, .questions { gap: 32px 80px; }
+  .matter-title {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 1.05;
+    color: #FFFFFF;
+    margin: 0;
+    flex: 1.2 1 440px;
+    min-width: 0;
+  }
+  .matter-text { font-size: 19px; margin: 0; flex: 1 1 380px; min-width: 0; max-width: 560px; }
+
+  .ways .row { padding: 26px 4px; }
+  .ways .row h3 { font-size: 30px; line-height: 1.1; flex-basis: 340px; }
+
+  .start-title { margin-bottom: 40px; }
+  .start-callout { margin-top: 56px; max-width: 820px; }
+
+  @media (max-width: 759px) {
+    .split :global(.volunteer-photo) { max-width: none; height: 380px; }
+    .matter-title { font-size: 38px; }
+    .ways .row h3 { font-size: 26px; }
+  }
+</style>

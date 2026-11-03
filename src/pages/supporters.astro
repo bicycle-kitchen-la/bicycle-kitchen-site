@@ -1,0 +1,222 @@
+---
+import Wheel from '../components/Wheel.astro';
+import { links } from '../data/nav';
+import { supporters } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Supporters · Bicycle Kitchen"
+  description="We run on volunteers, but we stand on the generosity of our neighbors. Thank you to the neighborhood councils, families, and foundations helping keep LA rolling."
+  breadcrumbs={[{ label: 'About' }]}
+  breadcrumbCurrent="Supporters"
+>
+  <section class="page-hero supporters-hero" aria-labelledby="sup-title">
+    <div class="container">
+      <h1 id="sup-title" class="page-title">Supporters<Wheel /></h1>
+      <p class="supporters-lead">We run on volunteers, but we stand on the generosity of our neighbors. Thank you for helping keep LA rolling.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="nc-title">
+    <div class="container">
+      <div class="heading-row">
+        <h2 id="nc-title" class="h2">Neighborhood Councils</h2>
+        <p>Local councils that have invested in getting more of their neighbors on bikes.</p>
+      </div>
+      <div class="councils">
+        {supporters.neighborhood_councils.map((council) => (
+          <div class="council">
+            <span class="council-name">{council.name}</span>
+            <span class="council-type">Neighborhood Council</span>
+          </div>
+        ))}
+      </div>
+      <div class="made-possible">
+        <p class="made-possible-title">Their funding has helped make possible:</p>
+        <div class="made-possible-list">
+          <div class="made-possible-item">
+            <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#A63A22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"></path><path d="M6 11v5c3 2 9 2 12 0v-5"></path></svg>
+            <div><h3>Youth programming</h3><p>Bike programs for students in local schools.</p></div>
+          </div>
+          <div class="made-possible-item">
+            <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#A63A22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"></rect><path d="M8 20h8M12 16v4"></path></svg>
+            <div><h3>Workshop series</h3><p>Hands-on classes on repair and maintenance.</p></div>
+          </div>
+          <div class="made-possible-item">
+            <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#A63A22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="5"></circle><path d="M10 18h4M12 15v3"></path><path d="M12 2v1M4 10H3M21 10h-1M6 4l.7.7M18 4l-.7.7"></path></svg>
+            <div><h3>Free lights and locks</h3><p>Giving riders what they need to stay safe and keep their bikes.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {supporters.individuals.map((person) => (
+    <section class="section section-dark on-dark" aria-label={`A special thanks to ${person.name}`}>
+      <div class="container split thanks">
+        <div class="thanks-name">
+          <p class="eyebrow">A special thanks</p>
+          <h2 class="h2">{person.name}</h2>
+          {person.location && <p class="thanks-location">{person.location}</p>}
+        </div>
+        <p class="thanks-text">{person.thanks}</p>
+      </div>
+    </section>
+  ))}
+
+  <section class="section" aria-labelledby="bldg-title">
+    <div class="container building">
+      <div class="building-text">
+        <h2 id="bldg-title" class="h2">The building we call home</h2>
+        <p class="building-intro">In 2012, these contributions made it possible for us to have our own building on Fountain Ave, where we still work today.</p>
+        <p class="building-link"><a class="link-strong" href={links.mission.href}>Read our story</a></p>
+      </div>
+      <div class="grants">
+        {supporters.grants.map((grant) => (
+          <div class="grant">
+            <span class="grant-name">{grant.name}</span>
+            <p>{grant.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt become" aria-label="Become a supporter">
+    <div class="container become-inner">
+      <p>Want to see your name here? Individuals, businesses, and institutions can all support the Kitchen.</p>
+      <a class="link-strong" href={links.donate.href}>Ways to give</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .supporters-hero { padding-bottom: 88px; }
+  .supporters-lead {
+    font-family: var(--slab);
+    font-weight: 600;
+    font-size: clamp(26px, 2.8vw, 34px);
+    line-height: 1.25;
+    margin: 32px 0 0;
+    max-width: 880px;
+  }
+
+  .councils { display: flex; flex-wrap: wrap; gap: 16px; }
+  .council {
+    flex: 1 1 210px;
+    min-width: 0;
+    background: var(--panel);
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+    padding: 20px 22px;
+  }
+  .council-name {
+    display: block;
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.05;
+  }
+  .council-type {
+    display: block;
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  .made-possible {
+    margin-top: 48px;
+    padding-top: 28px;
+    border-top: 3px solid var(--ink);
+  }
+  .made-possible-title { margin: 0 0 24px; font-weight: 600; font-size: 19px; }
+  .made-possible-list { display: flex; flex-wrap: wrap; gap: 32px 48px; }
+  .made-possible-item {
+    flex: 1 1 280px;
+    min-width: 0;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .made-possible-item svg { flex: none; }
+  .made-possible-item h3 {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.1;
+    margin: 0 0 6px;
+  }
+  .made-possible-item p { margin: 0; }
+
+  .thanks { gap: 32px 80px; }
+  .thanks-name { flex: 1 1 340px; min-width: 0; }
+  .thanks-name h2 { font-size: 56px; }
+  .thanks-location { margin: 10px 0 0; }
+  .thanks-text {
+    flex: 1.4 1 460px;
+    min-width: 0;
+    margin: 0;
+    font-family: var(--slab);
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.3;
+    color: #FFFFFF;
+  }
+
+  .building {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 80px;
+    align-items: flex-start;
+  }
+  .building-text { flex: 1 1 340px; min-width: 0; }
+  .building-text h2 { margin-bottom: 20px; }
+  .building-intro { margin: 0; font-size: 19px; max-width: 460px; }
+  .building-link { margin: 16px 0 0; }
+  .grants {
+    flex: 1.3 1 460px;
+    min-width: 0;
+    border-top: 3px solid var(--ink);
+  }
+  .grant {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 32px;
+    padding: 26px 4px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .grant-name {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.1;
+    flex: 0 1 260px;
+  }
+  .grant p { margin: 0; flex: 1 1 260px; }
+
+  .become { padding-top: 64px; padding-bottom: 64px; }
+  .become-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 48px;
+  }
+  .become-inner p {
+    margin: 0;
+    font-family: var(--slab);
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 1.3;
+    max-width: 760px;
+  }
+  .become-inner a { font-size: 19px; }
+
+  @media (max-width: 759px) {
+    .supporters-hero { padding-bottom: 64px; }
+    .thanks-name h2 { font-size: 46px; }
+    .thanks-text { font-size: 24px; }
+    .become-inner p { font-size: 23px; }
+  }
+</style>

@@ -1,0 +1,82 @@
+---
+import { footerMenu } from '../data/nav';
+import { phoneHref, settings } from '../data/site';
+---
+
+<footer class="site-footer on-dark">
+  <div class="footer-inner">
+    <div class="footer-contact">
+      <p class="footer-name">Bicycle Kitchen<br />La Bici-Cocina</p>
+      <p>{settings.address_line_1}<br />{settings.address_line_2}</p>
+      <p class="footer-reach">
+        <a href={phoneHref}>{settings.phone}</a><br />
+        <a href={`mailto:${settings.email}`}>{settings.email}</a>
+      </p>
+    </div>
+    {footerMenu.map((column) => (
+      <nav class="footer-column" aria-label={`Footer: ${column.label}`}>
+        <span class="footer-heading">{column.label}</span>
+        {column.items.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+    ))}
+    <div class="footer-column">
+      <span class="footer-heading">Follow</span>
+      <a href={settings.instagram_url}>Instagram {settings.instagram_handle}</a>
+    </div>
+  </div>
+  <p class="footer-note">Bicycle Kitchen Los Angeles is a nonprofit bicycle repair education organization.</p>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--ink);
+    color: var(--stone);
+    padding: 64px var(--gutter) 40px;
+  }
+  .footer-inner {
+    max-width: 1216px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 64px;
+  }
+  .footer-contact { flex: 1.4 1 280px; min-width: 0; }
+  .footer-contact p { margin: 0; }
+  .footer-contact .footer-name {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.1;
+    margin: 0 0 12px;
+    color: #FFFFFF;
+  }
+  .footer-contact .footer-reach { margin-top: 12px; overflow-wrap: anywhere; }
+  .footer-reach a, .footer-reach a:hover { color: #FFFFFF; }
+  .footer-column {
+    flex: 1 1 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .footer-heading { color: #FFFFFF; font-weight: 600; }
+  .footer-column a { color: var(--stone); }
+  .footer-column a:hover { color: #FFFFFF; }
+  .footer-note {
+    max-width: 1216px;
+    margin: 48px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--muted);
+    font-size: 14px;
+    color: #B5AA99;
+  }
+
+  @media (max-width: 759px) {
+    .footer-column { gap: 0; }
+    .footer-column a, .footer-reach a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+  }
+</style>

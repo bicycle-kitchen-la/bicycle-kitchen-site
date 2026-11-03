@@ -1,0 +1,22 @@
+# The people and groups thanked on the Supporters page.
+
+# Each one gets its own card, under the "Neighborhood Councils" heading.
+neighborhood_councils:
+  - name: East Hollywood
+  - name: Silver Lake
+  - name: Echo Park
+  - name: Hollywood United
+  - name: Central Hollywood
+
+# Each one gets its own "A special thanks" band.
+individuals:
+  - name: The Fujimoto family
+    location: San Gabriel Valley
+    thanks: Their large donations of bike parts fill our bins and keep people and their bikes rolling.
+
+# Listed under "The building we call home".
+grants:
+  - name: Metabolic Studio
+    description: A major financial contribution in 2012 that helped us buy our building.
+  - name: Bohnett Foundation
+    description: A smaller but still important grant that helped make our home possible.

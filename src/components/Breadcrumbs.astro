@@ -1,0 +1,36 @@
+---
+interface Props {
+  trail: { label: string; href?: string }[];
+  current: string;
+}
+const { trail, current } = Astro.props;
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="/">Home</a>
+  <span class="separator" aria-hidden="true">/</span>
+  {trail.map((step) => (
+    <>
+      {step.href ? <a href={step.href}>{step.label}</a> : step.label}
+      <span class="separator" aria-hidden="true">/</span>
+    </>
+  ))}
+  <span class="current" aria-current="page">{current}</span>
+</nav>
+
+<style>
+  .breadcrumbs {
+    max-width: calc(1216px + 2 * var(--gutter));
+    margin: 0 auto;
+    padding: 28px var(--gutter) 0;
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .separator { margin: 0 0.3em; }
+  .current { font-weight: 600; color: var(--ink); }
+
+  @media (max-width: 759px) {
+    .breadcrumbs { padding-top: 16px; }
+    .breadcrumbs a { display: inline-flex; align-items: center; min-height: 44px; }
+  }
+</style>

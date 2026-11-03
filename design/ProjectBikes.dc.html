@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project bikes · Bicycle Kitchen</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#221F20}a:hover{color:#A63A22}
+.bk-wheel{transform-origin:50% 50%;animation:bk-roll 1.4s cubic-bezier(.22,.9,.28,1) both}
+.bk-wheel-2{animation-delay:.25s}
+.bk-wheel-3{animation-delay:.5s}
+@keyframes bk-roll{0%{transform:translateX(3em) rotate(1260deg);opacity:0}15%{opacity:1}100%{transform:translateX(0) rotate(0deg);opacity:1}}
+@media (prefers-reduced-motion: reduce){.bk-wheel{animation:none}}
+</style>
+</helmet>
+<div id="top" style="font-family: 'Work Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 17px; line-height: 1.6; color: #221F20; background: {{primary}}">
+
+  <sc-if value="{{alertOn}}" hint-placeholder-val="{{ true }}">
+    <div role="status" style="background: #A63A22; color: #FFFFFF; padding: 12px 24px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 16px; font-weight: 600; text-align: center">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18h.01"></path></svg>
+      <span>{{alertText}}</span>
+      <a href="tel:+13236622776" style="color: #FFFFFF; text-decoration: underline">Call (323) 662-2776</a>
+    </div>
+  </sc-if>
+
+  <header style="background: {{primary}}; border-bottom: 3px solid #221F20; position: relative; z-index: 10">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 14px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 32px">
+      <a href="Main.dc.html" aria-label="Bicycle Kitchen / La Bici-Cocina, home" style="display: block; flex: none">
+        <img src="/_blob/4d22129cb712de0d18c2e70915ff0039" alt="Bicycle Kitchen / La Bici-Cocina logo" style="height: 116px; width: auto; display: block">
+      </a>
+      <nav aria-label="Main" style="margin-left: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 24px">
+
+        <div data-menu="true" style="position: relative">
+          <button type="button" onClick="{{toggleRepair}}" aria-expanded="{{repairExpanded}}" style="background: transparent; border: 0; padding: 12px 4px; min-height: 44px; font-family: inherit; font-size: 24px; font-weight: 600; color: #221F20; cursor: pointer; display: flex; align-items: center; gap: 6px">Bike Repair <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button>
+          <sc-if value="{{repairOpen}}" hint-placeholder-val="{{ false }}">
+            <div style="position: absolute; top: 100%; left: 0; min-width: 230px; background: #FBF9F5; border: 2px solid #221F20; border-radius: 4px; padding: 6px; display: flex; flex-direction: column; box-shadow: 5px 5px 0 #221F20">
+              <a href="LearnRepair.dc.html" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Learn to repair</a>
+              <a href="ProjectBikes.dc.html" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Project bikes</a>
+            </div>
+          </sc-if>
+        </div>
+
+        <a href="Hours.dc.html" style="padding: 12px 4px; min-height: 44px; box-sizing: border-box; display: flex; align-items: center; font-size: 24px; font-weight: 600; color: #221F20; text-decoration: none">Hours</a>
+
+        <div data-menu="true" style="position: relative">
+          <button type="button" onClick="{{toggleAbout}}" aria-expanded="{{aboutExpanded}}" style="background: transparent; border: 0; padding: 12px 4px; min-height: 44px; font-family: inherit; font-size: 24px; font-weight: 600; color: #221F20; cursor: pointer; display: flex; align-items: center; gap: 6px">About <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button>
+          <sc-if value="{{aboutOpen}}" hint-placeholder-val="{{ false }}">
+            <div style="position: absolute; top: 100%; left: 0; min-width: 230px; background: #FBF9F5; border: 2px solid #221F20; border-radius: 4px; padding: 6px; display: flex; flex-direction: column; box-shadow: 5px 5px 0 #221F20">
+              <a href="About.dc.html" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Our mission</a>
+              <a href="About.dc.html#who" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Who we are</a>
+              <a href="CoOps.dc.html" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Other LA Co-Ops</a>
+              <a href="Supporters.dc.html" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Supporters</a>
+            </div>
+          </sc-if>
+        </div>
+
+        <div data-menu="true" style="position: relative">
+          <button type="button" onClick="{{toggleInvolved}}" aria-expanded="{{involvedExpanded}}" style="background: transparent; border: 0; padding: 12px 4px; min-height: 44px; font-family: inherit; font-size: 24px; font-weight: 600; color: #221F20; cursor: pointer; display: flex; align-items: center; gap: 6px">Get Involved <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button>
+          <sc-if value="{{involvedOpen}}" hint-placeholder-val="{{ false }}">
+            <div style="position: absolute; top: 100%; left: 0; min-width: 230px; background: #FBF9F5; border: 2px solid #221F20; border-radius: 4px; padding: 6px; display: flex; flex-direction: column; box-shadow: 5px 5px 0 #221F20">
+              <a href="Donate.dc.html" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Donate</a>
+              <a href="Donate.dc.html#other" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Donate bikes and parts</a>
+              <a href="Volunteer.dc.html" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Volunteer</a>
+            </div>
+          </sc-if>
+        </div>
+
+        <a href="https://www.instagram.com/bicicocina/" aria-label="Bicycle Kitchen on Instagram, @bicicocina" style="display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; color: #221F20">
+          <svg aria-hidden="true" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
+        </a>
+        <a href="Donate.dc.html" style="background: #A63A22; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 24px; padding: 14px 34px; border-radius: 4px; min-height: 58px; box-sizing: border-box; display: flex; align-items: center">Donate</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav aria-label="Breadcrumb" style="max-width: 1216px; margin: 0 auto; padding: 28px 32px 0; font-size: 15px; color: #4A433D">
+    <a href="Main.dc.html">Home</a> <span aria-hidden="true">/</span> Bike Repair <span aria-hidden="true">/</span> <span aria-current="page" style="font-weight: 600; color: #221F20">Project bikes</span>
+  </nav>
+
+  <section aria-labelledby="pb-title" style="background: {{primary}}; padding: 24px 32px 96px; overflow: hidden">
+    <div style="max-width: 1216px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 48px 80px">
+      <div style="flex: 1.2 1 480px; min-width: 0">
+        <h1 id="pb-title" style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: clamp(72px, 10vw, 144px); line-height: 0.86; letter-spacing: -0.02em; margin: 0">Project bikes<svg class="bk-wheel" aria-hidden="true" viewBox="0 0 100 100" style="display: inline-block; width: 0.27em; height: 0.27em; margin-left: 0.05em; vertical-align: baseline"><path d="M50 50L85.0 50.0M50 50L82.9 62.0M50 50L76.8 72.5M50 50L67.5 80.3M50 50L56.1 84.5M50 50L43.9 84.5M50 50L32.5 80.3M50 50L23.2 72.5M50 50L17.1 62.0M50 50L15.0 50.0M50 50L17.1 38.0M50 50L23.2 27.5M50 50L32.5 19.7M50 50L43.9 15.5M50 50L56.1 15.5M50 50L67.5 19.7M50 50L76.8 27.5M50 50L82.9 38.0" fill="none" stroke="#221F20" stroke-width="2.4"></path><circle cx="50" cy="50" r="36.5" fill="none" stroke="#A63A22" stroke-width="4"></circle><circle cx="50" cy="50" r="44" fill="none" stroke="#221F20" stroke-width="10"></circle><circle cx="50" cy="50" r="8" fill="#A63A22"></circle><circle cx="50" cy="50" r="3" fill="#221F20"></circle></svg></h1>
+        <p style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-weight: 600; font-size: 30px; line-height: 1.25; margin: 28px 0 0; max-width: 600px">Build your next bike yourself, from one of our many donations.</p>
+        <p style="font-size: 19px; margin: 18px 0 0; max-width: 560px">Anyone can come in, get connected with a donated bike, and work on it as their own project, with tools, used parts, and a Cook to help.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px">
+          <a href="#how" style="background: #221F20; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 14px 26px; border-radius: 4px">How it works</a>
+          <a href="#work-trade" style="background: transparent; color: #221F20; border: 2px solid #221F20; text-decoration: none; font-weight: 600; padding: 12px 24px; border-radius: 4px">About Work Trade</a>
+        </div>
+      </div>
+      <div style="flex: 1 1 380px; min-width: 0; max-width: 500px; height: 440px; background: #C2B8A8; color: #3A3430; border-radius: 4px; transform: rotate(1.5deg); display: flex; align-items: flex-end; padding: 16px; box-sizing: border-box; font-size: 14px">Photo: donated bikes lined up and waiting for new riders</div>
+    </div>
+  </section>
+
+  <section id="how" aria-labelledby="how-title" style="background: #ECE7DE; padding: 96px 32px">
+    <div style="max-width: 1216px; margin: 0 auto">
+      <h2 id="how-title" style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 52px; line-height: 1; margin: 0 0 40px">How it works</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 40px">
+        <div style="flex: 1 1 240px; min-width: 0; border-top: 3px solid #221F20; padding-top: 20px">
+          <div aria-hidden="true" style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 80px; line-height: 0.9; color: #A63A22">1</div>
+          <h3 style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 28px; line-height: 1.1; margin: 14px 0 10px">Pick a bike</h3>
+          <p style="margin: 0">Come in during open hours, and a Cook will connect you with one of our donated bikes.</p>
+          <p style="margin: 12px 0 0"><a href="Hours.dc.html" style="font-weight: 600">See shop hours</a></p>
+        </div>
+        <div style="flex: 1 1 240px; min-width: 0; border-top: 3px solid #221F20; padding-top: 20px">
+          <div aria-hidden="true" style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 80px; line-height: 0.9; color: #A63A22">2</div>
+          <h3 style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 28px; line-height: 1.1; margin: 14px 0 10px">Agree on a price</h3>
+          <p style="margin: 0">Together, we come to a shared understanding of what your project bike costs.</p>
+        </div>
+        <div style="flex: 1 1 240px; min-width: 0; border-top: 3px solid #221F20; padding-top: 20px">
+          <div aria-hidden="true" style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 80px; line-height: 0.9; color: #A63A22">3</div>
+          <h3 style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 28px; line-height: 1.1; margin: 14px 0 10px">Make it yours</h3>
+          <p style="margin: 0">Work on it, and swap in any used part available in our shop. It’s all covered by the price you agreed on.</p>
+        </div>
+        <div style="flex: 1 1 240px; min-width: 0; border-top: 3px solid #221F20; padding-top: 20px">
+          <div aria-hidden="true" style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 80px; line-height: 0.9; color: #A63A22">4</div>
+          <h3 style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 28px; line-height: 1.1; margin: 14px 0 10px">Finish in 30 days</h3>
+          <p style="margin: 0">You have 30 days to finish your project. After that, the bike may go back into circulation for someone else.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work-trade" aria-labelledby="wt-title" style="background: #221F20; color: #D6CEC1; padding: 96px 32px">
+    <div style="max-width: 1216px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 48px 80px">
+      <div style="flex: 1.3 1 480px; min-width: 0">
+        <p style="margin: 0 0 12px; font-weight: 600; color: #E9A08F; letter-spacing: 0.04em; text-transform: uppercase; font-size: 14px">We work with any budget</p>
+        <h2 id="wt-title" style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 56px; line-height: 1; margin: 0 0 22px; color: #FFFFFF">Work Trade</h2>
+        <p style="margin: 0; font-size: 19px; max-width: 600px">Some of your bike’s price can be worked off. Support the Kitchen by helping with tasks like cleaning and organizing the shop, and every hour you put in takes $15 off your project bike.</p>
+        <p style="margin: 16px 0 0; max-width: 600px">Just ask a Cook during open hours to set it up.</p>
+      </div>
+      <div style="flex: 1 1 340px; min-width: 0; background: #D6CEC1; color: #221F20; border-radius: 4px; padding: 32px; transform: rotate(-1.5deg)">
+        <div style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 96px; line-height: 0.9">$15</div>
+        <div style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 28px; margin-top: 6px">off per hour of Work Trade</div>
+        <p style="margin: 20px 0 0; padding-top: 16px; border-top: 2px dashed #9C9283">For example, 4 hours of cleaning and organizing takes $60 off your bike’s price.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="faq-title" style="background: {{primary}}; padding: 96px 32px">
+    <div style="max-width: 1216px; margin: 0 auto">
+      <h2 id="faq-title" style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 52px; line-height: 1; margin: 0 0 32px">Good to know</h2>
+      <div style="border-top: 3px solid #221F20">
+          <div style="display: flex; flex-wrap: wrap; gap: 8px 48px; padding: 24px 4px; border-bottom: 1px solid #9C9283">
+            <h3 style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 26px; line-height: 1.15; margin: 0; flex: 0 1 380px">Who can get a project bike?</h3>
+            <p style="margin: 0; flex: 1 1 420px; max-width: 640px">Anyone. You don’t need experience. Cooks will help you along the way.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px 48px; padding: 24px 4px; border-bottom: 1px solid #9C9283">
+            <h3 style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 26px; line-height: 1.15; margin: 0; flex: 0 1 380px">What does the price include?</h3>
+            <p style="margin: 0; flex: 1 1 420px; max-width: 640px">The bike plus any used part available in our shop. Swap or change parts as much as you need for the price you agreed on.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px 48px; padding: 24px 4px; border-bottom: 1px solid #9C9283">
+            <h3 style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 26px; line-height: 1.15; margin: 0; flex: 0 1 380px">What if I can’t finish in 30 days?</h3>
+            <p style="margin: 0; flex: 1 1 420px; max-width: 640px">After 30 days, the bike risks going back into circulation so someone else can use it. Talk to a Cook if you’re running short on time.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px 48px; padding: 24px 4px; border-bottom: 1px solid #9C9283">
+            <h3 style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 26px; line-height: 1.15; margin: 0; flex: 0 1 380px">Can I pay with Work Trade?</h3>
+            <p style="margin: 0; flex: 1 1 420px; max-width: 640px">Yes. Every hour of Work Trade, like cleaning or organizing, takes $15 off your bike’s price.</p>
+          </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer style="background: #221F20; color: #D6CEC1; padding: 64px 32px 40px">
+    <div style="max-width: 1216px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px 64px">
+      <div style="flex: 1.4 1 280px; min-width: 0">
+        <p style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 28px; line-height: 1.1; margin: 0 0 12px; color: #FFFFFF">Bicycle Kitchen<br>La Bici-Cocina</p>
+        <p style="margin: 0">4429 Fountain Ave<br>Los Angeles, CA 90029</p>
+        <p style="margin: 12px 0 0"><a href="tel:+13236622776" style="color: #FFFFFF">(323) 662-2776</a><br><a href="mailto:kitchen@bicyclekitchen.com" style="color: #FFFFFF">kitchen@bicyclekitchen.com</a></p>
+      </div>
+      <nav aria-label="Footer: About" style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 8px">
+        <span style="color: #FFFFFF; font-weight: 600">About</span>
+        <a href="About.dc.html" style="color: #D6CEC1">Our mission</a>
+        <a href="About.dc.html#who" style="color: #D6CEC1">Who we are</a>
+        <a href="CoOps.dc.html" style="color: #D6CEC1">Other LA Co-Ops</a>
+        <a href="Supporters.dc.html" style="color: #D6CEC1">Supporters</a>
+      </nav>
+      <nav aria-label="Footer: Bike repair" style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 8px">
+        <span style="color: #FFFFFF; font-weight: 600">Bike repair</span>
+        <a href="Hours.dc.html" style="color: #D6CEC1">Shop hours</a>
+        <a href="LearnRepair.dc.html" style="color: #D6CEC1">Learn to repair</a>
+        <a href="ProjectBikes.dc.html" style="color: #D6CEC1">Project bikes</a>
+      </nav>
+      <nav aria-label="Footer: Get involved" style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 8px">
+        <span style="color: #FFFFFF; font-weight: 600">Get involved</span>
+        <a href="Donate.dc.html" style="color: #D6CEC1">Donate</a>
+        <a href="Volunteer.dc.html" style="color: #D6CEC1">Volunteer</a>
+      </nav>
+      <div style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 8px">
+        <span style="color: #FFFFFF; font-weight: 600">Follow</span>
+        <a href="https://www.instagram.com/bicicocina/" style="color: #D6CEC1">Instagram @bicicocina</a>
+      </div>
+    </div>
+    <p style="max-width: 1216px; margin: 48px auto 0; padding-top: 20px; border-top: 1px solid #4A433D; font-size: 14px; color: #B5AA99">Bicycle Kitchen Los Angeles is a nonprofit bicycle repair education organization.</p>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"alertOn":{"editor":"boolean","default":true,"section":"Alert banner"},"alertText":{"editor":"text","default":"We’re closed tonight because of volunteer shortages. Open during our next Open Shop hours.","section":"Alert banner"},"primary":{"editor":"color","default":"#D6CEC1","options":["#D6CEC1","#E3DCD0","#C9BFAF"],"section":"Colors"},"$preview":{"width":1440,"height":3150}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { open: null };
+  }
+  toggle(name) {
+    this.setState({ open: this.state.open === name ? null : name });
+  }
+  componentDidMount() {
+    this._onDocClick = (e) => {
+      const inMenu = e.target && e.target.closest && e.target.closest('[data-menu]');
+      if (this.state.open && !inMenu) this.setState({ open: null });
+    };
+    this._onKey = (e) => {
+      if (e.key === 'Escape' && this.state.open) this.setState({ open: null });
+    };
+    document.addEventListener('click', this._onDocClick);
+    document.addEventListener('keydown', this._onKey);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('click', this._onDocClick);
+    document.removeEventListener('keydown', this._onKey);
+  }
+  renderVals() {
+    const open = this.state.open;
+    return {
+      alertOn: this.props.alertOn ?? true,
+      alertText: this.props.alertText ?? 'We’re closed tonight because of volunteer shortages. Open during our next Open Shop hours.',
+      primary: this.props.primary ?? '#D6CEC1',
+      repairOpen: open === 'repair',
+      aboutOpen: open === 'about',
+      involvedOpen: open === 'involved',
+      repairExpanded: open === 'repair' ? 'true' : 'false',
+      aboutExpanded: open === 'about' ? 'true' : 'false',
+      involvedExpanded: open === 'involved' ? 'true' : 'false',
+      toggleRepair: () => this.toggle('repair'),
+      toggleAbout: () => this.toggle('about'),
+      toggleInvolved: () => this.toggle('involved'),
+      hours: [
+        { day: 'Monday', time: '6 – 9 pm', hasNote: false, note: '' },
+        { day: 'Tuesday', time: '6:30 – 9 pm', hasNote: false, note: '' },
+        { day: 'Wednesday', time: '6 – 9 pm', hasNote: false, note: '' },
+        { day: 'Thursday', time: '6 – 9 pm', hasNote: true, note: 'FTWNB night: femme, trans, women and non-binary folks' },
+        { day: 'Friday', time: 'Closed', hasNote: false, note: '' },
+        { day: 'Saturday', time: '12 – 3 pm', hasNote: false, note: '' },
+        { day: 'Sunday', time: 'Closed', hasNote: false, note: '' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+---
+import Wheel from '../components/Wheel.astro';
+import { links } from '../data/nav';
+import { settings } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const giveLinks = [
+  { name: 'Donate with PayPal', note: '@bicyclekitchen · Use a card or your PayPal account.', href: settings.paypal_url },
+  { name: 'Donate with Venmo', note: '@BicycleKitchen · Quick and easy from your phone.', href: settings.venmo_url },
+  { name: 'Donate with Zeffy', note: 'Free for nonprofits, so more of your gift reaches us.', href: settings.zeffy_url, dark: true },
+];
+---
+
+<BaseLayout
+  title="Donate · Bicycle Kitchen"
+  description="Every dollar keeps the Kitchen open to everyone. Donate with PayPal, Venmo, or Zeffy, or give used bikes and parts during open hours."
+  breadcrumbs={[{ label: 'Get Involved' }]}
+  breadcrumbCurrent="Donate"
+>
+  <section class="page-hero" aria-labelledby="don-title">
+    <div class="container split">
+      <div class="donate-text">
+        <h1 id="don-title" class="page-title">Donate<Wheel /></h1>
+        <p class="lead">Every dollar keeps the Kitchen open to everyone.</p>
+        <p class="intro">We’re run entirely by volunteers, so your donation goes straight into the space, the tools, and the community.</p>
+      </div>
+      <div class="give-card section-alt">
+        <h2>Give online</h2>
+        {giveLinks.map((give) => (
+          <a class:list={['give-link', { dark: give.dark }]} href={give.href}>
+            <span class="give-name">{give.name}</span>
+            <span class="give-note">{give.note}</span>
+          </a>
+        ))}
+        <p class="give-small give-nonprofit">Bicycle Kitchen is a 501(c)(3) nonprofit.</p>
+        <p class="give-small">Need a tax receipt? Email us at <a class="give-email" href={`mailto:${settings.email}`}>{settings.email}</a> with proof of your donation, and we’ll send one your way.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="use-title">
+    <div class="container">
+      <div class="heading-row use-heading">
+        <h2 id="use-title" class="h2">Where your money goes</h2>
+        <p>Here’s what your donation actually pays for.</p>
+      </div>
+      <div class="uses">
+        <div class="use">
+          <svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#A63A22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V4h14v17"></path><path d="M15 12h.01"></path></svg>
+          <div>
+            <h3>Keeping the space open</h3>
+            <p>The bills that keep our doors open, so there’s a place to come wrench every week.</p>
+          </div>
+        </div>
+        <div class="use">
+          <svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#A63A22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.4 2.4-2.6-.4-.4-2.6z"></path></svg>
+          <div>
+            <h3>Tools</h3>
+            <p>Buying, replacing, and repairing the tools and stands everyone uses, from tire levers to truing stands.</p>
+          </div>
+        </div>
+        <div class="use">
+          <svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#A63A22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"></path><path d="M5 4h11l-2 4 2 4H5"></path></svg>
+          <div>
+            <h3>Community events</h3>
+            <p>Showing up for events like CicLAvia to help riders and bring bike repair out into the streets.</p>
+          </div>
+        </div>
+        <div class="use">
+          <svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#A63A22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+          <div>
+            <h3>Staying accessible</h3>
+            <p>No one is turned away for lack of funds. Your donation covers those who can’t pay, so the Kitchen stays open to everyone.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="other" class="section" aria-labelledby="other-title">
+    <div class="container">
+      <h2 id="other-title" class="h2 other-title">Other ways to give</h2>
+      <div class="others">
+        <div class="other">
+          <h3>Donate bikes and parts</h3>
+          <p>Drop off used bikes and parts during open hours. They become project bikes and spare parts for the community. Tax receipts available.</p>
+          <p class="other-link"><a class="link-strong" href={links.hours.href}>See open hours</a></p>
+        </div>
+        <div class="other">
+          <h3>Give your time</h3>
+          <p>Volunteers are what keep us open. No experience needed.</p>
+          <p class="other-link"><a class="link-strong" href={links.volunteer.href}>Become a volunteer</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .donate-text { flex: 1.3 1 480px; min-width: 0; }
+
+  .give-card {
+    flex: 1 1 360px;
+    min-width: 0;
+    border: 3px solid var(--ink);
+    border-radius: 4px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+  .give-card h2 {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 28px;
+    margin: 0 0 4px;
+  }
+  .give-link, .give-link:hover {
+    display: block;
+    background: #FFFFFF;
+    color: var(--ink);
+    text-decoration: none;
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+    padding: 16px 22px;
+  }
+  .give-link.dark, .give-link.dark:hover { background: var(--ink); color: #FFFFFF; }
+  .give-link:hover .give-name { text-decoration: underline; }
+  .give-name { display: block; font-weight: 700; font-size: 21px; }
+  .give-note { display: block; font-size: 15px; margin-top: 2px; opacity: 0.85; }
+  .give-small { margin: 0; font-size: 14px; color: var(--muted); }
+  .give-nonprofit { margin-top: 6px; }
+  .give-email { font-weight: 600; overflow-wrap: anywhere; }
+
+  .use-heading { margin-bottom: 28px; }
+  .use-heading p { max-width: 480px; }
+  .uses {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 48px;
+    border-top: 3px solid var(--ink);
+  }
+  .use {
+    flex: 1 1 460px;
+    min-width: 0;
+    display: flex;
+    gap: 20px;
+    padding: 28px 4px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .use svg { flex: none; margin-top: 4px; }
+  .use h3, .other h3 {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.1;
+    margin: 0 0 8px;
+  }
+  .use p { margin: 0; max-width: 520px; }
+
+  .other-title { margin-bottom: 32px; }
+  .others { display: flex; flex-wrap: wrap; gap: 40px; }
+  .other {
+    flex: 1 1 420px;
+    min-width: 0;
+    border-top: 3px solid var(--ink);
+    padding-top: 20px;
+  }
+  .other h3 { margin-bottom: 10px; }
+  .other p { margin: 0; }
+  .other .other-link { margin-top: 12px; }
+
+  @media (max-width: 759px) {
+    .give-card { padding: 20px; box-shadow: 5px 5px 0 var(--ink); }
+    .use { gap: 14px; }
+    .use h3, .other h3 { font-size: 26px; }
+  }
+</style>

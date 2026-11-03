@@ -1,0 +1,17 @@
+# Weekly shop hours, shown on the Hours page. The note is optional.
+days:
+  - day: Monday
+    time: "6 – 9 pm"
+  - day: Tuesday
+    time: "6:30 – 9 pm"
+  - day: Wednesday
+    time: "6 – 9 pm"
+  - day: Thursday
+    time: "6 – 9 pm"
+    note: "FTWNB night: femme, trans, women and non-binary folks"
+  - day: Friday
+    time: Closed
+  - day: Saturday
+    time: "12 – 3 pm"
+  - day: Sunday
+    time: Closed

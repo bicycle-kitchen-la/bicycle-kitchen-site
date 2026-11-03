@@ -1,0 +1,19 @@
+# Site settings. Used on every page.
+
+# Alert banner: set alert_on to true to show it on every page, false to hide it.
+alert_on: true
+alert_message: "We’re closed tonight because of volunteer shortages. Open during our next Open Shop hours."
+
+# Contact info
+phone: "(323) 662-2776"
+email: "kitchen@bicyclekitchen.com"
+address_line_1: "4429 Fountain Ave"
+address_line_2: "Los Angeles, CA 90029"
+directions_url: "https://maps.google.com/?q=4429+Fountain+Ave+Los+Angeles+CA+90029"
+instagram_url: "https://www.instagram.com/bicicocina/"
+instagram_handle: "@bicicocina"
+
+# Donation links
+paypal_url: "https://www.paypal.com/paypalme/bicyclekitchen"
+venmo_url: "https://www.venmo.com/u/BicycleKitchen"
+zeffy_url: "https://www.zeffy.com/en-US/donation-form/donate-to-bicycle-kitchen"

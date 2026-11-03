@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hours · Bicycle Kitchen</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#221F20}a:hover{color:#A63A22}
+.bk-wheel{transform-origin:50% 50%;animation:bk-roll 1.4s cubic-bezier(.22,.9,.28,1) both}
+.bk-wheel-2{animation-delay:.25s}
+.bk-wheel-3{animation-delay:.5s}
+@keyframes bk-roll{0%{transform:translateX(3em) rotate(1260deg);opacity:0}15%{opacity:1}100%{transform:translateX(0) rotate(0deg);opacity:1}}
+@media (prefers-reduced-motion: reduce){.bk-wheel{animation:none}}
+</style>
+</helmet>
+<div id="top" style="font-family: 'Work Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 17px; line-height: 1.6; color: #221F20; background: {{primary}}">
+
+  <sc-if value="{{alertOn}}" hint-placeholder-val="{{ true }}">
+    <div role="status" style="background: #A63A22; color: #FFFFFF; padding: 12px 24px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 16px; font-weight: 600; text-align: center">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18h.01"></path></svg>
+      <span>{{alertText}}</span>
+      <a href="tel:+13236622776" style="color: #FFFFFF; text-decoration: underline">Call (323) 662-2776</a>
+    </div>
+  </sc-if>
+
+  <header style="background: {{primary}}; border-bottom: 3px solid #221F20; position: relative; z-index: 10">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 14px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 32px">
+      <a href="Main.dc.html" aria-label="Bicycle Kitchen / La Bici-Cocina, home" style="display: block; flex: none">
+        <img src="/_blob/4d22129cb712de0d18c2e70915ff0039" alt="Bicycle Kitchen / La Bici-Cocina logo" style="height: 116px; width: auto; display: block">
+      </a>
+      <nav aria-label="Main" style="margin-left: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 24px">
+
+        <div data-menu="true" style="position: relative">
+          <button type="button" onClick="{{toggleRepair}}" aria-expanded="{{repairExpanded}}" style="background: transparent; border: 0; padding: 12px 4px; min-height: 44px; font-family: inherit; font-size: 24px; font-weight: 600; color: #221F20; cursor: pointer; display: flex; align-items: center; gap: 6px">Bike Repair <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button>
+          <sc-if value="{{repairOpen}}" hint-placeholder-val="{{ false }}">
+            <div style="position: absolute; top: 100%; left: 0; min-width: 230px; background: #FBF9F5; border: 2px solid #221F20; border-radius: 4px; padding: 6px; display: flex; flex-direction: column; box-shadow: 5px 5px 0 #221F20">
+              <a href="LearnRepair.dc.html" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Learn to repair</a>
+              <a href="ProjectBikes.dc.html" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Project bikes</a>
+            </div>
+          </sc-if>
+        </div>
+
+        <a href="Hours.dc.html" aria-current="page" style="text-decoration: underline; text-underline-offset: 6px; padding: 12px 4px; min-height: 44px; box-sizing: border-box; display: flex; align-items: center; font-size: 24px; font-weight: 600; color: #221F20; text-decoration: none">Hours</a>
+
+        <div data-menu="true" style="position: relative">
+          <button type="button" onClick="{{toggleAbout}}" aria-expanded="{{aboutExpanded}}" style="background: transparent; border: 0; padding: 12px 4px; min-height: 44px; font-family: inherit; font-size: 24px; font-weight: 600; color: #221F20; cursor: pointer; display: flex; align-items: center; gap: 6px">About <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button>
+          <sc-if value="{{aboutOpen}}" hint-placeholder-val="{{ false }}">
+            <div style="position: absolute; top: 100%; left: 0; min-width: 230px; background: #FBF9F5; border: 2px solid #221F20; border-radius: 4px; padding: 6px; display: flex; flex-direction: column; box-shadow: 5px 5px 0 #221F20">
+              <a href="About.dc.html" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Our mission</a>
+              <a href="About.dc.html#who" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Who we are</a>
+              <a href="CoOps.dc.html" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Other LA Co-Ops</a>
+              <a href="Supporters.dc.html" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Supporters</a>
+            </div>
+          </sc-if>
+        </div>
+
+        <div data-menu="true" style="position: relative">
+          <button type="button" onClick="{{toggleInvolved}}" aria-expanded="{{involvedExpanded}}" style="background: transparent; border: 0; padding: 12px 4px; min-height: 44px; font-family: inherit; font-size: 24px; font-weight: 600; color: #221F20; cursor: pointer; display: flex; align-items: center; gap: 6px">Get Involved <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button>
+          <sc-if value="{{involvedOpen}}" hint-placeholder-val="{{ false }}">
+            <div style="position: absolute; top: 100%; left: 0; min-width: 230px; background: #FBF9F5; border: 2px solid #221F20; border-radius: 4px; padding: 6px; display: flex; flex-direction: column; box-shadow: 5px 5px 0 #221F20">
+              <a href="Donate.dc.html" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Donate</a>
+              <a href="Donate.dc.html#other" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Donate bikes and parts</a>
+              <a href="Volunteer.dc.html" style="padding: 10px 12px; text-decoration: none; font-weight: 600">Volunteer</a>
+            </div>
+          </sc-if>
+        </div>
+
+        <a href="https://www.instagram.com/bicicocina/" aria-label="Bicycle Kitchen on Instagram, @bicicocina" style="display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; color: #221F20">
+          <svg aria-hidden="true" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
+        </a>
+        <a href="Donate.dc.html" style="background: #A63A22; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 24px; padding: 14px 34px; border-radius: 4px; min-height: 58px; box-sizing: border-box; display: flex; align-items: center">Donate</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav aria-label="Breadcrumb" style="max-width: 1216px; margin: 0 auto; padding: 28px 32px 0; font-size: 15px; color: #4A433D">
+    <a href="Main.dc.html">Home</a> <span aria-hidden="true">/</span> <span aria-current="page" style="font-weight: 600; color: #221F20">Hours</span>
+  </nav>
+
+  <section aria-labelledby="hours-h" style="background: {{primary}}; padding: 24px 32px 96px; overflow: hidden">
+    <div style="max-width: 1216px; margin: 0 auto">
+      <h1 id="hours-h" style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: clamp(72px, 10vw, 144px); line-height: 0.86; letter-spacing: -0.02em; margin: 0 0 48px">Hours<svg class="bk-wheel" aria-hidden="true" viewBox="0 0 100 100" style="display: inline-block; width: 0.27em; height: 0.27em; margin-left: 0.05em; vertical-align: baseline"><path d="M50 50L85.0 50.0M50 50L82.9 62.0M50 50L76.8 72.5M50 50L67.5 80.3M50 50L56.1 84.5M50 50L43.9 84.5M50 50L32.5 80.3M50 50L23.2 72.5M50 50L17.1 62.0M50 50L15.0 50.0M50 50L17.1 38.0M50 50L23.2 27.5M50 50L32.5 19.7M50 50L43.9 15.5M50 50L56.1 15.5M50 50L67.5 19.7M50 50L76.8 27.5M50 50L82.9 38.0" fill="none" stroke="#221F20" stroke-width="2.4"></path><circle cx="50" cy="50" r="36.5" fill="none" stroke="#A63A22" stroke-width="4"></circle><circle cx="50" cy="50" r="44" fill="none" stroke="#221F20" stroke-width="10"></circle><circle cx="50" cy="50" r="8" fill="#A63A22"></circle><circle cx="50" cy="50" r="3" fill="#221F20"></circle></svg></h1>
+      <div style="display: flex; flex-wrap: wrap; gap: 48px 80px; align-items: flex-start">
+        <div style="flex: 1.4 1 480px; min-width: 0">
+        <div style="border-top: 3px solid #221F20">
+          <sc-for list="{{hours}}" as="row" hint-placeholder-count="7">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; padding: 20px 4px; border-bottom: 1px solid #9C9283">
+              <span style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 30px">{{row.day}}</span>
+              <span style="text-align: right">
+                <span style="font-weight: 600; font-size: 21px">{{row.time}}</span>
+                <sc-if value="{{row.hasNote}}" hint-placeholder-val="{{ false }}">
+                  <span style="display: block; font-size: 16px; color: #4A433D; font-weight: 700">{{row.note}}</span>
+                </sc-if>
+              </span>
+            </div>
+          </sc-for>
+        </div>
+        </div>
+        <div style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+          <p style="margin: 0; font-size: 19px">Drop in during open hours, sign in on our iPad, and a volunteer will point you to a stand and the right tools.</p>
+        <div style="background: #221F20; color: #ECE7DE; padding: 20px 24px; border-radius: 4px; max-width: 420px">
+          <p style="margin: 0 0 6px; font-weight: 600; color: #FFFFFF">Please call before you come.</p>
+          <p style="margin: 0 0 10px">We only open when a volunteer is on shift, so hours can change last minute.</p>
+          <a href="tel:+13236622776" style="color: #FFFFFF; font-weight: 600; font-size: 19px">(323) 662-2776</a>
+        </div>
+          <div>
+            <p style="margin: 0 0 8px; font-weight: 600; font-size: 19px">4429 Fountain Ave<br>Los Angeles, CA 90029</p>
+            <a href="https://maps.google.com/?q=4429+Fountain+Ave+Los+Angeles+CA+90029" style="font-weight: 600">Get directions</a>
+          </div>
+          <div style="background: #ECE7DE; border-left: 6px solid #A63A22; padding: 20px 24px">
+            <p style="margin: 0 0 8px"><strong>Closed tonight?</strong> Other volunteer-run co-ops around LA may be open.</p>
+            <a href="CoOps.dc.html" style="font-weight: 600">See other LA co-ops</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background: #221F20; color: #D6CEC1; padding: 64px 32px 40px">
+    <div style="max-width: 1216px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px 64px">
+      <div style="flex: 1.4 1 280px; min-width: 0">
+        <p style="font-family: 'Zilla Slab', Rockwell, Georgia, serif; font-weight: 700; font-size: 28px; line-height: 1.1; margin: 0 0 12px; color: #FFFFFF">Bicycle Kitchen<br>La Bici-Cocina</p>
+        <p style="margin: 0">4429 Fountain Ave<br>Los Angeles, CA 90029</p>
+        <p style="margin: 12px 0 0"><a href="tel:+13236622776" style="color: #FFFFFF">(323) 662-2776</a><br><a href="mailto:kitchen@bicyclekitchen.com" style="color: #FFFFFF">kitchen@bicyclekitchen.com</a></p>
+      </div>
+      <nav aria-label="Footer: About" style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 8px">
+        <span style="color: #FFFFFF; font-weight: 600">About</span>
+        <a href="About.dc.html" style="color: #D6CEC1">Our mission</a>
+        <a href="About.dc.html#who" style="color: #D6CEC1">Who we are</a>
+        <a href="CoOps.dc.html" style="color: #D6CEC1">Other LA Co-Ops</a>
+        <a href="Supporters.dc.html" style="color: #D6CEC1">Supporters</a>
+      </nav>
+      <nav aria-label="Footer: Bike repair" style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 8px">
+        <span style="color: #FFFFFF; font-weight: 600">Bike repair</span>
+        <a href="Hours.dc.html" style="color: #D6CEC1">Shop hours</a>
+        <a href="LearnRepair.dc.html" style="color: #D6CEC1">Learn to repair</a>
+        <a href="ProjectBikes.dc.html" style="color: #D6CEC1">Project bikes</a>
+      </nav>
+      <nav aria-label="Footer: Get involved" style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 8px">
+        <span style="color: #FFFFFF; font-weight: 600">Get involved</span>
+        <a href="Donate.dc.html" style="color: #D6CEC1">Donate</a>
+        <a href="Volunteer.dc.html" style="color: #D6CEC1">Volunteer</a>
+      </nav>
+      <div style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 8px">
+        <span style="color: #FFFFFF; font-weight: 600">Follow</span>
+        <a href="https://www.instagram.com/bicicocina/" style="color: #D6CEC1">Instagram @bicicocina</a>
+      </div>
+    </div>
+    <p style="max-width: 1216px; margin: 48px auto 0; padding-top: 20px; border-top: 1px solid #4A433D; font-size: 14px; color: #B5AA99">Bicycle Kitchen Los Angeles is a nonprofit bicycle repair education organization.</p>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"alertOn":{"editor":"boolean","default":true,"section":"Alert banner"},"alertText":{"editor":"text","default":"We’re closed tonight because of volunteer shortages. Open during our next Open Shop hours.","section":"Alert banner"},"primary":{"editor":"color","default":"#D6CEC1","options":["#D6CEC1","#E3DCD0","#C9BFAF"],"section":"Colors"},"$preview":{"width":1440,"height":1900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { open: null };
+  }
+  toggle(name) {
+    this.setState({ open: this.state.open === name ? null : name });
+  }
+  componentDidMount() {
+    this._onDocClick = (e) => {
+      const inMenu = e.target && e.target.closest && e.target.closest('[data-menu]');
+      if (this.state.open && !inMenu) this.setState({ open: null });
+    };
+    this._onKey = (e) => {
+      if (e.key === 'Escape' && this.state.open) this.setState({ open: null });
+    };
+    document.addEventListener('click', this._onDocClick);
+    document.addEventListener('keydown', this._onKey);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('click', this._onDocClick);
+    document.removeEventListener('keydown', this._onKey);
+  }
+  renderVals() {
+    const open = this.state.open;
+    return {
+      alertOn: this.props.alertOn ?? true,
+      alertText: this.props.alertText ?? 'We’re closed tonight because of volunteer shortages. Open during our next Open Shop hours.',
+      primary: this.props.primary ?? '#D6CEC1',
+      repairOpen: open === 'repair',
+      aboutOpen: open === 'about',
+      involvedOpen: open === 'involved',
+      repairExpanded: open === 'repair' ? 'true' : 'false',
+      aboutExpanded: open === 'about' ? 'true' : 'false',
+      involvedExpanded: open === 'involved' ? 'true' : 'false',
+      toggleRepair: () => this.toggle('repair'),
+      toggleAbout: () => this.toggle('about'),
+      toggleInvolved: () => this.toggle('involved'),
+      hours: [
+        { day: 'Monday', time: '6 – 9 pm', hasNote: false, note: '' },
+        { day: 'Tuesday', time: '6:30 – 9 pm', hasNote: false, note: '' },
+        { day: 'Wednesday', time: '6 – 9 pm', hasNote: false, note: '' },
+        { day: 'Thursday', time: '6 – 9 pm', hasNote: true, note: 'FTWNB night: femme, trans, women and non-binary folks' },
+        { day: 'Friday', time: 'Closed', hasNote: false, note: '' },
+        { day: 'Saturday', time: '12 – 3 pm', hasNote: false, note: '' },
+        { day: 'Sunday', time: 'Closed', hasNote: false, note: '' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

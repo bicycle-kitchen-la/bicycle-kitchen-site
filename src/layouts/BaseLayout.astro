@@ -1,0 +1,42 @@
+---
+import '@fontsource/zilla-slab/600.css';
+import '@fontsource/zilla-slab/700.css';
+import '@fontsource/work-sans/400.css';
+import '@fontsource/work-sans/600.css';
+import '../styles/global.css';
+import AlertBanner from '../components/AlertBanner.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  // Subpages list their parent sections here, e.g. [{ label: 'Bike Repair' }]
+  breadcrumbs?: { label: string; href?: string }[];
+  breadcrumbCurrent?: string;
+}
+
+const { title, description, breadcrumbs = [], breadcrumbCurrent } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <AlertBanner />
+    <Header />
+    {breadcrumbCurrent && <Breadcrumbs trail={breadcrumbs} current={breadcrumbCurrent} />}
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
