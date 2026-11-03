@@ -92,55 +92,87 @@ content:
     type: file
     path: src/content/photos.yml
     fields:
-      - &photo
-        name: home_hero_rider
+      # Each slot is written out in full. Pages CMS doesn't understand YAML
+      # shortcuts here, and saving removes any slot it can't see.
+      - name: home_hero_rider
         label: "Home, top: someone grinning on a bike they just fixed"
         description: Leave the photo empty to show the labeled placeholder box. Alt text is a short description for people who can't see the photo.
         type: object
         fields:
-          - name: image
-            label: Photo
-            type: image
-          - name: alt
-            label: Alt text
-            type: string
-            required: true
-      - <<: *photo
-        name: home_hero_brakes
+          - { name: image, label: Photo, type: image }
+          - { name: alt, label: Alt text, type: string }
+      - name: home_hero_brakes
         label: "Home, top: a Cook showing someone how to adjust brakes"
-      - <<: *photo
-        name: home_hero_wheel
+        type: object
+        fields:
+          - { name: image, label: Photo, type: image }
+          - { name: alt, label: Alt text, type: string }
+      - name: home_hero_wheel
         label: "Home, top: wheel close-up (shown in a circle)"
-      - <<: *photo
-        name: home_open_shop
+        type: object
+        fields:
+          - { name: image, label: Photo, type: image }
+          - { name: alt, label: Alt text, type: string }
+      - name: home_open_shop
         label: "Home, What we do: someone truing a wheel at a stand"
-      - <<: *photo
-        name: home_project_bikes
+        type: object
+        fields:
+          - { name: image, label: Photo, type: image }
+          - { name: alt, label: Alt text, type: string }
+      - name: home_project_bikes
         label: "Home, What we do: donated bikes lined up"
-      - <<: *photo
-        name: home_volunteer
+        type: object
+        fields:
+          - { name: image, label: Photo, type: image }
+          - { name: alt, label: Alt text, type: string }
+      - name: home_volunteer
         label: "Home, What we do: volunteers"
-      - <<: *photo
-        name: home_floor_ftwnb
+        type: object
+        fields:
+          - { name: image, label: Photo, type: image }
+          - { name: alt, label: Alt text, type: string }
+      - name: home_floor_ftwnb
         label: "Home, From the shop floor: Thursday FTWNB night"
-      - <<: *photo
-        name: home_floor_parts
+        type: object
+        fields:
+          - { name: image, label: Photo, type: image }
+          - { name: alt, label: Alt text, type: string }
+      - name: home_floor_parts
         label: "Home, From the shop floor: the parts wall"
-      - <<: *photo
-        name: home_floor_rebuilt
+        type: object
+        fields:
+          - { name: image, label: Photo, type: image }
+          - { name: alt, label: Alt text, type: string }
+      - name: home_floor_rebuilt
         label: "Home, From the shop floor: a rebuilt bike leaving the shop"
-      - <<: *photo
-        name: learn_hero
+        type: object
+        fields:
+          - { name: image, label: Photo, type: image }
+          - { name: alt, label: Alt text, type: string }
+      - name: learn_hero
         label: "Learn to repair: a Cook walking someone through a repair"
-      - <<: *photo
-        name: project_hero
+        type: object
+        fields:
+          - { name: image, label: Photo, type: image }
+          - { name: alt, label: Alt text, type: string }
+      - name: project_hero
         label: "Project bikes: donated bikes lined up"
-      - <<: *photo
-        name: about_cooks
+        type: object
+        fields:
+          - { name: image, label: Photo, type: image }
+          - { name: alt, label: Alt text, type: string }
+      - name: about_cooks
         label: "About: a group shot of the Cooks"
-      - <<: *photo
-        name: volunteer_hero
+        type: object
+        fields:
+          - { name: image, label: Photo, type: image }
+          - { name: alt, label: Alt text, type: string }
+      - name: volunteer_hero
         label: "Volunteer: volunteers"
+        type: object
+        fields:
+          - { name: image, label: Photo, type: image }
+          - { name: alt, label: Alt text, type: string }
 
   - name: supporters
     label: Supporters
