@@ -21,7 +21,7 @@ export const headerMenu = [
   { label: 'Bike Repair', items: [links.learn, links.projectBikes] },
   links.hours,
   { label: 'About', items: [links.mission, links.who, links.coOps, links.supporters] },
-  { label: 'Get Involved', items: [links.donate, links.donateBikes, links.volunteer] },
+  { label: 'Get Involved', items: [links.volunteer, links.donateBikes, links.donate] },
 ];
 
 // Footer columns, in order.
@@ -31,5 +31,5 @@ export const footerMenu = [
     label: 'Bike repair',
     items: [{ ...links.hours, label: 'Shop hours' }, links.learn, links.projectBikes],
   },
-  { label: 'Get involved', items: [links.donate, links.donateBikes, links.volunteer] },
+  { label: 'Get involved', items: [links.volunteer, links.donateBikes, links.donate] },
 ];
