@@ -50,16 +50,16 @@ content:
         description: "Written like @bicicocina"
         type: string
         required: true
-      - name: paypal_url
-        label: PayPal donation link
+      - name: zeffy_url
+        label: Zeffy donation link
         type: string
         required: true
       - name: venmo_url
         label: Venmo donation link
         type: string
         required: true
-      - name: zeffy_url
-        label: Zeffy donation link
+      - name: paypal_url
+        label: PayPal donation link
         type: string
         required: true
 

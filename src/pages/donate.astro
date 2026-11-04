@@ -5,15 +5,15 @@ import { settings } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const giveLinks = [
-  { name: 'Donate with PayPal', note: '@bicyclekitchen · Use a card or your PayPal account.', href: settings.paypal_url },
-  { name: 'Donate with Venmo', note: '@BicycleKitchen · Quick and easy from your phone.', href: settings.venmo_url },
   { name: 'Donate with Zeffy', note: 'Free for nonprofits, so more of your gift reaches us.', href: settings.zeffy_url, dark: true },
+  { name: 'Donate with Venmo', note: '@BicycleKitchen · Quick and easy from your phone.', href: settings.venmo_url },
+  { name: 'Donate with PayPal', note: '@bicyclekitchen · Use a card or your PayPal account.', href: settings.paypal_url },
 ];
 ---
 
 <BaseLayout
   title="Donate · Bicycle Kitchen"
-  description="Every dollar keeps the Kitchen open to everyone. Donate with PayPal, Venmo, or Zeffy, or give used bikes and parts during open hours."
+  description="Every dollar keeps the Kitchen open to everyone. Donate with Zeffy, Venmo, or PayPal, or give used bikes and parts during open hours."
   breadcrumbs={[{ label: 'Get Involved' }]}
   breadcrumbCurrent="Donate"
 >
