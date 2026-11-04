@@ -197,17 +197,20 @@ const logoWidth = Math.round((logo.width / logo.height) * logoHeight);
       margin-left: 0;
       flex-direction: column;
       align-items: stretch;
-      gap: 4px;
+      gap: 0;
       padding-bottom: 8px;
     }
+    .menu-top { padding: 0 4px; line-height: 1.2; }
+    .menu-instagram { height: 44px; }
     :global(.js) .main-nav:not(.is-open) { display: none; }
 
     .menu-button { display: none; }
     .menu-group-name {
       display: block;
-      padding: 8px 4px 0;
+      padding: 6px 4px 0;
       font-size: 24px;
       font-weight: 600;
+      line-height: 1.2;
     }
     .menu-panel, .menu-panel[hidden] {
       position: static;
@@ -216,10 +219,12 @@ const logoWidth = Math.round((logo.width / logo.height) * logoHeight);
       background: transparent;
       border: 0;
       box-shadow: none;
-      padding: 0 0 4px 12px;
+      padding: 0 0 0 12px;
     }
     .menu-panel a {
       font-size: 19px;
+      line-height: 1.2;
+      padding: 0 12px;
       min-height: 44px;
       display: flex;
       align-items: center;
