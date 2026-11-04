@@ -55,7 +55,7 @@ const story = [
     <div class="container split">
       <div class="who-text">
         <h2 id="who-h" class="h2">Who we are</h2>
-        <p class="who-lead">Bicycle Kitchen / La Bici-Cocina is a 501(c)(3) nonprofit run entirely by volunteers.</p>
+        <p>Bicycle Kitchen / La Bici-Cocina is a 501(c)(3) nonprofit run entirely by volunteers.</p>
         <p>Volunteers keep the shop open, teach repairs, sort the parts, and fix up donated bikes. We each give our time for different reasons, but we share a love of bikes and a belief that a city full of bikes is a better city.</p>
         <p>Everyone is welcome here, whatever you ride and whatever you know.</p>
         <p class="who-link"><a class="link-strong" href={links.volunteer.href}>Become a volunteer</a></p>
@@ -140,9 +140,8 @@ const story = [
 
   .who-text { flex: 1 1 440px; min-width: 0; }
   .who-text h2 { margin-bottom: 24px; }
-  .who-text p { margin: 0 0 16px; max-width: 560px; }
-  .who-text .who-lead { font-size: 19px; }
-  .who-text .who-link { margin: 28px 0 0; font-size: 19px; }
+  .who-text p { margin: 0 0 16px; max-width: 560px; font-size: 19px; }
+  .who-text .who-link { margin: 28px 0 0; }
   .split :global(.who-photo) {
     flex: 1 1 440px;
     min-width: 0;
