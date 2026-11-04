@@ -5,6 +5,7 @@
   --ink: #221F20;
   --red: #A63A22;
   --red-on-stone: #8F2F1A; /* Link hover on stone: plain red is too faint to pass AA there. */
+  --blue: #1F4E6B; /* Zeffy donate buttons. */
   --muted: #4A433D;
   --rule: #9C9283;
   --panel: #FBF9F5;
@@ -196,6 +197,7 @@ a:hover { color: var(--red-on-stone); }
 .btn:hover { text-decoration: underline; }
 .btn-red, .btn-red:hover { background: var(--red); color: #FFFFFF; }
 .btn-ink, .btn-ink:hover { background: var(--ink); color: #FFFFFF; }
+.btn-blue, .btn-blue:hover { background: var(--blue); color: #FFFFFF; }
 .btn-white, .btn-white:hover { background: #FFFFFF; color: var(--ink); }
 .btn-stone, .btn-stone:hover { background: var(--stone); color: var(--ink); }
 .btn-outline, .btn-outline:hover {
