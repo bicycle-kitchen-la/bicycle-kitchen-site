@@ -132,6 +132,7 @@ a:hover { color: var(--red-on-stone); }
   gap: 14px;
 }
 .action-stack .btn { font-size: 19px; padding: 18px 24px; text-align: center; }
+.action-stack .btn-blue { font-size: 25px; padding: 26px 24px; }
 
 /* A heading with a short note beside it */
 .heading-row {

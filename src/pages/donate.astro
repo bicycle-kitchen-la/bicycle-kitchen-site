@@ -5,7 +5,7 @@ import { settings } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const giveLinks = [
-  { name: 'Donate with Zeffy', note: 'Free for nonprofits, so more of your gift reaches us.', href: settings.zeffy_url, blue: true },
+  { name: 'Donate with Zeffy', note: 'Free for nonprofits, so more of your gift reaches us. You’ll get a tax receipt with your donation.', href: settings.zeffy_url, blue: true },
   { name: 'Donate with Venmo', note: '@BicycleKitchen · Quick and easy from your phone.', href: settings.venmo_url },
   { name: 'Donate with PayPal', note: '@bicyclekitchen · Use a card or your PayPal account.', href: settings.paypal_url },
 ];
@@ -129,7 +129,9 @@ const giveLinks = [
   .give-link:hover .give-name { text-decoration: underline; }
   .give-name { display: block; font-weight: 700; font-size: 21px; }
   .give-note { display: block; font-size: 15px; margin-top: 2px; opacity: 0.85; }
-  .give-link.blue .give-note { font-weight: 600; opacity: 1; }
+  .give-link.blue { padding: 24px 22px; }
+  .give-link.blue .give-name { font-size: 27px; line-height: 1.2; }
+  .give-link.blue .give-note { font-size: 16px; font-weight: 600; margin-top: 6px; opacity: 1; }
   .give-small { margin: 0; font-size: 14px; color: var(--muted); }
   .give-nonprofit { margin-top: 6px; }
   .give-email { font-weight: 600; overflow-wrap: anywhere; }
