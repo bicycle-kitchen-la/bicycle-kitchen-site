@@ -5,7 +5,7 @@ import { settings } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const giveLinks = [
-  { name: 'Donate with Zeffy', note: 'Preferred Method! More of your donation reaches us. No fees for nonprofits and you’ll receive a tax receipt with every donation.', href: settings.zeffy_url, blue: true },
+  { name: 'Donate with Zeffy', note: 'Preferred Method! More of your donation reaches us. No fees for nonprofits and you’ll receive a tax receipt with every donation.', phoneNote: 'No fees for nonprofits and you’ll receive a tax receipt.', href: settings.zeffy_url, blue: true },
   { name: 'Donate with Venmo', note: '@BicycleKitchen · Easily donate with a mobile device.', href: settings.venmo_url },
   { name: 'Donate with PayPal', note: '@bicyclekitchen · Use a credit/debit card or your own PayPal account.', href: settings.paypal_url },
 ];
@@ -29,7 +29,8 @@ const giveLinks = [
         {giveLinks.map((give) => (
           <a class:list={['give-link', { blue: give.blue }]} href={give.href}>
             <span class="give-name">{give.name}</span>
-            <span class="give-note">{give.note}</span>
+            <span class:list={['give-note', { 'wide-only': give.phoneNote }]}>{give.note}</span>
+            {give.phoneNote && <span class="give-note phone-only">{give.phoneNote}</span>}
           </a>
         ))}
         <p class="give-small give-nonprofit">Bicycle Kitchen is a 501(c)(3) nonprofit.</p>
@@ -128,6 +129,7 @@ const giveLinks = [
   .give-link:hover .give-name { text-decoration: underline; }
   .give-name { display: block; font-weight: 700; font-size: 21px; }
   .give-note { display: block; font-size: 15px; margin-top: 2px; opacity: 0.85; }
+  .give-note.phone-only { display: none; }
   .give-link.blue { padding: 24px 22px; }
   .give-link.blue .give-name { font-size: 27px; line-height: 1.2; }
   .give-link.blue .give-note { font-size: 16px; font-weight: 600; margin-top: 6px; opacity: 1; }
@@ -173,6 +175,8 @@ const giveLinks = [
   .other .other-link { margin-top: 12px; }
 
   @media (max-width: 759px) {
+    .give-note.wide-only { display: none; }
+    .give-note.phone-only { display: block; }
     .give-card { padding: 20px; box-shadow: 5px 5px 0 var(--ink); }
     .use { gap: 14px; }
     .use h3, .other h3 { font-size: 26px; }
