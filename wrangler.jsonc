@@ -1,0 +1,10 @@
+// Tells Cloudflare how to serve the site. Netlify ignores this file.
+{
+  "name": "bicycle-kitchen-site",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    // Show our own "page not found" screen for addresses that don't exist.
+    "not_found_handling": "404-page"
+  }
+}
