@@ -18,6 +18,8 @@ const logoWidth = Math.round((logo.width / logo.height) * logoHeight);
       <img src={logo.src} width={logoWidth} height={logoHeight} alt="Bicycle Kitchen / La Bici-Cocina logo" />
     </a>
 
+    <a class="header-donate" href={links.donate.href}>Donate</a>
+
     <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav">
       <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
       Menu
@@ -151,21 +153,35 @@ const logoWidth = Math.round((logo.width / logo.height) * logoHeight);
   }
   .menu-donate:hover { text-decoration: underline; }
 
-  .menu-toggle { display: none; }
+  .menu-toggle, .header-donate { display: none; }
 
   /* Phones and small tablets: the menu collapses behind the ☰ button and opens
      as one full list. Below 900px the full menu no longer fits on one row. */
   @media (max-width: 899px) {
-    .header-inner { padding: 10px var(--gutter); }
+    .header-inner { padding: 10px var(--gutter); column-gap: 8px; }
     .logo img { height: 84px; }
+
+    .header-donate, .header-donate:hover {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      min-height: 48px;
+      padding: 8px 14px;
+      background: var(--red);
+      color: #FFFFFF;
+      border-radius: 4px;
+      font-size: 19px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .header-donate:hover { text-decoration: underline; }
 
     :global(.js) .menu-toggle {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-left: auto;
+      gap: 6px;
       min-height: 48px;
-      padding: 8px 14px;
+      padding: 8px 10px;
       background: transparent;
       border: 2px solid var(--ink);
       border-radius: 4px;
@@ -208,7 +224,13 @@ const logoWidth = Math.round((logo.width / logo.height) * logoHeight);
       display: flex;
       align-items: center;
     }
-    .menu-donate { justify-content: center; margin-top: 8px; }
+    .menu-donate { display: none; }
+  }
+
+  /* Narrowest phones: tighter buttons keep the top bar on one row. */
+  @media (max-width: 359px) {
+    .header-donate, .header-donate:hover { padding: 8px 10px; }
+    :global(.js) .menu-toggle { padding: 8px; gap: 4px; }
   }
 </style>
 
