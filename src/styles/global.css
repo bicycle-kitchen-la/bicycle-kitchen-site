@@ -228,6 +228,18 @@ a:hover { color: var(--red-on-stone); }
   15% { opacity: 1; }
   100% { transform: translateX(0) rotate(0deg); opacity: 1; }
 }
+/* Home only: a helmet and a tandem replace two of the wheels on larger screens.
+   They slide in instead of spinning. Phones keep the wheels. */
+.bk-art { display: none; width: auto; }
+@keyframes bk-slide {
+  0% { transform: translateX(3em); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+@media (min-width: 760px) {
+  .bk-phone-wheel { display: none; }
+  .bk-art { display: inline-block; animation-name: bk-slide; }
+}
 @media (prefers-reduced-motion: reduce) {
   .bk-wheel { animation: none; }
 }

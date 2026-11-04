@@ -1,12 +1,18 @@
 ---
 // The wheel "period" after big titles. `order` delays the roll on pages with
-// more than one wheel (2 and 3 start a little after 1).
+// more than one wheel (2 and 3 start a little after 1). `desktopArt` swaps the
+// wheel for a helmet or tandem on larger screens; phones keep the wheel.
+import helmet from '../assets/helmet.svg';
+import tandem from '../assets/tandem.svg';
 import wheel from '../assets/wheel.svg';
 
 interface Props {
   order?: 1 | 2 | 3;
+  desktopArt?: 'helmet' | 'tandem';
 }
-const { order = 1 } = Astro.props;
+const { order = 1, desktopArt } = Astro.props;
+const art = desktopArt && { helmet, tandem }[desktopArt];
 ---
 
-<img class:list={['bk-wheel', `bk-wheel-${order}`]} src={wheel.src} width={wheel.width} height={wheel.height} alt="" />
+<img class:list={['bk-wheel', `bk-wheel-${order}`, { 'bk-phone-wheel': art }]} src={wheel.src} width={wheel.width} height={wheel.height} alt="" />
+{art && <img class:list={['bk-wheel', `bk-wheel-${order}`, 'bk-art', `bk-art-${desktopArt}`]} src={art.src} width={art.width} height={art.height} alt="" />}
