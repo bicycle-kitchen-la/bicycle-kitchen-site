@@ -6,5 +6,7 @@
     "directory": "./dist",
     // Show our own "page not found" screen for addresses that don't exist.
     "not_found_handling": "404-page"
-  }
+  },
+  // Lets Cloudflare build a separate test copy from the preview branch.
+  "previews": {}
 }
