@@ -218,3 +218,126 @@ content:
             label: Description
             type: text
             required: true
+
+  - name: co_ops
+    label: Other LA Co-Ops page
+    type: file
+    path: src/content/co-ops.yml
+    fields:
+      - name: lead
+        label: Big intro text at the top
+        type: text
+        required: true
+      - name: intro
+        label: Smaller intro text under it
+        type: text
+        required: true
+      - name: tips_heading
+        label: Heading beside the map
+        type: string
+        required: true
+      - name: tips
+        label: Tips beside the map
+        description: These repeat the co-ops' hours, so update them when the hours below change.
+        type: object
+        list: true
+        fields:
+          - name: question
+            label: Question (shown in bold)
+            type: string
+            required: true
+          - name: answer
+            label: Answer
+            type: string
+            required: true
+      - name: tips_note
+        label: Small note under the tips
+        type: text
+      - name: co_ops
+        label: Co-ops
+        description: Each one gets its own section on the page. Adding or removing one here does not change the map. Ask for help with that.
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Name
+            type: string
+            required: true
+          - name: where
+            label: Small line above the name
+            description: "Written like Mar Vista, Westside · Since 2007"
+            type: string
+            required: true
+          - name: lead
+            label: One-sentence summary
+            type: text
+            required: true
+          - name: about
+            label: Description
+            type: text
+            required: true
+          - name: website_label
+            label: Website button text
+            description: "Written like Visit bikerowave.org"
+            type: string
+            required: true
+          - name: website_url
+            label: Website link
+            description: Must start with https://
+            type: string
+            required: true
+          - name: hours
+            label: Hours
+            type: object
+            list: true
+            fields:
+              - name: days
+                label: Days
+                description: "Written like Monday – Thursday"
+                type: string
+                required: true
+              - name: time
+                label: Time
+                description: "Written like 6 – 9 pm, or Closed"
+                type: string
+                required: true
+          - name: address
+            label: Address
+            description: The Get directions button uses this address automatically.
+            type: string
+            required: true
+          - name: phone
+            label: Phone number (optional)
+            description: "Written like (310) 230-5236"
+            type: string
+          - name: email
+            label: Email address (optional)
+            type: string
+          - name: instagram
+            label: Instagram name (optional)
+            description: "Written like @bikerowave"
+            type: string
+      - name: map_labels
+        label: Names on the map
+        description: The pins themselves stay in the same spots. If a co-op moves, ask for help moving its pin.
+        type: object
+        fields:
+          - { name: bikerowave_name, label: Westside pin name, type: string, required: true }
+          - { name: bikerowave_area, label: Westside pin neighborhood, type: string, required: true }
+          - { name: kitchen_name, label: Our pin name, type: string, required: true }
+          - { name: kitchen_area, label: Our pin neighborhood, type: string, required: true }
+          - { name: bike_oven_name, label: Northeast pin name, type: string, required: true }
+          - { name: bike_oven_area, label: Northeast pin neighborhood, type: string, required: true }
+      - name: map_description
+        label: Map description for people who can't see it
+        type: text
+        required: true
+      - name: map_caption
+        label: Small caption under the map
+        type: string
+        required: true
+      - name: search_description
+        label: Search result description
+        description: The short summary Google may show for this page.
+        type: text
+        required: true

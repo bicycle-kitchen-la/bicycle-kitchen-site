@@ -1,5 +1,6 @@
 import { z } from 'astro/zod';
 import { parse } from 'yaml';
+import coOpsFile from '../content/co-ops.yml?raw';
 import hoursFile from '../content/hours.yml?raw';
 import photosFile from '../content/photos.yml?raw';
 import settingsFile from '../content/settings.yml?raw';
@@ -102,5 +103,44 @@ export const supporters = read(
   }),
 );
 
+export const coOpsPage = read(
+  'co-ops.yml',
+  coOpsFile,
+  z.object({
+    search_description: z.string().min(1),
+    lead: z.string().min(1),
+    intro: z.string().min(1),
+    map_labels: z.object({
+      bikerowave_name: z.string().min(1),
+      bikerowave_area: z.string().min(1),
+      kitchen_name: z.string().min(1),
+      kitchen_area: z.string().min(1),
+      bike_oven_name: z.string().min(1),
+      bike_oven_area: z.string().min(1),
+    }),
+    map_description: z.string().min(1),
+    map_caption: z.string().min(1),
+    tips_heading: z.string().min(1),
+    tips: optionalList(z.object({ question: z.string().min(1), answer: z.string().min(1) })),
+    tips_note: z.string().nullish(),
+    co_ops: optionalList(
+      z.object({
+        name: z.string().min(1),
+        where: z.string().min(1),
+        lead: z.string().min(1),
+        about: z.string().min(1),
+        website_label: z.string().min(1),
+        website_url: z.url(),
+        hours: optionalList(z.object({ days: z.string().min(1), time: z.string().min(1) })),
+        address: z.string().min(1),
+        phone: z.string().nullish(),
+        email: z.string().nullish(),
+        instagram: z.string().nullish(),
+      }),
+    ),
+  }),
+);
+
 // "(323) 662-2776" becomes "tel:+13236622776"
-export const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
+export const telHref = (phone: string) => `tel:+1${phone.replace(/\D/g, '')}`;
+export const phoneHref = telHref(settings.phone);

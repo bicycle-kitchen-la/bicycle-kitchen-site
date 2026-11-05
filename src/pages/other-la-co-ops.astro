@@ -1,84 +1,59 @@
 ---
 import Wheel from '../components/Wheel.astro';
+import { coOpsPage, telHref } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const coOps = [
-  {
-    id: 'bikerowave',
-    name: 'Bikerowave',
-    where: 'Mar Vista, Westside · Since 2007',
-    lead: 'An all-volunteer bike repair co-op serving the Westside since 2007.',
-    text: 'Bikerowave gives you the space, tools, and know-how to fix your own bike, from patching a flat to building a wheel. Volunteers restore donated bikes and sell them at fair prices, and no one is turned away for lack of funds. It’s run democratically by its members, a lot like us.',
-    website: { label: 'Visit bikerowave.org', href: 'https://bikerowave.org/' },
-    directions: 'https://maps.google.com/?q=12255+Venice+Blvd+Los+Angeles+CA+90066',
-    hours: [
-      { days: 'Monday – Thursday', time: '6:30 – 10 pm' },
-      { days: 'Friday', time: 'Closed' },
-      { days: 'Saturday – Sunday', time: '10 am – 1:30 pm' },
-    ],
-    address: '12255 Venice Blvd, Los Angeles, CA 90066',
+// The words all live in src/content/co-ops.yml. Links and page anchors are built
+// from them here, so volunteers only type an address, a phone number, and so on.
+const labels = coOpsPage.map_labels;
+const coOps = coOpsPage.co_ops.map((coOp) => {
+  const instagram = coOp.instagram?.trim().replace(/^@/, '');
+  return {
+    ...coOp,
+    id: coOp.name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+    directions: `https://maps.google.com/?${new URLSearchParams({ q: coOp.address.replace(/,/g, '') })}`,
     contacts: [
-      { label: '(310) 230-5236', href: 'tel:+13102305236' },
-      { label: 'info@bikerowave.org', href: 'mailto:info@bikerowave.org' },
-      { label: 'Instagram @bikerowave', href: 'https://www.instagram.com/bikerowave/' },
-    ],
-  },
-  {
-    id: 'bike-oven',
-    name: 'Bike Oven',
-    where: 'Highland Park, Northeast LA · Since 2005',
-    lead: 'A volunteer-run workspace that grew from a one-car garage in Highland Park.',
-    text: 'Bike Oven started in 2005 in a single-car garage and moved to its Figueroa St storefront in 2007. Pay for stand time and you get every tool plus advice from volunteer mechanics. They also have restored bikes for sale, lots of used parts, and project bikes they’ll help you build. No one is turned away for lack of funds.',
-    website: { label: 'Visit bike-oven.com', href: 'https://bike-oven.com/' },
-    directions: 'https://maps.google.com/?q=3706+N+Figueroa+St+Los+Angeles+CA+90065',
-    hours: [
-      { days: 'Monday', time: 'Closed' },
-      { days: 'Tuesday – Thursday', time: '6 – 9 pm' },
-      { days: 'Friday – Sunday', time: '12 – 5 pm' },
-    ],
-    address: '3706 N Figueroa St, Los Angeles, CA 90065',
-    contacts: [
-      { label: '(323) 217-8454', href: 'tel:+13232178454' },
-      { label: 'bikeoven2.0@gmail.com', href: 'mailto:bikeoven2.0@gmail.com' },
-    ],
-  },
-];
+      coOp.phone && { label: coOp.phone, href: telHref(coOp.phone) },
+      coOp.email && { label: coOp.email, href: `mailto:${coOp.email}` },
+      instagram && { label: `Instagram @${instagram}`, href: `https://www.instagram.com/${instagram}/` },
+    ].filter((contact) => !!contact),
+  };
+});
 ---
 
 <BaseLayout
   title="Other LA Co-Ops · Bicycle Kitchen"
-  description="Bikerowave and Bike Oven are volunteer-run bike co-ops around Los Angeles. If one is closer to you, or open when we’re closed, go see them."
+  description={coOpsPage.search_description}
   breadcrumbs={[{ label: 'About' }]}
   breadcrumbCurrent="Other LA Co-Ops"
 >
   <section class="page-hero coops-hero" aria-labelledby="coops-h">
     <div class="container">
       <h1 id="coops-h" class="page-title coops-title">Other LA <span class="no-break">Co-Ops<Wheel /></span></h1>
-      <p class="coops-lead">We’re not the only DIY bike shop in town. Bikerowave and Bike Oven are volunteer-run co-ops that work a lot like we do: you fix your bike, and volunteers show you how.</p>
-      <p class="coops-intro">If one of them is closer to you, or open when we’re closed, go see them. We’re all on the same team.</p>
+      <p class="coops-lead">{coOpsPage.lead}</p>
+      <p class="coops-intro">{coOpsPage.intro}</p>
 
       <div class="map-row">
         <figure class="map-figure">
-          <div class="map" role="img" aria-label="Map of Los Angeles showing Bikerowave in Mar Vista near the Santa Monica Pier, Bicycle Kitchen in East Hollywood near Griffith Park, and Bike Oven in Highland Park northeast of Dodger Stadium">
+          <div class="map" role="img" aria-label={coOpsPage.map_description}>
             <svg aria-hidden="true" viewBox="0 0 700 360" preserveAspectRatio="none"><rect width="700" height="360" fill="#ECE7DE"></rect><path d="M0,216 L61,225 L96,274 L129,315 L160,342 L183,369 L183,360 L0,360 Z" fill="#B9C6C9"></path><text x="12" y="352" font-family="Work Sans, Arial, sans-serif" font-size="13" font-weight="600" font-style="italic" fill="#5C6B6E">Pacific Ocean</text><polyline points="107,257 243,234 396,216 472,234 624,180 715,153" fill="none" stroke="#9C9283" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline><polyline points="198,-9 335,108 411,135 479,180" fill="none" stroke="#9C9283" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline><polyline points="107,-9 137,72 175,180 198,236 224,288 251,369" fill="none" stroke="#9C9283" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline><polyline points="472,216 548,108 639,-9" fill="none" stroke="#9C9283" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline><g><rect x="109" y="244" width="36" height="20" rx="4" fill="#ECE7DE" stroke="#9C9283" stroke-width="1.5"></rect><text x="127" y="258" text-anchor="middle" font-family="Work Sans, Arial, sans-serif" font-size="11" font-weight="600" fill="#4A433D">I-10</text></g><g><rect x="214" y="10" width="36" height="20" rx="4" fill="#ECE7DE" stroke="#9C9283" stroke-width="1.5"></rect><text x="232" y="24" text-anchor="middle" font-family="Work Sans, Arial, sans-serif" font-size="11" font-weight="600" fill="#4A433D">101</text></g><g><rect x="99" y="9" width="36" height="20" rx="4" fill="#ECE7DE" stroke="#9C9283" stroke-width="1.5"></rect><text x="117" y="23" text-anchor="middle" font-family="Work Sans, Arial, sans-serif" font-size="11" font-weight="600" fill="#4A433D">405</text></g><g><rect x="461" y="195" width="36" height="20" rx="4" fill="#ECE7DE" stroke="#9C9283" stroke-width="1.5"></rect><text x="479" y="209" text-anchor="middle" font-family="Work Sans, Arial, sans-serif" font-size="11" font-weight="600" fill="#4A433D">110</text></g><g><path d="M97 266 L104 278 L90 278 Z" fill="#6B625A"></path><text font-family="Work Sans, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#4A433D"><tspan x="8" y="270">Santa Monica</tspan><tspan x="8" y="284">Pier</tspan></text></g><g><path d="M395 68 L402 80 L388 80 Z" fill="#6B625A"></path><text font-family="Work Sans, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#4A433D"><tspan x="332" y="72">Griffith</tspan><tspan x="332" y="86">Park</tspan></text></g><g><path d="M487 148 L494 160 L480 160 Z" fill="#6B625A"></path><text font-family="Work Sans, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#4A433D"><tspan x="460" y="127">Dodger</tspan><tspan x="460" y="141">Stadium</tspan></text></g><text x="452" y="262" font-family="Work Sans, Arial, sans-serif" font-size="13" font-weight="600" fill="#6B625A">Downtown</text></svg>
             <div class="pin pin-bikerowave"></div>
             <div class="pin pin-kitchen"></div>
             <div class="pin pin-oven"></div>
-            <div class="map-label label-bikerowave"><span>Bikerowave</span><span>Mar Vista</span></div>
-            <div class="map-label label-kitchen"><span>Bicycle Kitchen</span><span>East Hollywood (us!)</span></div>
-            <div class="map-label label-oven"><span>Bike Oven</span><span>Highland Park</span></div>
+            <div class="map-label label-bikerowave"><span>{labels.bikerowave_name}</span><span>{labels.bikerowave_area}</span></div>
+            <div class="map-label label-kitchen"><span>{labels.kitchen_name}</span><span>{labels.kitchen_area}</span></div>
+            <div class="map-label label-oven"><span>{labels.bike_oven_name}</span><span>{labels.bike_oven_area}</span></div>
           </div>
-          <figcaption>Simplified map for orientation, not to scale.</figcaption>
+          <figcaption>{coOpsPage.map_caption}</figcaption>
         </figure>
         <div class="closed-tips">
-          <h2>When we’re closed, they might be open</h2>
+          <h2>{coOpsPage.tips_heading}</h2>
           <div class="closed-list">
-            <div><strong>Friday or Sunday?</strong> Bike Oven is open 12 – 5 pm.</div>
-            <div><strong>Weekend mornings?</strong> Bikerowave opens at 10 am Saturday and Sunday.</div>
-            <div><strong>Late weeknight?</strong> Bikerowave stays open until 10 pm, Monday – Thursday.</div>
-            <div><strong>Live on the Westside?</strong> Bikerowave in Mar Vista is likely closer.</div>
+            {coOpsPage.tips.map((tip) => (
+              <div><strong>{tip.question}</strong> {tip.answer}</div>
+            ))}
           </div>
-          <p>Like us, they’re volunteer-run, so hours can change. Check with them before you go.</p>
+          {coOpsPage.tips_note && <p>{coOpsPage.tips_note}</p>}
         </div>
       </div>
     </div>
@@ -91,9 +66,9 @@ const coOps = [
           <p class="eyebrow">{coOp.where}</p>
           <h2 id={`${coOp.id}-h`}>{coOp.name}</h2>
           <p class="coop-lead">{coOp.lead}</p>
-          <p class="coop-about">{coOp.text}</p>
+          <p class="coop-about">{coOp.about}</p>
           <div class="hero-buttons">
-            <a class="btn btn-ink" href={coOp.website.href}>{coOp.website.label}</a>
+            <a class="btn btn-ink" href={coOp.website_url}>{coOp.website_label}</a>
             <a class="btn btn-outline" href={coOp.directions}>Get directions</a>
           </div>
         </div>
