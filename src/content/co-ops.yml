@@ -1,58 +1,69 @@
-# Everything on the Other LA Co-Ops page. Edit it in the Pages CMS dashboard.
-search_description: "Bikerowave and Bike Oven are volunteer-run bike co-ops around Los Angeles. If one is closer to you, or open when we’re closed, go see them."
-lead: "We’re not the only DIY bike shop in town. Bikerowave and Bike Oven are volunteer-run co-ops that work a lot like we do: you fix your bike, and volunteers show you how."
-intro: "If one of them is closer to you, or open when we’re closed, go see them. We’re all on the same team."
-
-map_labels:
-  bikerowave: Bikerowave
-  kitchen: Bike Kitchen
-  bike_oven: Bike Oven
-map_description: "Map of Los Angeles showing Bikerowave in Mar Vista on the Westside, Bike Kitchen in East Hollywood, and Bike Oven in Northeast LA past Dodger Stadium"
-map_caption: "Map data © 2026 Google."
-
-tips_heading: "When we’re closed, they might be open"
+lead: "We’re not the only DIY bike shop in town. Bikerowave and Bike Oven are
+  volunteer-run co-ops that work a lot like we do: you fix your bike, and
+  volunteers show you how."
+intro: If one of them is closer to you, or open when we’re closed, go see them.
+  We’re all on the same team.
+tips_heading: When we’re closed, they might be open
 tips:
-  - question: "Friday or Sunday?"
-    answer: "Bike Oven is open 12 – 5 pm."
-  - question: "Weekend mornings?"
-    answer: "Bikerowave opens at 10 am Saturday and Sunday."
-  - question: "Late weeknight?"
-    answer: "Bikerowave stays open until 10 pm, Monday – Thursday."
-  - question: "Live on the Westside?"
-    answer: "Bikerowave in Mar Vista is likely closer."
-tips_note: "Like us, they’re volunteer-run, so hours can change. Check with them before you go."
-
+  - question: Friday or Sunday?
+    answer: Bike Oven is open 12 – 5 pm.
+  - question: Weekend mornings?
+    answer: Bikerowave opens at 10 am Saturday and Sunday.
+  - question: Late weeknight?
+    answer: Bikerowave stays open until 10 pm, Monday – Thursday.
+  - question: Live on the Westside?
+    answer: Bikerowave in Mar Vista is likely closer.
+tips_note: Like us, they’re volunteer-run, so hours can change. Check with them
+  before you go.
 co_ops:
   - name: Bikerowave
-    where: "Mar Vista, Westside · Since 2007"
-    lead: "An all-volunteer bike repair co-op serving the Westside since 2007."
-    about: "Bikerowave gives you the space, tools, and know-how to fix your own bike, from patching a flat to building a wheel. Volunteers restore donated bikes and sell them at fair prices, and no one is turned away for lack of funds. It’s run democratically by its members, a lot like us."
+    where: Mar Vista, Westside · Since 2007
+    lead: An all-volunteer bike repair co-op serving the Westside since 2007.
+    about: Bikerowave gives you the space, tools, and know-how to fix your own bike,
+      from patching a flat to building a wheel. Volunteers restore donated bikes
+      and sell them at fair prices, and no one is turned away for lack of funds.
+      It’s run democratically by its members, a lot like us.
     website_label: Visit bikerowave.org
-    website_url: "https://bikerowave.org/"
+    website_url: https://bikerowave.org/
     hours:
-      - days: "Monday – Thursday"
-        time: "6:30 – 10 pm"
+      - days: Monday – Thursday
+        time: 6:30 – 10 pm
       - days: Friday
         time: Closed
-      - days: "Saturday – Sunday"
-        time: "10 am – 1:30 pm"
-    address: "12255 Venice Blvd, Los Angeles, CA 90066"
-    phone: "(310) 230-5236"
+      - days: Saturday – Sunday
+        time: 10 am – 1:30 pm
+    address: 12255 Venice Blvd, Los Angeles, CA 90066
+    phone: (310) 230-5236
     email: info@bikerowave.org
     instagram: "@bikerowave"
   - name: Bike Oven
-    where: "Highland Park, Northeast LA · Since 2005"
-    lead: "A volunteer-run workspace that grew from a one-car garage in Highland Park."
-    about: "Bike Oven started in 2005 in a single-car garage and moved to its Figueroa St storefront in 2007. Pay for stand time and you get every tool plus advice from volunteer mechanics. They also have restored bikes for sale, lots of used parts, and project bikes they’ll help you build. No one is turned away for lack of funds."
+    where: Highland Park, Northeast LA · Since 2005
+    lead: A volunteer-run workspace that grew from a one-car garage in Highland Park.
+    about: Bike Oven started in 2005 in a single-car garage and moved to its
+      Figueroa St storefront in 2007. Pay for stand time and you get every tool
+      plus advice from volunteer mechanics. They also have restored bikes for
+      sale, lots of used parts, and project bikes they’ll help you build. No one
+      is turned away for lack of funds.
     website_label: Visit bike-oven.com
-    website_url: "https://bike-oven.com/"
+    website_url: https://bike-oven.com/
     hours:
       - days: Monday
         time: Closed
-      - days: "Tuesday – Thursday"
-        time: "6 – 9 pm"
-      - days: "Friday – Sunday"
-        time: "12 – 5 pm"
-    address: "3706 N Figueroa St, Los Angeles, CA 90065"
-    phone: "(323) 217-8454"
+      - days: Tuesday – Thursday
+        time: 6 – 9 pm
+      - days: Friday – Sunday
+        time: 12 – 5 pm
+    address: 3706 N Figueroa St, Los Angeles, CA 90065
+    phone: (323) 217-8454
     email: bikeoven2.0@gmail.com
+map_labels:
+  bikerowave: Bikerowave
+  kitchen: Bicicocina
+  bike_oven: Bike Oven
+map_description: Map of Los Angeles showing Bikerowave in Mar Vista on the
+  Westside, Bike Kitchen in East Hollywood, and Bike Oven in Northeast LA past
+  Dodger Stadium
+map_caption: Map data © 2026 Google.
+search_description: Bikerowave and Bike Oven are volunteer-run bike co-ops
+  around Los Angeles. If one is closer to you, or open when we’re closed, go see
+  them.
