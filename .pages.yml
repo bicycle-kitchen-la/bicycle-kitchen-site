@@ -319,15 +319,12 @@ content:
             type: string
       - name: map_labels
         label: Names on the map
-        description: The pins themselves stay in the same spots. If a co-op moves, ask for help moving its pin.
+        description: The labels stay in the same spots on the map picture. If a co-op moves, ask for help updating the map.
         type: object
         fields:
-          - { name: bikerowave_name, label: Westside pin name, type: string, required: true }
-          - { name: bikerowave_area, label: Westside pin neighborhood, type: string, required: true }
-          - { name: kitchen_name, label: Our pin name, type: string, required: true }
-          - { name: kitchen_area, label: Our pin neighborhood, type: string, required: true }
-          - { name: bike_oven_name, label: Northeast pin name, type: string, required: true }
-          - { name: bike_oven_area, label: Northeast pin neighborhood, type: string, required: true }
+          - { name: bikerowave, label: Westside label, type: string, required: true }
+          - { name: kitchen, label: Our label, type: string, required: true }
+          - { name: bike_oven, label: Northeast label, type: string, required: true }
       - name: map_description
         label: Map description for people who can't see it
         type: text

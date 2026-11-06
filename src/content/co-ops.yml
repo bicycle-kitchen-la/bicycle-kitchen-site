@@ -4,14 +4,11 @@ lead: "We’re not the only DIY bike shop in town. Bikerowave and Bike Oven are 
 intro: "If one of them is closer to you, or open when we’re closed, go see them. We’re all on the same team."
 
 map_labels:
-  bikerowave_name: Bikerowave
-  bikerowave_area: Mar Vista
-  kitchen_name: Bicycle Kitchen
-  kitchen_area: East Hollywood (us!)
-  bike_oven_name: Bike Oven
-  bike_oven_area: Highland Park
-map_description: "Map of Los Angeles showing Bikerowave in Mar Vista near the Santa Monica Pier, Bicycle Kitchen in East Hollywood near Griffith Park, and Bike Oven in Highland Park northeast of Dodger Stadium"
-map_caption: "Simplified map for orientation, not to scale."
+  bikerowave: Bikerowave
+  kitchen: Bike Kitchen
+  bike_oven: Bike Oven
+map_description: "Map of Los Angeles showing Bikerowave in Mar Vista on the Westside, Bike Kitchen in East Hollywood, and Bike Oven in Northeast LA past Dodger Stadium"
+map_caption: "Map data © 2026 Google."
 
 tips_heading: "When we’re closed, they might be open"
 tips:
