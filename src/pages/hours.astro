@@ -7,13 +7,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Hours · Bicycle Kitchen"
-  description="Open shop hours at Bicycle Kitchen, 4429 Fountain Ave, Los Angeles. Please call before you come, since hours can change last minute."
+  description="Open shop hours at Bicycle Kitchen, 4429 Fountain Ave, Los Angeles. Calling before visiting is advised, since volunteer shortages occasionally result in last minute closures."
   breadcrumbCurrent="Hours"
 >
   <section class="hours-section" aria-labelledby="hours-h">
     <div class="container">
       <h1 id="hours-h" class="page-title hours-title">Hours<Wheel /></h1>
       <div class="hours-layout">
+        <div class="hours-main">
         <dl class="hours-list">
           {hours.days.map((row) => (
             <div class="hours-row">
@@ -23,14 +24,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
           ))}
         </dl>
+        <div class="call-card on-dark">
+          <p class="call-title">Calling before visiting is advised.</p>
+          <p class="call-text">Volunteer shortages occasionally result in last minute closures.</p>
+          <a href={phoneHref}>
+            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>
+            {settings.phone}
+          </a>
+        </div>
+        </div>
 
         <div class="hours-side">
-          <p class="hours-intro">Drop in during open hours, sign in on our iPad, and a volunteer will point you to a stand and the right tools.</p>
-          <div class="call-card on-dark">
-            <p class="call-title">Please call before you come.</p>
-            <p class="call-text">We only open when a volunteer is on shift, so hours can change last minute.</p>
-            <a href={phoneHref}>{settings.phone}</a>
-          </div>
+          <p class="hours-intro">No appointment necessary! Show up, sign in, and get help from one of our volunteers.</p>
           <div>
             <p class="hours-address">{settings.address_line_1}<br />{settings.address_line_2}</p>
             <a class="link-strong" href={settings.directions_url}>Get directions</a>
@@ -57,9 +62,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     align-items: flex-start;
   }
 
+  .hours-main { flex: 1.4 1 480px; min-width: 0; }
   .hours-list {
-    flex: 1.4 1 480px;
-    min-width: 0;
     margin: 0;
     border-top: 3px solid var(--ink);
   }
@@ -96,21 +100,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   .hours-intro { margin: 0; font-size: 19px; }
 
+  /* A deeper red than the alert banner, so it reads as related but stands on its own. */
   .call-card {
-    background: var(--ink);
-    color: var(--stone-light);
-    padding: 20px 24px;
+    margin-top: 32px;
+    background: var(--red-on-stone);
+    color: #FFFFFF;
+    padding: 26px 28px;
     border-radius: 4px;
-    max-width: 420px;
+    box-shadow: 6px 6px 0 var(--ink);
   }
-  .call-title { margin: 0 0 6px; font-weight: 600; color: #FFFFFF; }
-  .call-text { margin: 0 0 10px; }
+  .call-title {
+    margin: 0 0 6px;
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.15;
+  }
+  .call-text { margin: 0 0 12px; font-size: 19px; font-weight: 600; }
   .call-card a, .call-card a:hover {
     color: #FFFFFF;
-    font-weight: 600;
-    font-size: 19px;
+    font-weight: 700;
+    font-size: 24px;
     display: inline-flex;
     align-items: center;
+    gap: 10px;
     min-height: 44px;
   }
 
@@ -126,7 +139,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   @media (max-width: 759px) {
     .hours-section { padding-bottom: 64px; }
     .hours-title { margin-bottom: 32px; }
-    .hours-list, .hours-side { flex-basis: 100%; }
+    .hours-main, .hours-side { flex-basis: 100%; }
+    .call-card { margin-top: 24px; padding: 22px 20px; box-shadow: 4px 4px 0 var(--ink); }
+    .call-title { font-size: 26px; }
     .hours-row { padding: 14px 4px; }
     .hours-row dt { font-size: 26px; }
   }
