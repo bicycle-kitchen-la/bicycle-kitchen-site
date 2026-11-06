@@ -1,7 +1,7 @@
 ---
 import PhotoSlot from '../components/PhotoSlot.astro';
 import Wheel from '../components/Wheel.astro';
-import { links } from '../data/nav';
+import { links, showCoOps } from '../data/nav';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const values = [
@@ -18,7 +18,7 @@ const story = [
     when: 'Today',
     title: 'One of many LA co-ops',
     text: 'Our model helped inspire bike co-ops across the region, like the Bike Oven in Highland Park and Bikerowave on the Westside.',
-    link: { label: 'Meet other LA co-ops', href: links.coOps.href },
+    link: showCoOps ? { label: 'Meet other LA co-ops', href: links.coOps.href } : undefined,
   },
 ];
 ---

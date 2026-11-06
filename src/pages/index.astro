@@ -1,7 +1,7 @@
 ---
 import PhotoSlot from '../components/PhotoSlot.astro';
 import Wheel from '../components/Wheel.astro';
-import { links } from '../data/nav';
+import { links, showCoOps } from '../data/nav';
 import { settings } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
@@ -115,7 +115,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
       <nav class="mission-links" aria-label="About Bicycle Kitchen">
         <a href={links.who.href}>{links.who.label}</a>
-        <a href={links.coOps.href}>{links.coOps.label}</a>
+        {showCoOps && <a href={links.coOps.href}>{links.coOps.label}</a>}
         <a href={links.supporters.href}>{links.supporters.label}</a>
       </nav>
     </div>

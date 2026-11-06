@@ -16,13 +16,16 @@ export const links = {
   volunteer: { label: 'Volunteer', href: '/volunteer' },
 } satisfies Record<string, NavLink>;
 
+// Other LA Co-Ops is hidden for now while we decide whether to keep it. The page
+// still exists and the footer still links to it. Change false to true to bring
+// back its links in the header menu and on the Home, About, and Hours pages.
+export const showCoOps = false;
+
 // Header menu, in order. An entry is either a single link or a dropdown group.
 export const headerMenu = [
   { label: 'Bike Repair', items: [links.learn, links.projectBikes] },
   links.hours,
-  // Other LA Co-Ops is left out for now (footer only) while we decide whether
-  // to keep it. To bring it back, add links.coOps between links.who and links.supporters.
-  { label: 'About', items: [links.mission, links.who, links.supporters] },
+  { label: 'About', items: [links.mission, links.who, ...(showCoOps ? [links.coOps] : []), links.supporters] },
   { label: 'Get Involved', items: [links.volunteer, links.donateBikes, links.donate] },
 ];
 

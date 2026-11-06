@@ -1,6 +1,6 @@
 ---
 import Wheel from '../components/Wheel.astro';
-import { links } from '../data/nav';
+import { links, showCoOps } from '../data/nav';
 import { hours, phoneHref, settings } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
@@ -37,10 +37,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <p class="hours-address">{settings.address_line_1}<br />{settings.address_line_2}</p>
             <a class="link-strong" href={settings.directions_url}>Get directions</a>
           </div>
-          <div class="closed-card section-alt">
-            <p><strong>Closed tonight?</strong> Other volunteer-run co-ops around LA may be open.</p>
-            <a class="link-strong" href={links.coOps.href}>See other LA co-ops</a>
-          </div>
+          {showCoOps && (
+            <div class="closed-card section-alt">
+              <p><strong>Closed tonight?</strong> Other volunteer-run co-ops around LA may be open.</p>
+              <a class="link-strong" href={links.coOps.href}>See other LA co-ops</a>
+            </div>
+          )}
         </div>
       </div>
     </div>
