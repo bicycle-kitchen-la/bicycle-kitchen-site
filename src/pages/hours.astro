@@ -18,10 +18,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           {hours.days.map((row) => (
             <div class="hours-row">
               <dt>{row.day}</dt>
-              <dd>
-                <span class="hours-time">{row.time}</span>
-                {row.note && <span class="hours-note">{row.note}</span>}
-              </dd>
+              <dd class="hours-time">{row.time}</dd>
+              {row.note && <dd class="hours-note">{row.note}</dd>}
             </div>
           ))}
         </dl>
@@ -81,10 +79,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   .hours-row dd { margin: 0; text-align: right; }
   .hours-time { font-weight: 600; font-size: 21px; }
+  /* The note gets its own line so a long one never pushes the time out of line. */
   .hours-note {
-    display: block;
+    flex-basis: 100%;
     font-size: 16px;
-    color: var(--muted);
+    color: var(--ink);
     font-weight: 700;
   }
 
