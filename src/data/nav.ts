@@ -20,7 +20,9 @@ export const links = {
 export const headerMenu = [
   { label: 'Bike Repair', items: [links.learn, links.projectBikes] },
   links.hours,
-  { label: 'About', items: [links.mission, links.who, links.coOps, links.supporters] },
+  // Other LA Co-Ops is left out for now (footer only) while we decide whether
+  // to keep it. To bring it back, add links.coOps between links.who and links.supporters.
+  { label: 'About', items: [links.mission, links.who, links.supporters] },
   { label: 'Get Involved', items: [links.volunteer, links.donateBikes, links.donate] },
 ];
 
