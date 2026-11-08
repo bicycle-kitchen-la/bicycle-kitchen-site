@@ -206,7 +206,7 @@ content:
             type: text
             required: true
       - name: grants
-        label: Grants (listed under The building we call home)
+        label: Grants (listed under 4429 Fountain Ave)
         type: object
         list: true
         fields:
