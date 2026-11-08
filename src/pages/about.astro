@@ -4,6 +4,10 @@ import Wheel from '../components/Wheel.astro';
 import { links, showCoOps } from '../data/nav';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+// Years since Bicycle Kitchen started in 2002. Worked out each time the site is
+// built, so it moves up on its own after the new year.
+const yearsOpen = new Date().getFullYear() - 2002;
+
 const values = [
   { title: 'Fun.', text: 'Dig through filing cabinets full of used parts, bins of forks, and cubbies with all sorts of bits until you find exactly what you need!' },
   { title: 'Safe.', text: 'Ride off on a bike that passes the ABCs of cycling. Work on your bike until you know it’s safe and rides how you want.' },
@@ -59,7 +63,7 @@ const story = [
       <div class="who-text">
         <h2 id="who-h" class="h2">Who we are</h2>
         <p>Bicycle Kitchen / La Bici-Cocina is a 501(c)(3) nonprofit run entirely by volunteers.</p>
-        <p>Volunteers have helped keep Bike Kitchen open to all for over 24 years. With our community of volunteers we are able to teach repairs, connect bikes to those in need, and connect with folks as we try to get more people on two wheels.</p>
+        <p>Volunteers have helped keep Bike Kitchen open to all for over {yearsOpen} years. With our community of volunteers we are able to teach repairs, connect bikes to those in need, and connect with folks as we try to get more people on two wheels.</p>
         <p>Everyone is welcome here.</p>
         <p class="who-link"><a class="link-strong" href={links.volunteer.href}>Become a volunteer</a></p>
       </div>
