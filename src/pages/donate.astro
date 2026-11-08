@@ -83,7 +83,11 @@ const giveLinks = [
       <div class="others">
         <div class="other">
           <h3>Donate bikes and parts</h3>
-          <p>Drop off used bikes and parts during open hours. They become project bikes and spare parts for the community. Tax receipts available.</p>
+          <p>Come by during our open hours to drop off a donation!</p>
+          <ul class="donation-rules">
+            <li><strong>Accepting:</strong> bikes, parts, tools, clothes, and accessories</li>
+            <li><strong>Not accepting:</strong> tandem bikes, dented or cracked frames and wheels, trainers, broken tools</li>
+          </ul>
           <p class="other-link"><a class="link-strong" href={links.hours.href}>See open hours</a></p>
         </div>
         <div class="other">
@@ -172,6 +176,14 @@ const giveLinks = [
   }
   .other h3 { margin-bottom: 10px; }
   .other p { margin: 0; }
+  .donation-rules {
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
   .other .other-link { margin-top: 12px; }
 
   @media (max-width: 759px) {
