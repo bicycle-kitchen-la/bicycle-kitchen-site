@@ -206,7 +206,8 @@ content:
             type: text
             required: true
       - name: grants
-        label: Grants (listed under 4429 Fountain Ave)
+        label: Other grants (optional, listed beside 4429 Fountain Ave)
+        description: Metabolic Studio and the Bohnett Foundation are already named in the 4429 Fountain Ave text, so don't add them here.
         type: object
         list: true
         fields:

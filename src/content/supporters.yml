@@ -14,9 +14,6 @@ individuals:
     location: San Gabriel Valley
     thanks: Their generous donations over the years have filled our bins and kept people rolling.
 
-# Listed under "4429 Fountain Ave".
-grants:
-  - name: Metabolic Studio
-    description: A major financial contribution in 2012 that helped us buy our building.
-  - name: Bohnett Foundation
-    description: A smaller but still important grant that helped make our home possible.
+# Optional. Listed beside "4429 Fountain Ave". Metabolic Studio and the
+# Bohnett Foundation are already named in that section's text.
+grants: []
