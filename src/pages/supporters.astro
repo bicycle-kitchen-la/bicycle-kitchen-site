@@ -1,7 +1,7 @@
 ---
 import Wheel from '../components/Wheel.astro';
 import { links } from '../data/nav';
-import { supporters } from '../data/site';
+import { settings, supporters } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -37,15 +37,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="made-possible-list">
           <div class="made-possible-item">
             <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#A63A22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"></path><path d="M6 11v5c3 2 9 2 12 0v-5"></path></svg>
-            <div><h3>Youth programming</h3><p>Bike programs for students in local schools.</p></div>
+            <div><h3>Youth programming</h3><p>Bike repair in schools and youth build-a-bike programs.</p></div>
           </div>
           <div class="made-possible-item">
             <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#A63A22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"></rect><path d="M8 20h8M12 16v4"></path></svg>
-            <div><h3>Workshop series</h3><p>Hands-on classes on repair and maintenance.</p></div>
+            <div><h3>Workshops</h3><p>Learn basic skills and road repair with our hands-on classes.</p><p class="item-link"><a class="link-strong" href={settings.instagram_url}>Follow {settings.instagram_handle} for dates</a></p></div>
           </div>
           <div class="made-possible-item">
             <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#A63A22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="5"></circle><path d="M10 18h4M12 15v3"></path><path d="M12 2v1M4 10H3M21 10h-1M6 4l.7.7M18 4l-.7.7"></path></svg>
-            <div><h3>Free lights and locks</h3><p>Giving riders what they need to stay safe and keep their bikes.</p></div>
+            <div><h3>Free lights and locks</h3><p>On average 100 people without means are able to receive free lights and locks. It’s important to us that everyone has access to safety and security.</p></div>
           </div>
         </div>
       </div>
@@ -148,6 +148,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin: 0 0 6px;
   }
   .made-possible-item p { margin: 0; }
+  .made-possible-item .item-link { margin-top: 6px; }
+  .item-link a { display: inline-flex; align-items: center; min-height: 44px; }
 
   .thanks { gap: 32px 80px; }
   .thanks-name { flex: 1 1 340px; min-width: 0; }
