@@ -26,7 +26,7 @@ const repairs = [
 
 <BaseLayout
   title="Learn to repair · Bicycle Kitchen"
-  description="Every repair at Bicycle Kitchen is a lesson. Work on your own bike with support from our volunteers. No experience needed and no question is too basic."
+  description="Bicycle Kitchen is a DIY bike repair space in Los Angeles. Use our tools and knowledge as you tackle a repair, and ask away if you don’t know how to start."
   breadcrumbs={[{ label: 'Bike Repair' }]}
   breadcrumbCurrent="Learn to repair"
 >
@@ -34,8 +34,7 @@ const repairs = [
     <div class="container split">
       <div class="page-hero-text">
         <h1 id="lr-title" class="page-title">Learn to repair<Wheel /></h1>
-        <p class="lead">Every repair here is a lesson.</p>
-        <p class="intro">Work on your own bike or one we connect you with. Ask for support from our wonderful volunteers. No experience needed and no question is too basic.</p>
+        <p class="intro lr-intro">Being a DIY space, you will have access to our tools and knowledge as you tackle a repair. Don’t know how to even start a repair? Ask away and we’ll do our best to guide you through it.</p>
         <div class="hero-buttons">
           <a class="btn btn-ink" href="#learn">What you can learn</a>
           <a class="btn btn-outline" href={links.hours.href}>See shop hours</a>
@@ -105,6 +104,7 @@ const repairs = [
 </BaseLayout>
 
 <style>
+  .lr-intro { margin-top: 28px; font-size: 21px; }
   .visit-title { margin-bottom: 40px; }
 
   .repairs {
