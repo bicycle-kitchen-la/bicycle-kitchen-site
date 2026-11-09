@@ -26,7 +26,7 @@ export const headerMenu = [
   { label: 'Bike Repair', items: [links.learn, links.projectBikes] },
   links.hours,
   { label: 'About', items: [links.mission, links.who, ...(showCoOps ? [links.coOps] : []), links.supporters] },
-  { label: 'Get Involved', items: [links.volunteer, links.donateBikes, links.donate] },
+  { label: 'Get Involved', items: [links.volunteer, links.donateBikes] },
 ];
 
 // Footer columns, in order.
