@@ -15,10 +15,10 @@ const howSteps = [
 ];
 
 const questions = [
-  { question: 'Who can get a project bike?', answer: 'Anyone. You don’t need experience. Volunteers will help you along the way.' },
-  { question: 'What does the price include?', answer: 'The bike plus any used part available in our shop. Swap or change parts as much as you need for the price you agreed on.' },
-  { question: 'What if I can’t finish in 30 days?', answer: 'After 30 days, the bike risks going back into circulation so someone else can use it. Talk to a volunteer if you’re running short on time.' },
-  { question: 'Can I pay with work trade?', answer: 'Yes. Every hour of work trade, like cleaning or organizing, takes $15 off your bike’s price.' },
+  { question: 'Who can get a project bike?', answer: 'Anyone! Just share your desire to start a project with any of our volunteers.', note: 'Limit of one project bike per year.' },
+  { question: 'What does the price include?', answer: 'The bike plus any used part available in our shop. Swap or change parts as much as you need for the price you agreed on.', note: 'New parts come at an added cost.' },
+  { question: 'What if I can’t finish in 30 days?', answer: 'Let somebody know you want an extension! After 30 days, we’ll try contacting you to see if you need an extension, otherwise your project will become available for anyone else to work on.' },
+  { question: 'Can I pay with work trade?', answer: 'Yes. Please let a volunteer know you want to do work trade when first setting up a project. Every hour of work trade, like cleaning or organizing, takes $15 off your bike’s price.' },
 ];
 ---
 
@@ -79,7 +79,7 @@ const questions = [
         {questions.map((item) => (
           <div class="row">
             <h3>{item.question}</h3>
-            <p>{item.answer}</p>
+            <p>{item.answer}{item.note && <> <em>{item.note}</em></>}</p>
           </div>
         ))}
       </div>
