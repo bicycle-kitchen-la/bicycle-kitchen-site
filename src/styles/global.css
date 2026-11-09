@@ -262,6 +262,22 @@ a:hover { color: var(--red-on-stone); }
   object-fit: cover;
   object-position: var(--photo-position, 50% 50%);
 }
+/* A video in a photo slot: a still image with a play button until pressed */
+.photo-slot.has-video { padding: 0; background: var(--ink); }
+.video-start { position: relative; display: block; width: 100%; height: 100%; }
+.video-play-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+  transition: transform 0.15s ease;
+}
+.video-start:hover .video-play-icon { transform: translate(-50%, -50%) scale(1.08); }
+.video-start:focus-visible { outline-offset: -6px; }
+.photo-slot iframe { display: block; width: 100%; height: 100%; border: 0; }
+@media (prefers-reduced-motion: reduce) { .video-play-icon { transition: none; } }
+
 .tone-light { background: #C2B8A8; color: #3A3430; }
 .tone-mid { background: #B5AA99; color: #2E2926; }
 .tone-dark { background: #3A3430; color: #ECE7DE; }

@@ -65,6 +65,27 @@ export const hours = read(
   }),
 );
 
+// Reads a YouTube link and returns the video's ID, or nothing if it isn't one.
+// Works with youtube.com/shorts/…, youtube.com/watch?v=…, and youtu.be/… links.
+export function youtubeVideo(link: string) {
+  let url: URL;
+  try {
+    url = new URL(link.trim());
+  } catch {
+    return undefined;
+  }
+  const host = url.hostname.replace(/^(www|m)\./, '');
+  let id: string | null | undefined;
+  if (host === 'youtu.be') id = url.pathname.split('/')[1];
+  else if (host === 'youtube.com') {
+    const [, kind, value] = url.pathname.split('/');
+    id = kind === 'watch' ? url.searchParams.get('v') : ['shorts', 'embed', 'live'].includes(kind) ? value : undefined;
+  }
+  if (!id || !/^[\w-]{11}$/.test(id)) return undefined;
+  // Shorts are tall; other videos are wide.
+  return { id, tall: url.pathname.startsWith('/shorts/'), link: link.trim() };
+}
+
 export const photos = read(
   'photos.yml',
   photosFile,
@@ -74,9 +95,13 @@ export const photos = read(
       .object({
         image: z.string().nullish(),
         alt: z.string().nullish(),
+        video: z.string().nullish(),
       })
       .refine((photo) => !photo.image || photo.alt?.trim(), {
         message: 'Every photo needs alt text. Add a short description of the photo.',
+      })
+      .refine((photo) => !photo.video?.trim() || youtubeVideo(photo.video), {
+        message: 'The video link must be a YouTube link, like https://www.youtube.com/shorts/MuEHU2bRazA. Or clear it to show the photo instead.',
       })
       .nullish(),
   ),

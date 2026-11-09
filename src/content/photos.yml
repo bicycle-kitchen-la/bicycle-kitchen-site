@@ -9,3 +9,6 @@ volunteer_hero:
   image: /src/assets/photos/volunteers.jpg
   alt: Two smiling volunteers in blue gloves hold up bike parts in the Bicycle
     Kitchen yard while another works on a bike in a repair stand
+about_cooks:
+  alt: A group of volunteers at the shop
+  video: https://www.youtube.com/shorts/MuEHU2bRazA

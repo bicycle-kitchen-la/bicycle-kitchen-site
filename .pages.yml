@@ -162,11 +162,13 @@ content:
           - { name: image, label: Photo, type: image }
           - { name: alt, label: Alt text, type: string, required: true }
       - name: about_cooks
-        label: "About: a group shot of the volunteers"
+        label: "About: a group shot of the volunteers (or a video)"
+        description: Paste a YouTube link to show a video here instead of the photo. If the video ever stops working, clear the link and save, and the photo shows again.
         type: object
         fields:
           - { name: image, label: Photo, type: image }
           - { name: alt, label: Alt text, type: string, required: true }
+          - { name: video, label: Video link (optional), type: string }
       - name: volunteer_hero
         label: "Volunteer: volunteers"
         type: object

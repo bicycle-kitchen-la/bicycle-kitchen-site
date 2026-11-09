@@ -1,7 +1,7 @@
 ---
 import { Picture } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
-import { photos } from '../data/site';
+import { photos, youtubeVideo } from '../data/site';
 
 interface Props {
   // The photo's name in src/content/photos.yml
@@ -38,9 +38,22 @@ if (photo?.image) {
   }
   image = match[1].default;
 }
+
+// A video link (only some slots offer one) takes the photo's place. Nothing
+// loads from YouTube until someone presses play, so the page stays fast and
+// YouTube can't track visitors who never watch.
+const video = photo?.video ? youtubeVideo(photo.video) : undefined;
+const poster = video && `https://i.ytimg.com/vi/${video.id}/${video.tall ? 'oardefault' : 'hqdefault'}.jpg`;
 ---
 
-{image ? (
+{video ? (
+  <div class:list={['photo-slot', 'has-video', { 'is-tall': video.tall }, className]}>
+    <a class="video-start" href={video.link} data-video-id={video.id} aria-label="Play video">
+      <img src={poster} alt="" loading="lazy" referrerpolicy="no-referrer" />
+      <svg class="video-play-icon" aria-hidden="true" width="72" height="72" viewBox="0 0 72 72"><circle cx="36" cy="36" r="36" fill="#A63A22"></circle><path d="M29 23l22 13-22 13z" fill="#FFFFFF"></path></svg>
+    </a>
+  </div>
+) : image ? (
   <div class:list={['photo-slot', 'has-photo', `tone-${tone}`, className]}>
     <Picture
       src={image}
@@ -54,3 +67,19 @@ if (photo?.image) {
 ) : (
   <div class:list={['photo-slot', `tone-${tone}`, className]}>{placeholder}</div>
 )}
+
+<script>
+  // Swap the still image for the YouTube player when someone presses play.
+  for (const start of document.querySelectorAll<HTMLAnchorElement>('.video-start')) {
+    start.addEventListener('click', (event) => {
+      event.preventDefault();
+      const player = document.createElement('iframe');
+      player.src = `https://www.youtube-nocookie.com/embed/${start.dataset.videoId}?autoplay=1&playsinline=1&rel=0`;
+      player.title = 'YouTube video';
+      player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      player.allowFullscreen = true;
+      start.replaceWith(player);
+      player.focus();
+    });
+  }
+</script>
