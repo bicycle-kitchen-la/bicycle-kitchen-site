@@ -228,7 +228,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     justify-content: center;
     text-align: center;
   }
-  .hero :global(.hero-photo-wheel.has-photo) { padding: 0; }
+  /* The padding above only spaces out the placeholder label. A real photo fills the box. */
+  .hero :global(.photo-slot.has-photo) { padding: 0; }
   .hero-intro {
     display: flex;
     flex-wrap: wrap;
