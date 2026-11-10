@@ -1,6 +1,12 @@
 home_hero_rider:
+  image: /src/assets/photos/large-tool-board.jpg
+  alt: A large tool board and wheels on the ceiling.
+home_hero_brakes:
+  image: /src/assets/photos/715850286179923834379708468724920626556485391n-1.jpg
+  alt: 3 people exploring the bicycle kitchen.
+home_hero_wheel:
   image: /src/assets/photos/javir.jpeg
-  alt: Two people working on a bike's rear wheel.
+  alt: A person working on a bike's rear wheel.
 home_open_shop:
   image: /src/assets/photos/truing-a-wheel.jpeg
   alt: Two grease-stained hands use a red spoke wrench to true a bicycle wheel
