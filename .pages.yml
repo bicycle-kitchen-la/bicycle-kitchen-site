@@ -104,77 +104,77 @@ content:
           - { name: alt, label: Alt text, type: string, required: true, description: "A short description for people who can't see the photo." }
       - name: home_hero_brakes
         label: "Home page · Top · Next to the word “Safe.”"
-        description: "Suggested photo: a volunteer showing someone how to adjust brakes. Shows on phones: yes."
+        description: "Shows on phones: yes."
         type: object
         fields:
           - { name: image, label: Photo, type: image, description: "Must be under 4 MB. Shrink big phone photos first (in Preview: Tools > Adjust Size, about 2000 pixels wide). Leave empty to show the labeled placeholder box." }
           - { name: alt, label: Alt text, type: string, required: true, description: "A short description for people who can't see the photo." }
       - name: home_hero_wheel
         label: "Home page · Top · Small circle near “Accessible.” (hidden on phones)"
-        description: "Suggested photo: a wheel close-up. It's cropped into a circle, so keep the subject in the middle. Shows on phones: NO. It only appears on tablets and computers."
+        description: "It's cropped into a circle, so keep the subject in the middle. Shows on phones: NO. It only appears on tablets and computers."
         type: object
         fields:
           - { name: image, label: Photo, type: image, description: "Must be under 4 MB. Shrink big phone photos first (in Preview: Tools > Adjust Size, about 2000 pixels wide). Leave empty to show the labeled placeholder box." }
           - { name: alt, label: Alt text, type: string, required: true, description: "A short description for people who can't see the photo." }
       - name: home_open_shop
         label: "Home page · What we do · Open shop card"
-        description: "The photo at the top of the first card. Suggested photo: someone truing a wheel at a stand. Shows on phones: yes."
+        description: "The photo at the top of the first card. Shows on phones: yes."
         type: object
         fields:
           - { name: image, label: Photo, type: image, description: "Must be under 4 MB. Shrink big phone photos first (in Preview: Tools > Adjust Size, about 2000 pixels wide). Leave empty to show the labeled placeholder box." }
           - { name: alt, label: Alt text, type: string, required: true, description: "A short description for people who can't see the photo." }
       - name: home_project_bikes
         label: "Home page · What we do · Project bikes card"
-        description: "The photo at the top of the middle card. Suggested photo: donated bikes lined up. The same photo works for the top of the Project bikes page. Shows on phones: yes."
+        description: "The photo at the top of the middle card. The same photo works for the top of the Project bikes page. Shows on phones: yes."
         type: object
         fields:
           - { name: image, label: Photo, type: image, description: "Must be under 4 MB. Shrink big phone photos first (in Preview: Tools > Adjust Size, about 2000 pixels wide). Leave empty to show the labeled placeholder box." }
           - { name: alt, label: Alt text, type: string, required: true, description: "A short description for people who can't see the photo." }
       - name: home_volunteer
         label: "Home page · What we do · Volunteer with us card"
-        description: "The photo at the top of the third card. Suggested photo: volunteers at the shop. Shows on phones: yes."
+        description: "The photo at the top of the third card. Shows on phones: yes."
         type: object
         fields:
           - { name: image, label: Photo, type: image, description: "Must be under 4 MB. Shrink big phone photos first (in Preview: Tools > Adjust Size, about 2000 pixels wide). Leave empty to show the labeled placeholder box." }
           - { name: alt, label: Alt text, type: string, required: true, description: "A short description for people who can't see the photo." }
       - name: home_floor_ftwnb
         label: "Home page · From the shop floor · Large photo on the left"
-        description: "The wide first photo in the row of three. Suggested photo: Thursday FTWNB night. Shows on phones: yes (the three photos stack)."
+        description: "The wide first photo in the row of three. Shows on phones: yes (the three photos stack)."
         type: object
         fields:
           - { name: image, label: Photo, type: image, description: "Must be under 4 MB. Shrink big phone photos first (in Preview: Tools > Adjust Size, about 2000 pixels wide). Leave empty to show the labeled placeholder box." }
           - { name: alt, label: Alt text, type: string, required: true, description: "A short description for people who can't see the photo." }
       - name: home_floor_parts
         label: "Home page · From the shop floor · Middle photo"
-        description: "Suggested photo: the parts wall. Shows on phones: yes."
+        description: "Shows on phones: yes."
         type: object
         fields:
           - { name: image, label: Photo, type: image, description: "Must be under 4 MB. Shrink big phone photos first (in Preview: Tools > Adjust Size, about 2000 pixels wide). Leave empty to show the labeled placeholder box." }
           - { name: alt, label: Alt text, type: string, required: true, description: "A short description for people who can't see the photo." }
       - name: home_floor_rebuilt
         label: "Home page · From the shop floor · Photo on the right"
-        description: "Suggested photo: a rebuilt bike leaving the shop. Shows on phones: yes."
+        description: "Shows on phones: yes."
         type: object
         fields:
           - { name: image, label: Photo, type: image, description: "Must be under 4 MB. Shrink big phone photos first (in Preview: Tools > Adjust Size, about 2000 pixels wide). Leave empty to show the labeled placeholder box." }
           - { name: alt, label: Alt text, type: string, required: true, description: "A short description for people who can't see the photo." }
       - name: learn_hero
         label: "Learn to repair page · Top · Beside the title"
-        description: "Suggested photo: a volunteer walking someone through a repair at the stand. Shows on phones: yes (below the buttons)."
+        description: "Shows on phones: yes (below the buttons)."
         type: object
         fields:
           - { name: image, label: Photo, type: image, description: "Must be under 4 MB. Shrink big phone photos first (in Preview: Tools > Adjust Size, about 2000 pixels wide). Leave empty to show the labeled placeholder box." }
           - { name: alt, label: Alt text, type: string, required: true, description: "A short description for people who can't see the photo." }
       - name: project_hero
         label: "Project bikes page · Top · Beside the title"
-        description: "Suggested photo: donated bikes lined up. Shows on phones: yes (below the buttons)."
+        description: "Shows on phones: yes (below the buttons)."
         type: object
         fields:
           - { name: image, label: Photo, type: image, description: "Must be under 4 MB. Shrink big phone photos first (in Preview: Tools > Adjust Size, about 2000 pixels wide). Leave empty to show the labeled placeholder box." }
           - { name: alt, label: Alt text, type: string, required: true, description: "A short description for people who can't see the photo." }
       - name: about_cooks
         label: "Our mission page · Who we are · Beside the text (photo or video)"
-        description: "Paste a YouTube link to show a video here instead of the photo. If the video ever stops working, clear the link and save, and the photo shows again. Suggested photo: a group shot of the volunteers. Shows on phones: yes (below the text)."
+        description: "Paste a YouTube link to show a video here instead of the photo. If the video ever stops working, clear the link and save, and the photo shows again. Shows on phones: yes (below the text)."
         type: object
         fields:
           - { name: image, label: Photo, type: image, description: "Must be under 4 MB. Shrink big phone photos first (in Preview: Tools > Adjust Size, about 2000 pixels wide). Leave empty to show the labeled placeholder box." }
@@ -182,7 +182,7 @@ content:
           - { name: video, label: Video link (optional), type: string }
       - name: volunteer_hero
         label: "Volunteer page · Top · Beside the title"
-        description: "Suggested photo: volunteers at the shop. Shows on phones: yes (below the buttons)."
+        description: "Shows on phones: yes (below the buttons)."
         type: object
         fields:
           - { name: image, label: Photo, type: image, description: "Must be under 4 MB. Shrink big phone photos first (in Preview: Tools > Adjust Size, about 2000 pixels wide). Leave empty to show the labeled placeholder box." }
