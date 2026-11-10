@@ -98,6 +98,7 @@ content:
       # whether the photo shows on phones.
       - name: home_hero_rider
         label: "Home page · Top · Next to the word “Fun.”"
+        description: "Shows on phones: yes (above the headline)."
         type: object
         fields:
           - { name: image, label: Photo, type: image, description: "Must be under 4 MB. Shrink big phone photos first (in Preview: Tools > Adjust Size, about 2000 pixels wide). Leave empty to show the labeled placeholder box." }
