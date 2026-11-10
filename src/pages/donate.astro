@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import Wheel from '../components/Wheel.astro';
 import { links } from '../data/nav';
 import { settings } from '../data/site';
@@ -46,28 +47,28 @@ const giveLinks = [
       </div>
       <div class="uses">
         <div class="use">
-          <svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#A63A22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V4h14v17"></path><path d="M15 12h.01"></path></svg>
+          <Icon name="building" size={44} color="#A63A22" />
           <div>
             <h3>Keeping Bike Kitchen open</h3>
             <p>We have regular costs related to our mortgage, utilities, repairs, etc... that need to be kept up with so that we can stay open to everyone.</p>
           </div>
         </div>
         <div class="use">
-          <svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#A63A22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.4 2.4-2.6-.4-.4-2.6z"></path></svg>
+          <Icon name="wrench" size={44} color="#A63A22" />
           <div>
             <h3>Tools for repairs</h3>
             <p>Our 2000+ yearly visitors depend on our tools for their repairs. Help us keep quality tools accessible to all.</p>
           </div>
         </div>
         <div class="use">
-          <svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#A63A22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"></path><path d="M5 4h11l-2 4 2 4H5"></path></svg>
+          <Icon name="flag" size={44} color="#A63A22" />
           <div>
             <h3>Supporting community events</h3>
             <p>Supporting CicLAvia, SELAH, SLCC, and other community partners requires us to share our tools and supplies. Help us keep more of LA rolling!</p>
           </div>
         </div>
         <div class="use">
-          <svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#A63A22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+          <Icon name="heart" size={44} color="#A63A22" />
           <div>
             <h3>Staying accessible</h3>
             <p>We believe no one should be turned away for lack of funds. Your donation allows us the flexibility to offer work trade as a means for anyone to participate at Bike Kitchen.</p>
@@ -156,7 +157,7 @@ const giveLinks = [
     padding: 28px 4px;
     border-bottom: 1px solid var(--rule);
   }
-  .use svg { flex: none; margin-top: 4px; }
+  .use :global(svg) { flex: none; margin-top: 4px; }
   .use h3, .other h3 {
     font-family: var(--slab);
     font-weight: 700;
