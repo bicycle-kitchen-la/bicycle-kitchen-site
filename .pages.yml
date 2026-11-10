@@ -178,7 +178,7 @@ content:
         description: "Paste a YouTube link to show a video here instead of the photo. If the video ever stops working, clear the link and save, and the photo shows again. Shows on phones: yes (below the text)."
         type: object
         fields:
-          - { name: image, label: Photo, type: image, description: "Must be under 4 MB. Shrink big phone photos first (in Preview: Tools > Adjust Size, about 2000 pixels wide). Leave empty to show the labeled placeholder box." }
+          - { name: image, label: Photo, type: image, description: "If a video link is filled in below, the video shows instead of this photo. To show this photo, clear the video link." }
           - { name: alt, label: Alt text, type: string, required: true, description: "A short description for people who can't see the photo." }
           - { name: video, label: Video link (optional), type: string }
       - name: volunteer_hero
