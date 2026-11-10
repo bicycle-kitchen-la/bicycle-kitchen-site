@@ -10,6 +10,9 @@ home_hero_wheel:
 home_open_shop:
   image: /src/assets/photos/truing-a-wheel.jpeg
   alt: Two grease-stained hands use a red spoke wrench to true a bicycle wheel
+home_project_bikes:
+  image: /src/assets/photos/kennyfinishedpb-1.jpg
+  alt: 3 people outside at night, celebrating a finished project bike.
 home_volunteer:
   image: /src/assets/photos/volunteers.jpg
   alt: Two smiling volunteers in blue gloves hold up bike parts in the Bicycle
