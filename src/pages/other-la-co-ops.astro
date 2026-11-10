@@ -45,15 +45,6 @@ const coOps = coOpsPage.co_ops.map((coOp) => {
           </div>
           <figcaption>{coOpsPage.map_caption}</figcaption>
         </figure>
-        <div class="closed-tips">
-          <h2>{coOpsPage.tips_heading}</h2>
-          <div class="closed-list">
-            {coOpsPage.tips.map((tip) => (
-              <div><strong>{tip.question}</strong> {tip.answer}</div>
-            ))}
-          </div>
-          {coOpsPage.tips_note && <p>{coOpsPage.tips_note}</p>}
-        </div>
       </div>
     </div>
   </section>
@@ -150,22 +141,6 @@ const coOps = coOpsPage.co_ops.map((coOp) => {
   .label-kitchen { right: 28.92%; top: 6.54%; background: #98332A; }
   .label-oven { right: 4.68%; top: 11.52%; }
   figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); }
-
-  .closed-tips { flex: 1 1 300px; min-width: 0; }
-  .closed-tips h2 {
-    font-family: var(--slab);
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 1.05;
-    margin: 0 0 18px;
-  }
-  .closed-list {
-    display: flex;
-    flex-direction: column;
-    border-top: 3px solid var(--ink);
-  }
-  .closed-list div { padding: 14px 2px; border-bottom: 1px solid var(--rule); }
-  .closed-tips > p { margin: 16px 0 0; font-size: 14px; color: var(--muted); }
 
   .coop {
     padding-top: 88px;

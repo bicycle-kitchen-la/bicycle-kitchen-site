@@ -142,9 +142,6 @@ export const coOpsPage = read(
     }),
     map_description: z.string().min(1),
     map_caption: z.string().min(1),
-    tips_heading: z.string().min(1),
-    tips: optionalList(z.object({ question: z.string().min(1), answer: z.string().min(1) })),
-    tips_note: z.string().nullish(),
     co_ops: optionalList(
       z.object({
         name: z.string().min(1),

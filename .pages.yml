@@ -235,27 +235,6 @@ content:
         label: Smaller intro text under it
         type: text
         required: true
-      - name: tips_heading
-        label: Heading beside the map
-        type: string
-        required: true
-      - name: tips
-        label: Tips beside the map
-        description: These repeat the co-ops' hours, so update them when the hours below change.
-        type: object
-        list: true
-        fields:
-          - name: question
-            label: Question (shown in bold)
-            type: string
-            required: true
-          - name: answer
-            label: Answer
-            type: string
-            required: true
-      - name: tips_note
-        label: Small note under the tips
-        type: text
       - name: co_ops
         label: Co-ops
         description: Each one gets its own section on the page. Adding or removing one here does not change the map. Ask for help with that.
