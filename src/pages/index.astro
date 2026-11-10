@@ -186,7 +186,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .hero-word {
     font-family: var(--slab);
     font-weight: 700;
-    font-size: clamp(88px, 14vw, 200px);
+    /* Tops out at 186px, the largest "Accessible" gets, so all three words
+       match on wide screens. */
+    font-size: clamp(88px, 14vw, 186px);
     line-height: 0.82;
     letter-spacing: -0.02em;
   }
@@ -209,7 +211,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     /* Sized so "Accessible" and its wheel always leave room for the round
        photo (170px) and the gaps beside it. The word is about 5.2 times as
        wide as its font size. */
-    font-size: clamp(60px, calc((100cqi - 250px) / 5.2), 200px);
+    font-size: clamp(60px, calc((100cqi - 250px) / 5.2), 186px);
     line-height: 0.86;
     margin-left: clamp(0px, 2vw, 28px);
   }
