@@ -94,83 +94,96 @@ content:
     fields:
       # Each slot is written out in full. Pages CMS doesn't understand YAML
       # shortcuts here, and saving removes any slot it can't see.
+      # Labels say the page and spot. Descriptions say what to shoot and
+      # whether the photo shows on phones.
       - name: home_hero_rider
-        label: "Home, top: someone grinning on a bike they just fixed"
-        description: Leave the photo empty to show the labeled placeholder box. Alt text is a short description for people who can't see the photo.
+        label: "Home page · Top · Next to the word “Fun.”"
+        description: "Suggested photo: someone grinning on a bike they just fixed. The large dark box at the top of the page. Shows on phones: yes. Leave the photo empty to show the labeled placeholder box. Alt text is a short description for people who can't see the photo. Photos must be under 4 MB, so shrink big phone photos first (in Preview: Tools > Adjust Size, about 2000 pixels wide)."
         type: object
         fields:
           - { name: image, label: Photo, type: image }
           - { name: alt, label: Alt text, type: string, required: true }
       - name: home_hero_brakes
-        label: "Home, top: a volunteer showing someone how to adjust brakes"
+        label: "Home page · Top · Next to the word “Safe.”"
+        description: "Suggested photo: a volunteer showing someone how to adjust brakes. Shows on phones: yes."
         type: object
         fields:
           - { name: image, label: Photo, type: image }
           - { name: alt, label: Alt text, type: string, required: true }
       - name: home_hero_wheel
-        label: "Home, top: wheel close-up (shown in a circle)"
+        label: "Home page · Top · Small circle near “Accessible.” (hidden on phones)"
+        description: "Suggested photo: a wheel close-up. It's cropped into a circle, so keep the subject in the middle. Shows on phones: NO. It only appears on tablets and computers."
         type: object
         fields:
           - { name: image, label: Photo, type: image }
           - { name: alt, label: Alt text, type: string, required: true }
       - name: home_open_shop
-        label: "Home, What we do: someone truing a wheel at a stand"
+        label: "Home page · What we do · Open shop card"
+        description: "The photo at the top of the first card. Suggested photo: someone truing a wheel at a stand. Shows on phones: yes."
         type: object
         fields:
           - { name: image, label: Photo, type: image }
           - { name: alt, label: Alt text, type: string, required: true }
       - name: home_project_bikes
-        label: "Home, What we do: donated bikes lined up"
+        label: "Home page · What we do · Project bikes card"
+        description: "The photo at the top of the middle card. Suggested photo: donated bikes lined up. The same photo works for the top of the Project bikes page. Shows on phones: yes."
         type: object
         fields:
           - { name: image, label: Photo, type: image }
           - { name: alt, label: Alt text, type: string, required: true }
       - name: home_volunteer
-        label: "Home, What we do: volunteers"
+        label: "Home page · What we do · Volunteer with us card"
+        description: "The photo at the top of the third card. Suggested photo: volunteers at the shop. Shows on phones: yes."
         type: object
         fields:
           - { name: image, label: Photo, type: image }
           - { name: alt, label: Alt text, type: string, required: true }
       - name: home_floor_ftwnb
-        label: "Home, From the shop floor: Thursday FTWNB night"
+        label: "Home page · From the shop floor · Large photo on the left"
+        description: "The wide first photo in the row of three. Suggested photo: Thursday FTWNB night. Shows on phones: yes (the three photos stack)."
         type: object
         fields:
           - { name: image, label: Photo, type: image }
           - { name: alt, label: Alt text, type: string, required: true }
       - name: home_floor_parts
-        label: "Home, From the shop floor: the parts wall"
+        label: "Home page · From the shop floor · Middle photo"
+        description: "Suggested photo: the parts wall. Shows on phones: yes."
         type: object
         fields:
           - { name: image, label: Photo, type: image }
           - { name: alt, label: Alt text, type: string, required: true }
       - name: home_floor_rebuilt
-        label: "Home, From the shop floor: a rebuilt bike leaving the shop"
+        label: "Home page · From the shop floor · Photo on the right"
+        description: "Suggested photo: a rebuilt bike leaving the shop. Shows on phones: yes."
         type: object
         fields:
           - { name: image, label: Photo, type: image }
           - { name: alt, label: Alt text, type: string, required: true }
       - name: learn_hero
-        label: "Learn to repair: a volunteer walking someone through a repair"
+        label: "Learn to repair page · Top · Beside the title"
+        description: "Suggested photo: a volunteer walking someone through a repair at the stand. Shows on phones: yes (below the buttons)."
         type: object
         fields:
           - { name: image, label: Photo, type: image }
           - { name: alt, label: Alt text, type: string, required: true }
       - name: project_hero
-        label: "Project bikes: donated bikes lined up"
+        label: "Project bikes page · Top · Beside the title"
+        description: "Suggested photo: donated bikes lined up. Shows on phones: yes (below the buttons)."
         type: object
         fields:
           - { name: image, label: Photo, type: image }
           - { name: alt, label: Alt text, type: string, required: true }
       - name: about_cooks
-        label: "About: a group shot of the volunteers (or a video)"
-        description: Paste a YouTube link to show a video here instead of the photo. If the video ever stops working, clear the link and save, and the photo shows again.
+        label: "Our mission page · Who we are · Beside the text (photo or video)"
+        description: "Paste a YouTube link to show a video here instead of the photo. If the video ever stops working, clear the link and save, and the photo shows again. Suggested photo: a group shot of the volunteers. Shows on phones: yes (below the text)."
         type: object
         fields:
           - { name: image, label: Photo, type: image }
           - { name: alt, label: Alt text, type: string, required: true }
           - { name: video, label: Video link (optional), type: string }
       - name: volunteer_hero
-        label: "Volunteer: volunteers"
+        label: "Volunteer page · Top · Beside the title"
+        description: "Suggested photo: volunteers at the shop. Shows on phones: yes (below the buttons)."
         type: object
         fields:
           - { name: image, label: Photo, type: image }
