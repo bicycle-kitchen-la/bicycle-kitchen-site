@@ -204,6 +204,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   @media (min-width: 760px) {
     /* On desktops the round photo always stays beside "Accessible". */
     .hero-row-2 { flex-wrap: nowrap; }
+    /* Nudges the round photo up and left, into the space beside "Safe".
+       This only shifts how it's drawn, so the words keep their size. It moves
+       up to 120px left on wide screens, and less on smaller laptops where
+       there's less room beside "Safe". */
+    .hero :global(.hero-photo-wheel) {
+      transform: translate(calc(-1 * clamp(0px, (100cqi - 820px) * 0.6, 120px)), -60px);
+    }
   }
   .hero-safe { align-items: center; }
   .hero-word-accessible {
