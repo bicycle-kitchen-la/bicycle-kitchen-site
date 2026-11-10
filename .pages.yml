@@ -4,7 +4,7 @@ media:
   input: src/assets/photos
   output: /src/assets/photos
   rename: safe
-  extensions: [jpg, jpeg, png, webp, avif]
+  extensions: [jpg, jpeg, png, webp, avif, JPG, JPEG, PNG, WEBP, AVIF]
 
 content:
   - name: settings
