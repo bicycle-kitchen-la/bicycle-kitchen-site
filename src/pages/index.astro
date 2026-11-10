@@ -175,6 +175,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <style>
   /* Hero */
   .hero { padding: 40px var(--gutter) 64px; overflow: hidden; }
+  /* Lets the hero words size themselves to the content width (cqi) rather than the window. */
+  .hero .container { container-type: inline-size; }
   .hero-row {
     display: flex;
     flex-wrap: wrap;
@@ -197,10 +199,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-top: 12px;
   }
   .hero-row-2-words { flex: 0 1 auto; min-width: 0; }
+  @media (min-width: 760px) {
+    /* On desktops the round photo always stays beside "Accessible". */
+    .hero-row-2 { flex-wrap: nowrap; }
+  }
   .hero-safe { align-items: center; }
   .hero-word-accessible {
     margin-top: 12px;
-    font-size: clamp(60px, 13.9vw, 200px);
+    /* Sized so "Accessible" and its wheel always leave room for the round
+       photo (170px) and the gaps beside it. The word is about 5.2 times as
+       wide as its font size. */
+    font-size: clamp(60px, calc((100cqi - 250px) / 5.2), 200px);
     line-height: 0.86;
     margin-left: clamp(0px, 2vw, 28px);
   }
