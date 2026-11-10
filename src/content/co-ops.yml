@@ -7,10 +7,10 @@ co_ops:
   - name: Bikerowave
     where: Mar Vista, Westside · Since 2007
     lead: An all-volunteer bike repair co-op serving the Westside since 2007.
-    about: Bikerowave gives you the space, tools, and know-how to fix your own bike,
-      from patching a flat to building a wheel. Volunteers restore donated bikes
-      and sell them at fair prices, and no one is turned away for lack of funds.
-      It’s run democratically by its members, a lot like us.
+    about: Bikerowave aims to make cycling accessible to everyone by providing
+      affordable resources and education needed for anyone to work on bikes. They
+      provide space, tools, and equipment in order to effectively teach people how
+      to build, repair, and maintain their bicycles.
     website_label: Visit bikerowave.org
     website_url: https://bikerowave.org/
     hours:
