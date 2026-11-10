@@ -269,7 +269,8 @@ content:
             type: string
             required: true
           - name: hours
-            label: Hours
+            label: Hours (optional)
+            description: Leave empty to hide the Hours box. Their hours change, so visitors are sent to their website instead.
             type: object
             list: true
             fields:

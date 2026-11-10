@@ -63,12 +63,14 @@ const coOps = coOpsPage.co_ops.map((coOp) => {
           </div>
         </div>
         <div class="coop-cards">
-          <div class="coop-card">
-            <h3>Hours</h3>
-            {coOp.hours.map((row) => (
-              <div class="coop-hours"><span>{row.days}</span><span class="coop-time">{row.time}</span></div>
-            ))}
-          </div>
+          {coOp.hours.length > 0 && (
+            <div class="coop-card">
+              <h3>Hours</h3>
+              {coOp.hours.map((row) => (
+                <div class="coop-hours"><span>{row.days}</span><span class="coop-time">{row.time}</span></div>
+              ))}
+            </div>
+          )}
           <div class="coop-card coop-contact">
             <h3>Contact</h3>
             <span>{coOp.address}</span>

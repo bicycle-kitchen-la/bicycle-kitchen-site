@@ -13,13 +13,7 @@ co_ops:
       to build, repair, and maintain their bicycles.
     website_label: Visit bikerowave.org
     website_url: https://bikerowave.org/
-    hours:
-      - days: Monday – Thursday
-        time: 6:30 – 10 pm
-      - days: Friday
-        time: Closed
-      - days: Saturday – Sunday
-        time: 10 am – 1:30 pm
+    hours: []
     address: 12255 Venice Blvd, Los Angeles, CA 90066
     phone: (310) 230-5236
     email: info@bikerowave.org
@@ -34,13 +28,7 @@ co_ops:
       is turned away for lack of funds.
     website_label: Visit bike-oven.com
     website_url: https://bike-oven.com/
-    hours:
-      - days: Monday
-        time: Closed
-      - days: Tuesday – Thursday
-        time: 6 – 9 pm
-      - days: Friday – Sunday
-        time: 12 – 5 pm
+    hours: []
     address: 3706 N Figueroa St, Los Angeles, CA 90065
     phone: (323) 217-8454
     email: bikeoven2.0@gmail.com
