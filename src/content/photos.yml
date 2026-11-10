@@ -17,6 +17,21 @@ home_volunteer:
   image: /src/assets/photos/volunteers.jpg
   alt: Two smiling volunteers in blue gloves hold up bike parts in the Bicycle
     Kitchen yard while another works on a bike in a repair stand
+home_floor_ftwnb:
+  image: /src/assets/photos/large-tool-board.jpg
+  alt: tool board.
+home_floor_parts:
+  image: /src/assets/photos/dsc00448.jpeg
+  alt: ciclavia.
+home_floor_rebuilt:
+  image: /src/assets/photos/javir.jpeg
+  alt: people.
+learn_hero:
+  image: /src/assets/photos/javir.jpeg
+  alt: javir.
+project_hero:
+  image: /src/assets/photos/kennyfinishedpb-1.jpg
+  alt: finished PB.
 about_cooks:
   alt: A group of volunteers at the shop
   video: https://www.youtube.com/shorts/MuEHU2bRazA
