@@ -188,6 +188,13 @@ content:
         fields:
           - { name: image, label: Photo, type: image, description: "Must be under 3.7 MB. Suggested solution: Go to squoosh.app and select the photo you wish to resize. Reduce the quality until you get a file size below 3.7 MB." }
           - { name: alt, label: Alt text, type: string, required: true, description: "A short description for people who can't see the photo." }
+      - name: share_image
+        label: "Link previews · The photo shown when someone shares our site"
+        description: "Not shown on the site itself. It appears in texts, social media posts, and chat apps when someone shares a link to any page. It is cropped to a wide rectangle around its center, so wide photos work best."
+        type: object
+        fields:
+          - { name: image, label: Photo, type: image, description: "Must be under 3.7 MB. Suggested solution: Go to squoosh.app and select the photo you wish to resize. Reduce the quality until you get a file size below 3.7 MB." }
+          - { name: alt, label: Alt text, type: string, required: true, description: "A short description for people who can't see the photo." }
 
   - name: supporters
     label: Supporters

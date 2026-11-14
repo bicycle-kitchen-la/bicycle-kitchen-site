@@ -8,6 +8,9 @@ import '../styles/global.css';
 // them below means the text appears in the right font sooner.
 import titleFont from '@fontsource/zilla-slab/files/zilla-slab-latin-700-normal.woff2?url';
 import bodyFont from '@fontsource/work-sans/files/work-sans-latin-400-normal.woff2?url';
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { photos } from '../data/site';
 import AlertBanner from '../components/AlertBanner.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Footer from '../components/Footer.astro';
@@ -26,6 +29,22 @@ const { title, description, breadcrumbs = [], breadcrumbCurrent } = Astro.props;
 // Netlify sets URL to the site's main address and CONTEXT to the kind of deploy.
 // Search engines are asked to skip everything except the main site on the real
 // domain. This turns off by itself once the domain is live and the site rebuilds.
+// What shows when someone shares a link to the site in a text or on social
+// media: the page's title and description, plus one photo, cropped wide. The
+// photo is the "Link previews" slot in src/content/photos.yml.
+const pagePath = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/$/, '');
+const pageUrl = new URL(pagePath || '/', Astro.site).href;
+const share = photos.share_image;
+const photoFiles = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/photos/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}',
+  { eager: true },
+);
+const shareFile =
+  share?.image &&
+  Object.entries(photoFiles).find(([path]) => path.endsWith(`/${share.image.split('/').pop()}`))?.[1].default;
+const shareImage =
+  shareFile && (await getImage({ src: shareFile, width: 1200, height: 630, fit: 'cover', format: 'jpg' }));
+
 const hideFromSearch =
   process.env.CONTEXT !== 'production' || !process.env.URL?.includes('bicyclekitchen.org');
 ---
@@ -39,6 +58,21 @@ const hideFromSearch =
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="description" content={description} />
     {hideFromSearch && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={pageUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Bicycle Kitchen / La Bici-Cocina" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageUrl} />
+    {shareImage && (
+      <>
+        <meta property="og:image" content={new URL(shareImage.src, Astro.site).href} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={share?.alt ?? ''} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </>
+    )}
     <link rel="preload" as="font" type="font/woff2" href={titleFont} crossorigin />
     <link rel="preload" as="font" type="font/woff2" href={bodyFont} crossorigin />
     <script is:inline>document.documentElement.classList.add('js');</script>
