@@ -59,6 +59,7 @@ const poster = video && `https://i.ytimg.com/vi/${video.id}/${video.tall ? 'oard
       src={image}
       alt={photo?.alt ?? ''}
       formats={['avif', 'webp']}
+      width={Math.min(image.width, 1200)}
       widths={[400, 800, 1200].filter((width) => width <= image.width)}
       sizes={sizes}
       loading={eager ? 'eager' : 'lazy'}

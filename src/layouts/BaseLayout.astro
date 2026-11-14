@@ -4,6 +4,10 @@ import '@fontsource/zilla-slab/700.css';
 import '@fontsource/work-sans/400.css';
 import '@fontsource/work-sans/600.css';
 import '../styles/global.css';
+// The two fonts every page shows first (big titles and body text). Preloading
+// them below means the text appears in the right font sooner.
+import titleFont from '@fontsource/zilla-slab/files/zilla-slab-latin-700-normal.woff2?url';
+import bodyFont from '@fontsource/work-sans/files/work-sans-latin-400-normal.woff2?url';
 import AlertBanner from '../components/AlertBanner.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Footer from '../components/Footer.astro';
@@ -35,6 +39,8 @@ const hideFromSearch =
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="description" content={description} />
     {hideFromSearch && <meta name="robots" content="noindex" />}
+    <link rel="preload" as="font" type="font/woff2" href={titleFont} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={bodyFont} crossorigin />
     <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
   <body>
