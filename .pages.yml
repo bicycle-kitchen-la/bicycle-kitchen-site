@@ -196,6 +196,22 @@ content:
           - { name: image, label: Photo, type: image, description: "Must be under 3.7 MB. Suggested solution: Go to squoosh.app and select the photo you wish to resize. Reduce the quality until you get a file size below 3.7 MB." }
           - { name: alt, label: Alt text, type: string, required: true, description: "A short description for people who can't see the photo." }
 
+  - name: project_bikes
+    label: Project bikes page · Work Trade
+    type: file
+    path: src/content/project-bikes.yml
+    fields:
+      - name: work_trade
+        label: Work Trade
+        description: "The dollar amount appears in four of the boxes below (all but the small line). If the rate changes, update all four so the page agrees with itself."
+        type: object
+        fields:
+          - { name: lead, label: Paragraph under the Work Trade heading, type: text, required: true, description: "Mentions the dollar amount." }
+          - { name: amount, label: "Card · Big line", type: string, required: true, description: "The large text on the tilted card, like $15 off. Keep it short so it fits." }
+          - { name: unit, label: "Card · Small line", type: string, required: true, description: "Sits right under the big line, like per hour of work trade." }
+          - { name: example, label: "Card · Example", type: text, required: true, description: "Mentions a dollar total, like 4 hours takes $60 off." }
+          - { name: faq_answer, label: "Good to know · Answer to “Can I pay with work trade?”", type: text, required: true, description: "Near the bottom of the page. Mentions the dollar amount." }
+
   - name: supporters
     label: Supporters
     type: file

@@ -3,6 +3,7 @@ import { parse } from 'yaml';
 import coOpsFile from '../content/co-ops.yml?raw';
 import hoursFile from '../content/hours.yml?raw';
 import photosFile from '../content/photos.yml?raw';
+import projectBikesFile from '../content/project-bikes.yml?raw';
 import settingsFile from '../content/settings.yml?raw';
 import supportersFile from '../content/supporters.yml?raw';
 
@@ -157,6 +158,20 @@ export const coOpsPage = read(
         instagram: z.string().nullish(),
       }),
     ),
+  }),
+);
+
+export const projectBikesPage = read(
+  'project-bikes.yml',
+  projectBikesFile,
+  z.object({
+    work_trade: z.object({
+      lead: z.string().min(1),
+      amount: z.string().min(1),
+      unit: z.string().min(1),
+      example: z.string().min(1),
+      faq_answer: z.string().min(1),
+    }),
   }),
 );
 

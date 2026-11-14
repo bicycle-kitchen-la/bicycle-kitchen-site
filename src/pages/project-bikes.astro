@@ -2,7 +2,12 @@
 import PhotoSlot from '../components/PhotoSlot.astro';
 import Steps from '../components/Steps.astro';
 import Wheel from '../components/Wheel.astro';
+import { projectBikesPage } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// The Work Trade wording and dollar amounts live in src/content/project-bikes.yml,
+// so volunteers can change them in Pages CMS.
+const workTrade = projectBikesPage.work_trade;
 
 const howSteps = [
   {
@@ -18,7 +23,7 @@ const questions = [
   { question: 'Who can get a project bike?', answer: 'Anyone! Just share your desire to start a project with any of our volunteers.', note: 'Limit of one project bike per year.' },
   { question: 'What does the price include?', answer: 'The bike plus any used part available in our shop. Swap or change parts as much as you need for the price you agreed on.', note: 'New parts come at an added cost.' },
   { question: 'What if I can’t finish in 30 days?', answer: 'Let somebody know you want an extension! After 30 days, we’ll try contacting you to see if you need an extension, otherwise your project will become available for anyone else to work on.' },
-  { question: 'Can I pay with work trade?', answer: 'Yes. Please let a volunteer know you want to do work trade when first setting up a project. Every hour of work trade, like cleaning or organizing, takes $15 off your bike’s price.' },
+  { question: 'Can I pay with work trade?', answer: workTrade.faq_answer },
 ];
 ---
 
@@ -61,12 +66,12 @@ const questions = [
       <div class="trade-text">
         <p class="eyebrow">We work with any budget</p>
         <h2 id="wt-title" class="h2 trade-title">Work Trade</h2>
-        <p class="trade-lead">Support us in supporting you. Earn $15 off the cost of your project for every hour you help us with tasks like cleaning and organizing the shop.</p>
+        <p class="trade-lead">{workTrade.lead}</p>
       </div>
       <div class="trade-card">
-        <div class="trade-amount">$15 off</div>
-        <div class="trade-unit">per hour of work trade</div>
-        <p>For example, 4 hours of cleaning and organizing takes $60 off your project’s price.</p>
+        <div class="trade-amount">{workTrade.amount}</div>
+        <div class="trade-unit">{workTrade.unit}</div>
+        <p>{workTrade.example}</p>
       </div>
     </div>
   </section>
