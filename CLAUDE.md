@@ -76,7 +76,7 @@ URLs above.
 ## Contact and links
 
 - Phone (323) 662-2776, shown as "During Open Hours" where noted in the design
-- Email kitchen@bicyclekitchen.com (confirm .com vs .org with the user)
+- Email kitchen@bicyclekitchen.com (the user confirmed .com, not .org)
 - Instagram https://www.instagram.com/bicicocina/
 - PayPal https://www.paypal.com/paypalme/bicyclekitchen
 - Venmo https://www.venmo.com/u/BicycleKitchen
