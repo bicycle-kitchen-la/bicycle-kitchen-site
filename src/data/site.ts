@@ -1,6 +1,7 @@
 import { z } from 'astro/zod';
 import { parse } from 'yaml';
 import coOpsFile from '../content/co-ops.yml?raw';
+import eventsFile from '../content/events.yml?raw';
 import hoursFile from '../content/hours.yml?raw';
 import photosFile from '../content/photos.yml?raw';
 import projectBikesFile from '../content/project-bikes.yml?raw';
@@ -172,6 +173,46 @@ export const projectBikesPage = read(
       example: z.string().min(1),
       faq_answer: z.string().min(1),
     }),
+  }),
+);
+
+// A box a volunteer has cleared may be saved as blank, as nothing, or left out.
+const optionalText = z.string().nullish().transform((text) => text?.trim() || undefined);
+
+export const eventsPage = read(
+  'events.yml',
+  eventsFile,
+  z.object({
+    intro: z.string().min(1),
+    empty_message: z.string().min(1),
+    events: optionalList(
+      z
+        .object({
+          title: z.string().min(1),
+          // Written like 2026-12-05. Left empty for an event that repeats.
+          date: optionalText,
+          // Written like "Every first Saturday". Shown instead of a date.
+          repeats: optionalText,
+          time: optionalText,
+          description: optionalText,
+          note: optionalText,
+          signup_url: optionalText,
+          image: optionalText,
+          alt: optionalText,
+        })
+        .refine((event) => event.date || event.repeats, {
+          message: 'Every event needs a date, or a "Repeats" line like Every first Saturday.',
+        })
+        .refine((event) => !event.date || /^\d{4}-\d{2}-\d{2}$/.test(event.date), {
+          message: 'The date must be written like 2026-12-05.',
+        })
+        .refine((event) => !event.signup_url || /^https?:\/\//.test(event.signup_url), {
+          message: 'The sign-up link must start with https://',
+        })
+        .refine((event) => !event.image || event.alt, {
+          message: 'Every photo needs alt text. Add a short description of the photo.',
+        }),
+    ),
   }),
 );
 

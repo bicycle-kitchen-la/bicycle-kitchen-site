@@ -6,6 +6,7 @@ export type NavLink = { label: string; href: string };
 export const links = {
   learn: { label: 'Learn to repair', href: '/learn-to-repair' },
   projectBikes: { label: 'Project bikes', href: '/project-bikes' },
+  workshops: { label: 'Workshops & events', href: '/workshops' },
   hours: { label: 'Hours', href: '/hours' },
   mission: { label: 'Our mission', href: '/about' },
   who: { label: 'Who we are', href: '/about#who' },
@@ -23,7 +24,7 @@ export const showCoOps = false;
 
 // Header menu, in order. An entry is either a single link or a dropdown group.
 export const headerMenu = [
-  { label: 'Bike Repair', items: [links.learn, links.projectBikes] },
+  { label: 'Bike Repair', items: [links.learn, links.projectBikes, links.workshops] },
   links.hours,
   { label: 'About', items: [links.mission, links.who, ...(showCoOps ? [links.coOps] : []), links.supporters] },
   { label: 'Get Involved', items: [links.volunteer, links.donateBikes] },
@@ -34,7 +35,7 @@ export const footerMenu = [
   { label: 'About', items: [links.mission, links.who, links.coOps, links.supporters] },
   {
     label: 'Bike repair',
-    items: [{ ...links.hours, label: 'Shop hours' }, links.learn, links.projectBikes],
+    items: [{ ...links.hours, label: 'Shop hours' }, links.learn, links.projectBikes, links.workshops],
   },
   { label: 'Get involved', items: [links.volunteer, links.donateBikes, links.donate] },
 ];

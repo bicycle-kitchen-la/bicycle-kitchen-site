@@ -1,0 +1,169 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Wheel from '../components/Wheel.astro';
+import { eventsPage, settings } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const files = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/photos/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}',
+  { eager: true },
+);
+
+// Today's date in Los Angeles, written like 2026-12-05.
+const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles' }).format(new Date());
+
+// "2026-12-05" becomes "Saturday, December 5"
+const longDate = (date: string) =>
+  new Date(`${date}T12:00:00Z`).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' });
+
+// One-time events come first, soonest at the top, then the repeating ones.
+// Events that have already happened are left out. (The script at the bottom
+// hides any that pass between updates to the site.)
+const events = eventsPage.events
+  .filter((event) => event.repeats || event.date! >= today)
+  .sort((a, b) => (a.repeats ? '9' : a.date!).localeCompare(b.repeats ? '9' : b.date!))
+  .map((event) => {
+    let photo: ImageMetadata | undefined;
+    if (event.image) {
+      const fileName = event.image.split('/').pop();
+      const match = Object.entries(files).find(([path]) => path.endsWith(`/${fileName}`));
+      if (!match) {
+        throw new Error(`The event "${event.title}" points to "${event.image}", but that file isn't in src/assets/photos/. It must be a JPG, PNG, WebP, or AVIF.`);
+      }
+      photo = match[1].default;
+    }
+    return { ...event, photo, when: event.repeats ?? longDate(event.date!) };
+  });
+---
+
+<BaseLayout
+  title="Workshops & events · Bicycle Kitchen"
+  description="Upcoming workshops and events at Bicycle Kitchen, a volunteer-run bike repair co-op at 4429 Fountain Ave, Los Angeles."
+  breadcrumbs={[{ label: 'Bike Repair' }]}
+  breadcrumbCurrent="Workshops & events"
+>
+  <section class="page-hero events-hero" aria-labelledby="events-title">
+    <div class="container">
+      <h1 id="events-title" class="page-title">Workshops &amp; events<Wheel /></h1>
+      <p class="lead events-lead">{eventsPage.intro}</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="upcoming-title">
+    <div class="container">
+      <h2 id="upcoming-title" class="h2 upcoming-title">Coming up</h2>
+      <ul class="events" data-events>
+        {events.map((event) => (
+          <li class="event" data-date={event.repeats ? undefined : event.date}>
+            <div class="event-when">
+              <p class="event-date">{event.when}</p>
+              {event.time && <p class="event-time">{event.time}</p>}
+            </div>
+            <div class="event-body">
+              {event.note && <p class="eyebrow event-note">{event.note}</p>}
+              <h3>{event.title}</h3>
+              {event.description && <p class="event-description">{event.description}</p>}
+              {event.signup_url && (
+                <a class="btn btn-red event-signup" href={event.signup_url} aria-label={`Sign up for ${event.title}`}>Sign up</a>
+              )}
+            </div>
+            {event.photo && (
+              <div class="photo-slot has-photo event-photo">
+                <Picture
+                  src={event.photo}
+                  alt={event.alt ?? ''}
+                  formats={['avif', 'webp']}
+                  width={Math.min(event.photo.width, 800)}
+                  widths={[400, 800].filter((width) => width <= event.photo!.width)}
+                  sizes="(max-width: 959px) 100vw, 300px"
+                  loading="lazy"
+                />
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+      <div class="callout events-empty" data-events-empty hidden={events.length > 0}>
+        <p>{eventsPage.empty_message}</p>
+        <p><a class="link-strong" href={settings.instagram_url}>Follow {settings.instagram_handle}</a></p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  // Hides events whose date has passed since the site was last updated, and
+  // shows the "nothing scheduled" message if none are left.
+  (() => {
+    const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles' }).format(new Date());
+    const list = document.querySelector('[data-events]');
+    for (const event of list.querySelectorAll('[data-date]')) {
+      if (event.dataset.date < today) event.hidden = true;
+    }
+    if (!list.querySelector('.event:not([hidden])')) {
+      list.hidden = true;
+      document.querySelector('[data-events-empty]').hidden = false;
+    }
+  })();
+</script>
+
+<style>
+  .events-hero { padding-bottom: 88px; }
+  .events-lead { max-width: 760px; }
+  .upcoming-title { margin-bottom: 32px; }
+
+  .events {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 3px solid var(--ink);
+  }
+  .events:empty { display: none; }
+  /* Date on the left, details in the middle, photo (if any) on the right. */
+  .event {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding: 28px 4px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .event[hidden] { display: none; }
+  .event-date {
+    margin: 0;
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.1;
+  }
+  .event-time { margin: 6px 0 0; font-weight: 600; font-size: 19px; }
+  .event-note { margin-bottom: 6px; }
+  .event h3 {
+    font-family: var(--slab);
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 1.1;
+    margin: 0;
+  }
+  /* Keeps the line breaks a volunteer types into the description. */
+  .event-description { margin: 12px 0 0; max-width: 640px; white-space: pre-line; }
+  .event-signup { margin-top: 20px; }
+  .event-photo { aspect-ratio: 4 / 3; }
+
+  .events-empty { background: var(--panel); max-width: 760px; }
+  .events-empty p:first-child { font-size: 19px; margin-bottom: 8px; }
+
+  @media (min-width: 760px) {
+    .event { grid-template-columns: 260px minmax(0, 1fr); gap: 24px 48px; padding: 36px 4px; }
+    .event-photo { grid-column: 2; max-width: 420px; }
+  }
+  @media (min-width: 960px) {
+    .event:has(.event-photo) { grid-template-columns: 260px minmax(0, 1fr) 300px; }
+    .event-photo { grid-column: 3; align-self: start; }
+  }
+  @media (max-width: 759px) {
+    .events-hero { padding-bottom: 64px; }
+    .event-date { font-size: 26px; }
+    .event h3 { font-size: 30px; }
+  }
+</style>

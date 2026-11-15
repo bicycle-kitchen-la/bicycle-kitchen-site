@@ -1,0 +1,11 @@
+# The Workshops & events page. Edit this in Pages CMS under "Workshops & events".
+
+intro: Hands-on classes and get-togethers at the shop. Everyone is welcome, whatever your experience with bikes.
+
+# Shown when no workshops or events are listed.
+empty_message: Nothing on the calendar right now. New workshops are announced on Instagram first.
+
+# Each one needs a title and either a date or a "repeats" line.
+# An event with a date leaves the page by itself the day after it happens.
+# An event with a "repeats" line stays until someone removes it.
+events: []

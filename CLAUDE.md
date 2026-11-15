@@ -25,6 +25,10 @@ Do not ship the `.dc.html` files or their runtime.
 | Volunteer.dc.html        | Volunteer                              | /volunteer          |
 | Donate.dc.html           | Donate (#other = bikes and parts)      | /donate             |
 
+The Workshops & events page (/workshops, listed under Bike Repair) has no
+mockup. It was built from the other subpages' patterns, and its events are
+edited in Pages CMS (`src/content/events.yml`).
+
 Links between mockups (`Main.dc.html#x`, `Donate.dc.html#other`) map to the
 URLs above.
 
