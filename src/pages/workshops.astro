@@ -77,7 +77,7 @@ const events = eventsPage.events
                   formats={['avif', 'webp']}
                   width={Math.min(event.photo.width, 800)}
                   widths={[400, 800].filter((width) => width <= event.photo!.width)}
-                  sizes="(max-width: 959px) 100vw, 300px"
+                  sizes="(max-width: 959px) 100vw, 340px"
                   loading="lazy"
                 />
               </div>
@@ -148,7 +148,10 @@ const events = eventsPage.events
   /* Keeps the line breaks a volunteer types into the description. */
   .event-description { margin: 12px 0 0; max-width: 640px; white-space: pre-line; }
   .event-signup { margin-top: 20px; }
-  .event-photo { aspect-ratio: 4 / 3; }
+  /* Event photos are often flyers, so they show whole, in their own shape,
+     instead of being cropped to fit a box. */
+  .event-photo { display: block; align-self: start; }
+  .event-photo :global(picture), .event-photo :global(img) { height: auto; }
 
   .events-empty { background: var(--panel); max-width: 760px; }
   .events-empty p:first-child { font-size: 19px; margin-bottom: 8px; }
@@ -158,7 +161,7 @@ const events = eventsPage.events
     .event-photo { grid-column: 2; max-width: 420px; }
   }
   @media (min-width: 960px) {
-    .event:has(.event-photo) { grid-template-columns: 260px minmax(0, 1fr) 300px; }
+    .event:has(.event-photo) { grid-template-columns: 260px minmax(0, 1fr) 340px; }
     .event-photo { grid-column: 3; align-self: start; }
   }
   @media (max-width: 759px) {
