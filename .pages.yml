@@ -230,7 +230,7 @@ content:
             required: true
           - name: date
             label: Date
-            description: "For a one-time event. Leave empty if it repeats."
+            description: "For a one-time event. Leave empty if it repeats. The event disappears from the website the day after this date."
             type: date
           - name: repeats
             label: Repeats (optional)
