@@ -198,6 +198,8 @@ export const eventsPage = read(
           signup_url: optionalText,
           image: optionalText,
           alt: optionalText,
+          // Written like "Flyer by Sam Lee". Shown in small text under the photo.
+          credit: optionalText,
         })
         .refine((event) => event.date || event.repeats, {
           message: 'Every event needs a date, or a "Repeats" line like Every first Saturday.',

@@ -256,6 +256,10 @@ content:
             label: Photo alt text
             description: "Needed if there is a photo. A short description for people who can't see it."
             type: string
+          - name: credit
+            label: Photo credit (optional)
+            description: "Shown in small text under the photo. Written like Flyer by Sam Lee."
+            type: string
       - name: intro
         label: Intro text at the top of the page
         type: text

@@ -70,7 +70,8 @@ const events = eventsPage.events
               )}
             </div>
             {event.photo && (
-              <div class="photo-slot has-photo event-photo">
+              <figure class="event-figure">
+                <div class="photo-slot has-photo event-photo">
                 <Picture
                   src={event.photo}
                   alt={event.alt ?? ''}
@@ -80,7 +81,9 @@ const events = eventsPage.events
                   sizes="(max-width: 959px) 100vw, 340px"
                   loading="lazy"
                 />
-              </div>
+                </div>
+                {event.credit && <figcaption>{event.credit}</figcaption>}
+              </figure>
             )}
           </li>
         ))}
@@ -150,19 +153,22 @@ const events = eventsPage.events
   .event-signup { margin-top: 20px; }
   /* Event photos are often flyers, so they show whole, in their own shape,
      instead of being cropped to fit a box. */
-  .event-photo { display: block; align-self: start; }
+  .event-figure { margin: 0; align-self: start; }
+  .event-photo { display: block; }
   .event-photo :global(picture), .event-photo :global(img) { height: auto; }
+  /* The photo credit, styled like the map credit on the Other LA Co-Ops page. */
+  .event-figure figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); }
 
   .events-empty { background: var(--panel); max-width: 760px; }
   .events-empty p:first-child { font-size: 19px; margin-bottom: 8px; }
 
   @media (min-width: 760px) {
     .event { grid-template-columns: 260px minmax(0, 1fr); gap: 24px 48px; padding: 36px 4px; }
-    .event-photo { grid-column: 2; max-width: 420px; }
+    .event-figure { grid-column: 2; max-width: 420px; }
   }
   @media (min-width: 960px) {
     .event:has(.event-photo) { grid-template-columns: 260px minmax(0, 1fr) 340px; }
-    .event-photo { grid-column: 3; align-self: start; }
+    .event-figure { grid-column: 3; }
   }
   @media (max-width: 759px) {
     .events-hero { padding-bottom: 64px; }
