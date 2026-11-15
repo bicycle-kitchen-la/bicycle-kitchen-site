@@ -63,7 +63,6 @@ const events = eventsPage.events
               {event.time && <p class="event-time">{event.time}</p>}
             </div>
             <div class="event-body">
-              {event.note && <p class="eyebrow event-note">{event.note}</p>}
               <h3>{event.title}</h3>
               {event.description && <p class="event-description">{event.description}</p>}
               {event.signup_url && (
@@ -139,7 +138,6 @@ const events = eventsPage.events
     line-height: 1.1;
   }
   .event-time { margin: 6px 0 0; font-weight: 600; font-size: 19px; }
-  .event-note { margin-bottom: 6px; }
   .event h3 {
     font-family: var(--slab);
     font-weight: 700;

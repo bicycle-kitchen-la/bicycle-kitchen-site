@@ -244,10 +244,6 @@ content:
             label: Description (optional)
             description: What people will do or learn, and anything they should bring.
             type: text
-          - name: note
-            label: Small note (optional)
-            description: "A short label above the title, like Free, FTWNB only, or Sign-ups full."
-            type: string
           - name: signup_url
             label: Sign-up link (optional)
             description: "Paste the Google Form link here and a Sign up button appears. Leave empty for no button. Must start with https://"

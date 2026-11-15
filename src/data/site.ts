@@ -195,7 +195,6 @@ export const eventsPage = read(
           repeats: optionalText,
           time: optionalText,
           description: optionalText,
-          note: optionalText,
           signup_url: optionalText,
           image: optionalText,
           alt: optionalText,
