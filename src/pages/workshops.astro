@@ -1,4 +1,6 @@
 ---
+// The slanted version of the heading font, for the italic line under the title.
+import '@fontsource/zilla-slab/600-italic.css';
 import { Picture } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Wheel from '../components/Wheel.astro';
@@ -110,7 +112,7 @@ const events = eventsPage.events
 
 <style>
   .events-hero { padding-bottom: 88px; }
-  .events-lead { max-width: 760px; }
+  .events-lead { max-width: 760px; font-style: italic; }
   .upcoming-title { margin-bottom: 32px; }
 
   .events {
