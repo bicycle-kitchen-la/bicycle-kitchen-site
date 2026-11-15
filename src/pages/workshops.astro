@@ -163,6 +163,9 @@ const events = eventsPage.events
   .events-empty p:first-child { font-size: 19px; margin-bottom: 8px; }
 
   @media (min-width: 760px) {
+    /* This title is long, so it's a touch smaller than other pages' titles.
+       That keeps it on one line at every tablet and computer width. */
+    .events-hero .page-title { font-size: clamp(72px, 9.6vw, 132px); }
     .event { grid-template-columns: 260px minmax(0, 1fr); gap: 24px 48px; padding: 36px 4px; }
     .event-figure { grid-column: 2; max-width: 420px; }
   }
