@@ -66,7 +66,7 @@ const events = eventsPage.events
               <h3>{event.title}</h3>
               {event.description && <p class="event-description">{event.description}</p>}
               {event.signup_url && (
-                <a class="btn btn-red event-signup" href={event.signup_url} aria-label={`Sign up for ${event.title}`}>Sign up</a>
+                <a class="btn btn-red event-signup" href={event.signup_url} aria-label={`${event.signup_label ?? 'Sign up'}: ${event.title}`}>{event.signup_label ?? 'Sign up'}</a>
               )}
             </div>
             {event.photo && (

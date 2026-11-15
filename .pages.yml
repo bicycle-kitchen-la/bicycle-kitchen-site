@@ -248,6 +248,10 @@ content:
             label: Sign-up link (optional)
             description: "Paste the Google Form link here and a Sign up button appears. Leave empty for no button. Must start with https://"
             type: string
+          - name: signup_label
+            label: Button text (optional)
+            description: "The words on the button. Leave empty and it says Sign up. Change it to something like More info here when the link isn't a sign-up form."
+            type: string
           - name: image
             label: Photo (optional)
             description: "Must be under 3.7 MB. Suggested solution: Go to squoosh.app and select the photo you wish to resize. Reduce the quality until you get a file size below 3.7 MB."

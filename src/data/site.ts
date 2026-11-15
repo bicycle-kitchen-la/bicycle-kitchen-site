@@ -196,6 +196,8 @@ export const eventsPage = read(
           time: optionalText,
           description: optionalText,
           signup_url: optionalText,
+          // The words on the button. "Sign up" if left empty.
+          signup_label: optionalText,
           image: optionalText,
           alt: optionalText,
           // Written like "Flyer by Sam Lee". Shown in small text under the photo.
