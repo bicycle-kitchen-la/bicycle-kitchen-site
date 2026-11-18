@@ -1,4 +1,4 @@
-alert_on: false
+alert_on: true
 alert_message: We’re closed tonight because of volunteer shortages. Open during
   our next Open Shop hours.
 phone: (323) 662-2776
