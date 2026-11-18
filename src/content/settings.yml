@@ -1,4 +1,4 @@
-alert_on: false
+alert_on: true
 alert_message: We’re closed tonight because of volunteer shortages. Open during
   our next Open Shop hours.
 phone: (323) 662-2776
@@ -11,6 +11,4 @@ instagram_handle: "@bicicocina"
 zeffy_url: https://www.zeffy.com/en-US/donation-form/donate-to-bicycle-kitchen
 venmo_url: https://www.venmo.com/u/BicycleKitchen
 paypal_url: https://www.paypal.com/paypalme/bicyclekitchen
-
-# Small print at the bottom of every page. Leave empty to hide it.
 footer_ai_note: The code for this website was written with the help of AI.
