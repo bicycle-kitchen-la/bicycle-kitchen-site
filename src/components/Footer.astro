@@ -24,7 +24,10 @@ import { phoneHref, settings } from '../data/site';
       <a href={settings.instagram_url}>Instagram {settings.instagram_handle}</a>
     </div>
   </div>
-  <p class="footer-note">Bicycle Kitchen Los Angeles is a nonprofit bicycle repair education organization.</p>
+  <div class="footer-note">
+    <p>Bicycle Kitchen Los Angeles is a nonprofit bicycle repair education organization.</p>
+    {settings.footer_ai_note && <p>{settings.footer_ai_note}</p>}
+  </div>
 </footer>
 
 <style>
@@ -70,6 +73,8 @@ import { phoneHref, settings } from '../data/site';
     font-size: 14px;
     color: #B5AA99;
   }
+  .footer-note p { margin: 0; }
+  .footer-note p + p { margin-top: 6px; }
 
   @media (max-width: 759px) {
     .footer-column { gap: 0; }
