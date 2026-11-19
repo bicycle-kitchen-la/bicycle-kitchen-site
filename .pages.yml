@@ -62,6 +62,10 @@ content:
         label: PayPal donation link
         type: string
         required: true
+      - name: footer_human_note
+        label: Volunteers note in the footer
+        description: Small print at the bottom of every page, above the AI note. Leave empty to hide it.
+        type: text
       - name: footer_ai_note
         label: AI note in the footer
         description: Small print at the bottom of every page, under the nonprofit line. Leave empty to hide it.

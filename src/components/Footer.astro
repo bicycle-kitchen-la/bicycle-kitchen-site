@@ -26,6 +26,7 @@ import { phoneHref, settings } from '../data/site';
   </div>
   <div class="footer-note">
     <p>Bicycle Kitchen Los Angeles is a nonprofit bicycle repair education organization.</p>
+    {settings.footer_human_note && <p>{settings.footer_human_note}</p>}
     {settings.footer_ai_note && <p>{settings.footer_ai_note}</p>}
   </div>
 </footer>

@@ -47,6 +47,7 @@ export const settings = read(
     paypal_url: z.url(),
     venmo_url: z.url(),
     zeffy_url: z.url(),
+    footer_human_note: z.string().nullish(),
     footer_ai_note: z.string().nullish(),
   }).refine((site) => !site.alert_on || site.alert_message?.trim(), {
     message: 'The alert banner is on, so it needs a message.',
